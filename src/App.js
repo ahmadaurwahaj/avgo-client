@@ -52,7 +52,13 @@ function App() {
         <Route
           path="/"
           exact
-          element={userInfo !== undefined ? <VideoCalling /> : <Login />}
+          element={
+            userInfo !== undefined ? (
+              <Navigate to="/video-calling" />
+            ) : (
+              <Login />
+            )
+          }
         />
         <Route path="/login" element={<Login />} />
 
