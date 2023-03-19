@@ -5,32 +5,32 @@ function Login() {
   return (
     <div className={style.main}>
       <nav className={style["main-nav"]}>
-        <div className="lng">
-          <select className="Language" id="language">
+        <div className={style.lng}>
+          <select className={style.Language} id="language">
             <option value="eng">English</option>
             <option value="spa">Spanish</option>
             <option value="fre">French</option>
           </select>
         </div>
 
-        <div className="log">
-          <button className="login2">Login</button>
+        <div className={style.log}>
+          <button className={style.login2}>Login</button>
         </div>
-        <div className="reg">
-          <button className="register">Register</button>
+        <div className={style.reg}>
+          <button className={style.register}>Register</button>
         </div>
       </nav>
-      <div className="flexbox_container">
-        <div className="flex_item flex_item-1">
-          <div className="logo">Logo</div>
+      <div className={style.flexbox_container}>
+        <div className={`${style.flex_item} ${style["flex_item-1"]}`}>
+          <div className={style.logo}>Logo</div>
 
-          <div className="meet_strangers">
-            <b className="sign-in-to-container">
-              <p className="sign-in-to">Sign In to</p>
-              <p className="meet-strangers">Meet strangers</p>
+          <div className={style.meet_strangers}>
+            <b className={style["sign-in-to-container"]}>
+              <p className={style["sign-in-to"]}>Sign In to</p>
+              <p className={style["meet-strangers"]}>Meet strangers</p>
             </b>
           </div>
-          <div className="bck_color"></div>
+          <div className={style.bck_color}></div>
 
           <div className="reg_here">
             <p className="sign-in-to">
