@@ -2,17 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
-    .main{
-        display: flex;
-        justify-content:space-evenly;
-        flex-flow:row wrap;
-        width: 1920px;
-        height: 1080px; 
-        font-family: 'Gilroy-Light', sans-serif;
-        background-color: #f6f6f6;
-        border-radius: 40px;
-    }
+}
+.main{
+    display: flex;
+    justify-content:space-evenly;
+    flex-flow:row wrap;
+    width: 100%; 
+    font-family: 'Gilroy-Light', sans-serif;
+    background-color: #f6f6f6;
+    border-radius: 40px;
+}
     .main-nav{
        
         width: 328px;
