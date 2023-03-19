@@ -1,10 +1,10 @@
 import React from "react";
-import "./login.css";
+import style from "./login.module.css";
 import illustration from "../../../../assets/Pic.svg";
 function Login() {
   return (
-    <div className="main">
-      <nav className="main-nav">
+    <div className={style.main}>
+      <nav className={style["main-nav"]}>
         <div className="lng">
           <select className="Language" id="language">
             <option value="eng">English</option>

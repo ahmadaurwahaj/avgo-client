@@ -10,7 +10,7 @@
     width: 100%; 
     font-family: 'Gilroy-Light', sans-serif;
     background-color: #f6f6f6;
-    border-radius: 40px;
+    
 }
     .main-nav{
        
@@ -32,8 +32,8 @@
         flex-flow:row wrap;
    
         align-items: stretch;
-        width: 1920px;
-        height: 1080px;
+        width: 100%;
+        
         justify-content: space-evenly;
         background-color: #f6f6f6;
        
@@ -50,7 +50,6 @@
         
     }
 .flex_item-1{
-
 height: 1080px;
 width: 90px;
 margin-top: -47px;
@@ -270,9 +269,9 @@ font-family:sans-serif;
     margin-top: 20px;
 }
 .login-btn{
+    cursor:pointer;
     width: 400px;
     height: 77px;
- 
     border-radius: 10px;
     background-color: var(--color-mediumslateblue);  
     background-color: #4461f2;  
