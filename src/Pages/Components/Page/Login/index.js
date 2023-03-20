@@ -5,6 +5,7 @@ function Login() {
   return (
     <div className={style.main}>
 
+<div className={style.innerMain}>
 
       <nav className={style.mainNav}>
 
@@ -61,7 +62,7 @@ function Login() {
 
         </div>
         <div className={style.secItem}>
-        <img className="background-icon" alt="bg_img" src={illustration} />
+        <img className={style.background_icon} alt="bg_img" src={illustration} />
         
         </div>
 
@@ -93,7 +94,7 @@ function Login() {
           <div className={style.regs_here}>
             <p >
               <span>{`you can `}</span>
-              <button className={style.register_Here2}> <b>Register here!!</b>
+              <button className={style.register_Here2}> <b>Register here!</b>
               </button>
             </p>
 
@@ -105,7 +106,7 @@ function Login() {
 
       </div>
        
-      
+      </div>
 
     </div>
   );
