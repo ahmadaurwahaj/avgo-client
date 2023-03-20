@@ -4,7 +4,15 @@ import illustration from "../../../../assets/Pic.svg";
 function Login() {
   return (
     <div className={style.main}>
-      <nav className={style["main-nav"]}>
+
+
+      <nav className={style.mainNav}>
+
+<div className={style.leftBar}>
+<div className={style.logo}>Logo</div>
+
+</div>
+<div className={style.rightBar}> 
         <div className={style.lng}>
           <select className={style.Language} id="language">
             <option value="eng">English</option>
@@ -14,88 +22,94 @@ function Login() {
         </div>
 
         <div className={style.log}>
-          <button className={style.login2}>Login</button>
+          <button className={style.login2}>Login
+          </button>
         </div>
-        <div className={style.reg}>
-          <button className={style.register}>Register</button>
-        </div>
-      </nav>
-      <div className={style.flexbox_container}>
-        <div className={`${style.flex_item} ${style["flex_item-1"]}`}>
-          <div className={style.logo}>Logo</div>
 
-          <div className={style.meet_strangers}>
-            <b className={style["sign-in-to-container"]}>
-              <p className={style["sign-in-to"]}>Sign In to</p>
-              <p className={style["meet-strangers"]}>Meet strangers</p>
+        <div className={style.reg}>
+          <button className={style.register}>Register
+          </button>
+        </div>
+        </div>
+      </nav> 
+      
+      <div className={style.bottomContent}>
+
+        <div className={style.istItem}>
+        <div className={style.meetStrangers}>
+            <b>
+              <p >Sign In to</p> 
+              <p >Meet strangers</p>
+              <div className={style.bckColor}></div>
             </b>
           </div>
-          <div className={style.bck_color}></div>
+          
 
-          <div className="reg_here">
-            <p className="sign-in-to">
-              <span className="if-you-dont">if you don't an account</span>
+          <div className={style.regHere}>
+            <p >
+              <span>if you don't an account</span>
             </p>
 
-            <p>
-              <span className="if-you-dont">{`you can `}</span>
-              <button className="register-here">
-                {" "}
-                <b>Register here!</b>
+            <p >
+              <span>{`you can `}</span>
+              <button className={style.register_here}> <b>Register here!</b>
               </button>
             </p>
           </div>
+
+
+
+        </div>
+        <div className={style.secItem}>
+        <img className="background-icon" alt="bg_img" src={illustration} />
+        
         </div>
 
-        <div className="flex_item flex_item-2">
-          <img className="background-icon" alt="bg_img" src={illustration} />
-        </div>
 
-        <div className="flex_item flex_item-3">
-          <div className="form">
-            <div>
-              <input
-                className="enter-email"
-                type="text"
-                placeholder="Enter Email"
-                color="black"
-              />
+
+        <div className={style.thrItem}>
+          <div className={style.form}>
+
+          
+        <div>
+              <input className={style.enterEmail} type="text" placeholder="Enter Email" color="black" />
+
             </div>
 
             <div>
-              <input
-                className="password"
-                type="password"
-                placeholder="Password"
-              />
+              <input className={style.password} type="password" placeholder="Password" />
             </div>
+            <div>
+            <p className={style.rec_pass}>Recover password ?</p>
           </div>
 
           <div>
-            <p className="rec_pass">Recover password ?</p>
+            <button className={style.loginBtn}><b>Login</b></button>
           </div>
 
-          <div>
-            <button className="login-btn">
-              <b>Login</b>
-            </button>
+          <div
+            className={style.notRegistered}>not registered?
           </div>
-
-          <div className="not-registered">not registered?</div>
-
-          <div className="regs_here">
-            <p>
-              <span className="you-can">{`you can `}</span>
-              <button className="register-here">
-                {" "}
-                <b>Register here!</b>
+          <div className={style.regs_here}>
+            <p >
+              <span>{`you can `}</span>
+              <button className={style.register_Here2}> <b>Register here!!</b>
               </button>
             </p>
+
           </div>
+
+          </div>
+
         </div>
+
       </div>
+       
+      
+
     </div>
   );
+
 }
 
 // return <div>Login Page by me</div>;
