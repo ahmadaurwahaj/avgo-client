@@ -41,7 +41,7 @@ function Login() {
             <b>
               <p >Sign In to</p> 
               <p >Meet strangers</p>
-              <div className={style.bckColor}></div>
+            
             </b>
           </div>
           
@@ -49,6 +49,7 @@ function Login() {
           <div className={style.regHere}>
             <p >
               <span>if you don't an account</span>
+              <div className={style.bckColor}></div>
             </p>
 
             <p >

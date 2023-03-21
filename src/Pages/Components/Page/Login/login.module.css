@@ -7,7 +7,6 @@
         display: flex; 
         justify-content: center;
         width: 100%;
-        height: 100vh;
         font-family: 'Gilroy-Light', sans-serif;
         background-color: #f6f6f6;
     }
@@ -51,11 +50,10 @@
     .istItem{
         display: flex;
         flex-direction: column;
-        /* margin-top: 45px; */
-        /* justify-content:space-evenly; */
         justify-content:space-evenly;
         align-items: center;
         width: 33%;
+
 
     }
     .secItem{
@@ -63,17 +61,17 @@
     width: 34%;
     flex-direction:column;
     justify-content:center;
-    align-items: flex-start;
+    align-self: center;
     }
 
     .thrItem{
 display: flex;
-margin-top: 225px;
-width: 33%;
-/* height: 33vh; */
+width: 32%;
+height: 100vh;
 flex-direction: column;
-justify-content: flex-start;
-
+margin-left: 8px;
+justify-content: center;
+align-items: center;
 
 
     }
@@ -81,7 +79,6 @@ justify-content: flex-start;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     background-color: #f6f6f6;
 }
     .logo{
@@ -175,13 +172,15 @@ justify-content: flex-start;
 }
 
 .bckColor{
-    width: 226px;
-    height: 226px;
+    width: 20%;
+    height: 13vh;
     background: #4461F2;
     filter: blur(158.5px);
     border-radius: 50px;
     position: absolute;
     bottom: 5px;
+    left: 145px;
+    top: 441px;
    
     
 }
@@ -204,8 +203,7 @@ justify-content: flex-start;
     }
 
 .enterEmail{
-    width:400px;
-       height: 77px;
+    width: 100%;
     border-style: none;
     margin-top: 1px;
     margin-left: 1px;
@@ -232,8 +230,7 @@ justify-content: flex-start;
     }
 
 .password{
-    width:400px;
-    height: 77px;
+    width: 100%;
     margin-bottom: 1px;
     margin-left: 1px;
     margin-top: 10px;
@@ -248,8 +245,7 @@ justify-content: flex-start;
 }
 
 .rec_pass{
-    width:400px;
-    height: 77px;
+    width: 100%;
     color: #bebfbe;
     font-family:sans-serif;
     display: flex;
@@ -257,8 +253,8 @@ justify-content: flex-start;
     margin-top: 20px;
 }
 .loginBtn{
-    width: 400px;
-    height: 77px;
+    width: 100%;
+    padding: 20px;
     border-radius: 10px;
     background-color: var(--color-mediumslateblue);  
     background-color: #4461f2;  
@@ -266,14 +262,14 @@ justify-content: flex-start;
     font-family: 'Gilroy-Bold', sans-serif;
     letter-spacing: 2px;
     font-style: normal;
+    margin-top: 18px;
     border-style: none;
     border-color: #bebfbe;
     box-shadow: 0 12px 21px 4px rgba(223,223,223);
 
 }
 .notRegistered{
-    width: 400px;
-    height: 77px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -287,7 +283,7 @@ justify-content: flex-start;
     content:" ";
     display: block;
     height: 2px;
-    width: 130px;
+    width: 30%;
     top: 50%;
     left: 0;
     background: #DFDFDF;
@@ -295,7 +291,7 @@ justify-content: flex-start;
 .notRegistered::after{
     content:" ";
     height: 2px;
-    width: 130px;
+    width: 30%;
     background: #DFDFDF;
     display: block;
     top: 50%;
@@ -303,13 +299,13 @@ justify-content: flex-start;
 }
 
 .regs_here{
-    width: 400px;
-    height: 63px;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     background-color:#bebfbe;
     border: none;
     background: none;
+    background-color: #f6f6f6;
     
 }
 .you-can{
@@ -322,12 +318,15 @@ justify-content: flex-start;
     border: none;
     color: #4461f2;
     font-weight: bold;
+    background-color: #f6f6f6;
 }
 .register_Here2{
     font-size: medium;
     border: none;
     color: #4461f2;
     font-weight: bold;   
+    background-color: #f6f6f6;
+    margin-top: 20px;
 }
 
 
