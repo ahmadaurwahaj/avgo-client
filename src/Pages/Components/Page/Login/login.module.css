@@ -7,6 +7,7 @@
         display: flex; 
         justify-content: center;
         width: 100%;
+        height: 100vh;
         font-family: 'Gilroy-Light', sans-serif;
         background-color: #f6f6f6;
     }
@@ -50,8 +51,7 @@
     .istItem{
         display: flex;
         flex-direction: column;
-        justify-content:space-evenly;
-        align-items: center;
+        justify-content: center; 
         width: 33%;
 
 
@@ -67,9 +67,9 @@
     .thrItem{
 display: flex;
 width: 32%;
-height: 100vh;
 flex-direction: column;
 margin-left: 8px;
+margin-top: 120px;
 justify-content: center;
 align-items: center;
 
@@ -87,14 +87,14 @@ align-items: center;
     }
 
     .log{
-        width: 112px;
+        width: 10%;
         height: 42px;
     
         display: flex;
         justify-content: center;
     }
     .lng{
-        width: 112px;
+        width: 10%;
         height: 42px;
         display: flex;
         justify-content: center;
@@ -135,8 +135,8 @@ align-items: center;
   
 }
 .reg{
-    width: 112px;
-    height: 42px;
+    width: 12%;
+    height: 47px;
     background-color: white;
     display: flex;
     border-radius: 12px;
@@ -160,7 +160,7 @@ align-items: center;
     margin-top: 45px;
     display: flex;
     justify-content: flex-start;
-    font-size: 50px;
+    font-size: 40px;
     
 
 }
@@ -169,26 +169,25 @@ align-items: center;
     flex-direction: column;
     justify-content:flex-end;
     width: 100%;
+    margin-top: 77px;
 }
 
 .bckColor{
-    width: 20%;
-    height: 13vh;
+    display: flex;
+    width: 30%;
+    height: 8vh;
+     border-radius: 100%; 
     background: #4461F2;
     filter: blur(158.5px);
-    border-radius: 50px;
-    position: absolute;
-    bottom: 5px;
-    left: 145px;
-    top: 441px;
-   
-    
+    border-radius: 50px;  
+     position: absolute;
+  
 }
 
 
 
 .background_icon{
-    width: 100%;
+    width: 80%;
 }
 
 
@@ -207,6 +206,8 @@ align-items: center;
     border-style: none;
     margin-top: 1px;
     margin-left: 1px;
+    display: flex;
+    justify-content: flex-end;
     padding: 20px;
     border-radius: 10px;
     font-size: 18px;
@@ -274,6 +275,7 @@ align-items: center;
     align-items: center;
     justify-content: center;
     text-align: center;
+    justify-content: center;
     margin-top: 53px;
     color: #bebfbe;
 
@@ -283,7 +285,7 @@ align-items: center;
     content:" ";
     display: block;
     height: 2px;
-    width: 30%;
+    width: 34%;
     top: 50%;
     left: 0;
     background: #DFDFDF;
@@ -291,7 +293,7 @@ align-items: center;
 .notRegistered::after{
     content:" ";
     height: 2px;
-    width: 30%;
+    width: 34%;
     background: #DFDFDF;
     display: block;
     top: 50%;
