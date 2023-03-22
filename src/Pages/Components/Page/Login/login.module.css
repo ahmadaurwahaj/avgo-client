@@ -45,7 +45,6 @@
     .bottomContent{
         display: flex;
         width: 100%;
-        /* height: 80vh;; */
         background-color: #f6f6f6;
     }
 
@@ -53,7 +52,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center; 
-        /* width: 33%; */
         width: 30%;
 
 
@@ -61,7 +59,6 @@
     .secItem{
     display: flex;
     width: 34%;
-    /* width: 30%; */
     flex-direction:column;
     justify-content:center;
     align-self: center;
@@ -70,7 +67,6 @@
     .thrItem{
 display: flex;
 width: 34%;
-/* width: 30%; */
 flex-direction: column;
 margin-left: 8px;
 margin-top: 120px;
@@ -81,7 +77,6 @@ align-items: center;
     }
 .form{ 
     width: 100%;
-    /* height: 100vh; */
     display: flex;
     align-self: flex-end;
     flex-direction: column;
@@ -92,14 +87,12 @@ align-items: center;
     width:5%;
     display: flex;
     background-color: #f6f6f6;
-    /* background-color:#264e65 */
-    /* background-color: #264e65; */
+
 }
 .space{
     width: 5%;
     display: flex;
     background-color: #f6f6f6;
-    /* background-color:#264e65; */
 }
     .logo{
 
@@ -118,6 +111,7 @@ align-items: center;
         height: 42px;
         display: flex;
         justify-content: center;
+        /* cursor: pointer; */
     }
     
 .login2{
@@ -125,25 +119,18 @@ align-items: center;
     border: none;
     color: #4562f2;
     font-weight: 600;
+    cursor: pointer;
 }
 .login2::after{
     content:" ";
     display: block;
     height: 2px;
-    width: 80%;
+    width: 50%;
     background-color: #4461F2;
     position: relative;
     top: 10px;
-    margin-left: 2px;
-
-}
-.login2:hover::after{
-    content:" ";
-    display: block;
-    height: 2px;
-    width: 100%;
-    background-color: #4461F2;
-   
+    cursor: pointer;
+    margin-left: 10px;
 
 }
 
@@ -152,6 +139,8 @@ align-items: center;
     border: none;
     font-family: 'Gilroy-Bold', sans-serif;
   font-weight: 600;
+  
+cursor: pointer;
   
 }
 .reg{
@@ -172,6 +161,7 @@ align-items: center;
     background-color:#ffffff;
     color: #4562f2 ;
     border: none;   
+    cursor: pointer;
     font-weight: bold;
     font-family: 'Gilroy-Bold', sans-serif;
 }
@@ -190,6 +180,7 @@ align-items: center;
     justify-content:flex-end;
     width: 100%;
     margin-top: 77px;
+    cursor: pointer;
 }
 
 .bckColor{
@@ -261,17 +252,20 @@ align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
-     font-size: medium;
+    font-size: medium;
    
 }
 
 .rec_pass{
     width: 100%;
     color: #bebfbe;
-    font-family:sans-serif;
+    font-family: sans-serif;
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
+    background-color: #f6f6f6;
+    border: none;
+    cursor: pointer;
 }
 .loginBtn{
     width: 100%;
@@ -283,6 +277,7 @@ align-items: center;
     font-family: 'Gilroy-Bold', sans-serif;
     letter-spacing: 2px;
     font-style: normal;
+    cursor: pointer;
     margin-top: 18px;
     border-style: none;
     border-color: #bebfbe;
@@ -349,6 +344,7 @@ align-items: center;
     font-weight: bold;   
     background-color: #f6f6f6;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 
