@@ -45,6 +45,7 @@
     .bottomContent{
         display: flex;
         width: 100%;
+        /* height: 80vh;; */
         background-color: #f6f6f6;
     }
 
@@ -52,13 +53,15 @@
         display: flex;
         flex-direction: column;
         justify-content: center; 
-        width: 33%;
+        /* width: 33%; */
+        width: 30%;
 
 
     }
     .secItem{
     display: flex;
     width: 34%;
+    /* width: 30%; */
     flex-direction:column;
     justify-content:center;
     align-self: center;
@@ -66,7 +69,8 @@
 
     .thrItem{
 display: flex;
-width: 32%;
+width: 34%;
+/* width: 30%; */
 flex-direction: column;
 margin-left: 8px;
 margin-top: 120px;
@@ -77,9 +81,25 @@ align-items: center;
     }
 .form{ 
     width: 100%;
+    /* height: 100vh; */
     display: flex;
+    align-self: flex-end;
     flex-direction: column;
     background-color: #f6f6f6;
+}
+
+.centr{
+    width:5%;
+    display: flex;
+    background-color: #f6f6f6;
+    /* background-color:#264e65 */
+    /* background-color: #264e65; */
+}
+.space{
+    width: 5%;
+    display: flex;
+    background-color: #f6f6f6;
+    /* background-color:#264e65; */
 }
     .logo{
 

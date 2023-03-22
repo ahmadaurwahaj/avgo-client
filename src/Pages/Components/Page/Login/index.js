@@ -58,15 +58,13 @@ function Login() {
               </button>
             </p>
           </div>
-
-
-
         </div>
+        <div className={style.space}></div>
+
         <div className={style.secItem}>
         <img className={style.background_icon} alt="bg_img" src={illustration} />
-        
         </div>
-
+        <div className={style.centr}></div>
 
 
         <div className={style.thrItem}>
