@@ -15,7 +15,7 @@
     .innerMain{  
         width: 90%;
         background-color: #14162E;
-        /* color: #14162E; */
+    
     }
    
     .mainNav{
@@ -25,7 +25,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* background-color: #bebfbe; */
+       
 
     }
     .leftBar{
@@ -34,14 +34,14 @@
         align-items: center;
         width: 20%;
         height: 42px;
-        /* background-color: #f6f6f6; */
+       
     }
     .rightBar{
         display: flex;
         justify-content: flex-end;
         align-items: center;
        width: 80%;
-       /* background-color: #f6f6f6; */
+       
 
     }
 
@@ -49,7 +49,7 @@
         display: flex;
         width: 100%;
         background-color: #14162E;
-        /* background-color: #f6f6f6; */
+        
     }
 
     .istItem{
@@ -118,8 +118,7 @@ color: white;
         height: 42px;
         display: flex;
         justify-content: center;
-        /* color: white; */
-        /* cursor: pointer; */
+       
     }
     
 .login2{
@@ -154,7 +153,7 @@ cursor: pointer;
   
 }
 .reg{
-    width: 12%;
+    width: 10%;
     height: 47px;
     background-color: white;
     display: flex;
@@ -199,7 +198,6 @@ cursor: pointer;
     display: flex;
     width: 20%;
     height: 8vh;
-     /* border-radius: 100%;  */
     background: #4461F2;
     filter: blur(358.5px);
     border-radius: 50px;  
@@ -221,7 +219,6 @@ cursor: pointer;
     display: flex;
     justify-content:space-evenly;    
     flex-direction:row-reverse;
-   /* background-color: #14162E; */
 
     }
 
@@ -294,7 +291,6 @@ cursor: pointer;
     margin-top: 18px;
     border-style: none;
     border-color: #bebfbe;
-    /* box-shadow: 0 12px 21px 4px rgba(223,223,223); */
 
 }
 .notRegistered{
@@ -332,7 +328,6 @@ cursor: pointer;
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    /* background-color:#bebfbe; */
     border: none;
     color: white;
     background-color: #14162E;
@@ -352,7 +347,6 @@ cursor: pointer;
     color: #DCA82A;
     background: none;
     font-weight: bold;
-    /* background-color: #f6f6f6; */
 }
 .register_Here2{
     font-size: medium;
@@ -360,7 +354,6 @@ cursor: pointer;
     color: #4461f2;
     background: none;
     font-weight: bold;   
-    /* background-color: #f6f6f6; */
     margin-top: 20px;
     color: #DCA82A;
     cursor: pointer;
