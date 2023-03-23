@@ -9,7 +9,9 @@
         justify-content: center;
         width: 100%;
         min-height: 100vh;
-        font-family: 'Gilroy-Light', sans-serif;
+        font-family: 'Gilroy', sans-serif;
+        font-weight: 300;
+        font-style: normal;
         background-color: #14162E;
     }
     .innerMain{  
@@ -145,7 +147,7 @@ color: white;
 .Language{
     background-color:#14162E;
     border: none;
-    font-family: 'Gilroy-Bold', sans-serif;
+    font-family: 'Gilroy', sans-serif;
   font-weight: 600;
   color: white;
   
@@ -171,8 +173,8 @@ cursor: pointer;
     color: #4562f2 ;
     border: none;   
     cursor: pointer;
-    font-weight: bold;
-    font-family: 'Gilroy-Bold', sans-serif;
+    font-weight: 600;
+    font-family: 'Gilroy', sans-serif;
 }
 .meetStrangers{
     width: 100%;
@@ -236,7 +238,8 @@ cursor: pointer;
     text-decoration: #4F555A;
     background-color: #eaf0f7;
   font-size: large;
-  font-family: 'Gilroy-Light', sans-serif;
+  font-weight:600;
+  font-family: 'Gilroy', sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: medium;
 
@@ -245,9 +248,9 @@ cursor: pointer;
 ::placeholder{
 
     color: black;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 18px;
-  font-family: 'Gilroy-Light', sans-serif;
+  font-family: 'Gilroy', sans-serif;
 
     }
 
@@ -258,7 +261,8 @@ cursor: pointer;
     margin-top: 10px;
     border-style: none;
     background-color: #eaf0f7;
-    font-family: 'Gilroy-Light', sans-serif;
+    font-family: 'Gilroy', sans-serif;
+    font-weight:300;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
