@@ -192,7 +192,6 @@ cursor: pointer;
     justify-content:flex-end;
     width: 100%;
     margin-top: 77px;
-    cursor: pointer;
     color: white;
 }
 
@@ -351,6 +350,7 @@ cursor: pointer;
     color: #DCA82A;
     background: none;
     font-weight: bold;
+    cursor: pointer;
 }
 .register_Here2{
     font-size: medium;
