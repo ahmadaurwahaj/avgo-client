@@ -54,7 +54,7 @@ function Login() {
 
             <p >
               <span>{`you can `}</span>
-              <button className={style.register_here}> <b>Register here!</b>
+              <button className={style.register_here}> Register here!
               </button>
             </p>
           </div>
@@ -77,14 +77,14 @@ function Login() {
             </div>
 
             <div>
-              <input className={style.password} type="password" placeholder="Password" />
+              <input className={style.password} type="password" placeholder="••••••••" />
             </div>
             <div>
             <p className={style.rec_pass}>Recover password ?</p>
           </div>
 
           <div>
-            <button className={style.loginBtn}><b>Login</b></button>
+            <button className={style.loginBtn}>Login</button>
           </div>
 
           <div
@@ -93,7 +93,7 @@ function Login() {
           <div className={style.regs_here}>
             <p >
               <span>{`you can `}</span>
-              <button className={style.register_Here2}> <b>Register here!</b>
+              <button className={style.register_Here2}>Register here!
               </button>
             </p>
 

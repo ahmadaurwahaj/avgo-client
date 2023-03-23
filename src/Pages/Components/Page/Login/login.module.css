@@ -9,15 +9,12 @@
         justify-content: center;
         width: 100%;
         min-height: 100vh;
-        font-family: 'Gilroy', sans-serif;
-        font-weight: 300;
-        font-style: normal;
+        font-family: 'Gilroy';
         background-color: #14162E;
     }
     .innerMain{  
         width: 90%;
         background-color: #14162E;
-    
     }
    
     .mainNav{
@@ -27,8 +24,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-       
-
+        
     }
     .leftBar{
         display: flex;
@@ -36,14 +32,13 @@
         align-items: center;
         width: 20%;
         height: 42px;
-       
     }
     .rightBar{
         display: flex;
         justify-content: flex-end;
         align-items: center;
        width: 80%;
-       
+
 
     }
 
@@ -51,7 +46,6 @@
         display: flex;
         width: 100%;
         background-color: #14162E;
-        
     }
 
     .istItem{
@@ -74,10 +68,10 @@
 
     .thrItem{
 display: flex;
-width: 34%;
+width: 35%;
 flex-direction: column;
 margin-left: 8px;
-margin-top: 120px;
+margin-top: 110px;
 justify-content: center;
 background-color: #14162E;
 align-items: center;
@@ -106,83 +100,83 @@ align-items: center;
     .logo{
 
 color: white;
+letter-spacing: 0.01em;
     }
 
     .log{
-        width: 10%;
-        height: 42px;
-    
-        display: flex;
-        justify-content: center;
+       
     }
     .lng{
-        width: 10%;
-        height: 42px;
-        display: flex;
-        justify-content: center;
-       
+     
     }
     
 .login2{
-    background-color:#14162E;
+    background-color: #14162E;
     border: none;
-    color: #4562f2;
     font-weight: 600;
     color: white;
     cursor: pointer;
+    font-family: 'Gilroy';
+    width: 49px;
+    height: 16px;
+    margin-right: 44px;
 }
 .login2::after{
-    content:" ";
-    display: block;
-    height: 2px;
-    width: 50%;
-    background-color: white;
-    position: relative;
-    top: 10px;
-    cursor: pointer;
-    margin-left: 10px;
+    content: " ";
+display: block;
+height: 2px;
+width: 25%;
+background-color: white;
+position: relative;
+top: 10px;
+cursor: pointer;
+margin-left: 18px;
 
 }
 
 .Language{
-    background-color:#14162E;
-    border: none;
-    font-family: 'Gilroy', sans-serif;
-  font-weight: 600;
-  color: white;
-  
+background-color: #14162E;
+border: none;
+font-family: 'Gilroy';
+font-weight: 600;
+color: white;
 cursor: pointer;
+width: 79px;
+height: 16px;
+display: flex;
+margin-right: 44px;
   
 }
 .reg{
-    width: 10%;
-    height: 47px;
-    background-color: white;
-    display: flex;
-    border-radius: 12px;
-    padding: 8px 18px;
-    font-size: 16px;
-  font-weight: 700;
-    cursor: pointer;
-    border-radius: 100px;
-    justify-content: center;
+
 }
 
 .register{
-    background-color:#ffffff;
-    color: #4562f2 ;
-    border: none;   
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Gilroy', sans-serif;
+ 
+background-color: #ffffff;
+color: #4562f2;
+border: none;
+cursor: pointer;
+font-weight: 600;
+font-family: 'Gilroy';
+border-radius: 21px;
+padding: 4px 10px;
+font-size: 16px;
+font-weight: 700;
+cursor: pointer;
+border-radius: 100px;
+width: 112px;
+height: 42px
+
 }
 .meetStrangers{
     width: 100%;
-    margin-top: 45px;
     display: flex;
     justify-content: flex-start;
     font-size: 40px;
+    letter-spacing: 0.01em;
     color: white;
+    font-family: 'Gilroy';
     
 
 }
@@ -192,19 +186,20 @@ cursor: pointer;
     justify-content:flex-end;
     width: 100%;
     margin-top: 77px;
+    font-family: 'Gilroy';
+    letter-spacing: 0.01em;
     color: white;
 }
 
 .bckColor{
-    display: flex;
-    width: 20%;
-    height: 8vh;
+    width: 80px;
+    height: 80px;
     background: #4461F2;
-    filter: blur(358.5px);
-    border-radius: 50px;  
+    filter: blur(158.5px);
+    border-radius: 317px;
      position: absolute;
-     top:350px
-  
+     top:350px;
+     left:268px;
 }
 
 
@@ -220,25 +215,26 @@ cursor: pointer;
     display: flex;
     justify-content:space-evenly;    
     flex-direction:row-reverse;
-
     }
 
 .enterEmail{
     width: 100%;
+    /* width: 400px; */
+    height: 60px;
     border-style: none;
     margin-top: 1px;
     margin-left: 1px;
     display: flex;
     justify-content: flex-end;
     padding: 20px;
+    letter-spacing: 0.01em;
     border-radius: 10px;
     font-size: 18px;
     font-weight: 500px;
     text-decoration: #4F555A;
     background-color: #eaf0f7;
   font-size: large;
-  font-weight:600;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy-Light', sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: medium;
 
@@ -247,21 +243,22 @@ cursor: pointer;
 ::placeholder{
 
     color: black;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 18px;
-  font-family: 'Gilroy', sans-serif;
+    font-family: 'Gilroy';
 
     }
 
 .password{
     width: 100%;
+    /* width: 400px; */
+    height: 60px;
     margin-bottom: 1px;
     margin-left: 1px;
     margin-top: 10px;
     border-style: none;
     background-color: #eaf0f7;
-    font-family: 'Gilroy', sans-serif;
-    font-weight:300;
+    font-family: 'Gilroy-Light', sans-serif;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
@@ -270,31 +267,38 @@ cursor: pointer;
 }
 
 .rec_pass{
-    width: 100%;
-    color: #bebfbe;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    background-color: #14162E;
-    border: none;
-    cursor: pointer;
+   
+ width: 100%;
+color: #fff;
+font-family: 'Gilroy';
+display: flex;
+justify-content: flex-end;
+background-color: #14162E;
+letter-spacing: 0.01em;
+border: none;
+cursor: pointer;
+height: 60px;
+align-items: center;
 }
 .loginBtn{
     width: 100%;
+    /* width: 400px; */
     padding: 20px;
+    height: 60px;
     border-radius: 10px;
     background-color: var(--color-mediumslateblue);  
     background-color: #4461f2;  
     color: rgb(255, 255, 255);
-    font-family: 'Gilroy-Bold', sans-serif;
-    letter-spacing: 2px;
-    font-style: normal;
+    font-family: 'Gilroy';
+    letter-spacing: 0.09em;
+    font-style:bold;
+    font-weight: 500;
+    /* font-weight: 700; */
+    font-size: 19px;
     cursor: pointer;
     margin-top: 18px;
     border-style: none;
-    border-color: #bebfbe;
-
+    
 }
 .notRegistered{
     width: 100%;
@@ -304,27 +308,33 @@ cursor: pointer;
     text-align: center;
     justify-content: center;
     margin-top: 53px;
-    color: #bebfbe;
+    letter-spacing: 0.01em;
+    color: #F6F6F6;
+    font-family: 'Gilroy';
+    font-size: 14px;
+    font-weight: 500;
 
 }
 
 .notRegistered::before{
-    content:" ";
-    display: block;
+
+    content: " ";
     height: 2px;
-    width: 34%;
-    top: 50%;
-    left: 0;
+    width: 25%;
     background: #DFDFDF;
+    position: relative;
+    right: 35px;
 }
 .notRegistered::after{
-    content:" ";
-    height: 2px;
-    width: 34%;
-    background: #DFDFDF;
-    display: block;
-    top: 50%;
-    right: 0;
+   
+    content: " ";
+height: 2px;
+width: 25%;
+background: #DFDFDF;
+
+position: relative;
+left: 35px;
+
 }
 
 .regs_here{
@@ -351,71 +361,16 @@ cursor: pointer;
     background: none;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'Gilroy';
 }
 .register_Here2{
     font-size: medium;
     border: none;
-    color: #4461f2;
     background: none;
     font-weight: bold;   
     margin-top: 20px;
     color: #DCA82A;
+    font-family: 'Gilroy';
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
