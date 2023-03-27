@@ -15,13 +15,22 @@
     
 }
 .Rec2{
+   display: flex;
+   width: 100%;
+   margin-top: 21px;
+   margin-left: 220px;
+   margin-right: 221px;
+   margin-bottom: 19px;
+  border: 1px solid #7D91AB;
+  border-width: 1px;
+}
+.Rec1{
     display: flex;
     width: 100%;
-    margin-top: 21px;
-    margin-left: 220px;
-    margin-right: 221px;
-    margin-bottom: 19px;
-   background-color: #7D91AB;
+   border-radius: 25px;
+   border: 1px solid #7D91AB;
+   border-width: 1px;
+   padding: 20px;
 }
 .Rec3{
     display: flex;
@@ -66,6 +75,7 @@ flex-direction: column;
  width: 100%;
  border-radius: 4px;
  align-items: center;
+ border: 1px solid #3a5b82;
  background-color: #193b60;
 
 }
@@ -76,14 +86,11 @@ flex-direction: column;
     height: 45px;
     align-items: center;
    justify-content: space-between;
-   border-bottom: 0.5px solid white;
+   border-bottom: 0.5px solid #3a5b82;
    font-family: 'Gilroy';
 
 }
-.line{
 
-    background-color: white;
-}
 .logo{
     width: 100%;
     margin-left: 23px;
@@ -97,14 +104,13 @@ flex-direction: column;
     align-items: center;
 }
 .about_you{
-    width: 106px;
+    width: 100%;
     height: 27px;
-    height: 38px;
+    height: 30px;
     font-family: 'Gilroy';
-    margin-top: 30px;
+    margin-top:5px;
     font-size: 12px;
     display: flex;
-    /* letter-spacing: 0.07rem; */
     justify-content:center;
     color: white;
 }
@@ -115,9 +121,8 @@ flex-direction: column;
     font-size:larger;
     font-family: 'Gilroy';
     font-weight:500;
-    /* font-weight: bold; */
     cursor: pointer;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color:white;
     border-style: none;
     background-color: #193b60;
@@ -135,7 +140,9 @@ flex-direction: column;
     right: 0;
     left: 17px;
 }
-
+input[type=number] {
+    -moz-appearance:textfield;
+  }
 
 .logout{
 margin-right: 23px;
@@ -147,7 +154,7 @@ color:white;
     margin-top: 35px;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 70%;
     height: 300px;
     color: #7D91AB;
     background-color: rgba(255, 255, 255, 0.1)
@@ -159,7 +166,7 @@ color:white;
     width: 70%;   
     height: 300px;
     border-radius: 8px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-family: 'Gilroy';
 
 }
@@ -169,10 +176,11 @@ color:white;
     border-radius: 4px;
     height: 65px;
     margin-top:10px;
+    resize: none;
     margin-left: 0px;
     background-color: #282c35;
     color: white;
-    text-indent: 20px;
+    padding: 10px;
     border-style: none;
 
 }
@@ -184,7 +192,6 @@ color:white;
     color: white;
     font-size: 10px;
     height: 60px;
-    /* font-weight: bold; */
     font-weight: 600;
     border-radius: 4px;
  
@@ -215,7 +222,7 @@ color:white;
     letter-spacing: 0.07em;
     border-style: none;
     border-radius: 4px;
-    text-indent: 3px;
+    text-indent: 5px;
     margin-top: 10px;
     background-color: #282c35;
 
@@ -247,6 +254,35 @@ color:white;
     font-size: 10px;
 
 }
+
+input[type="radio"] + label::before {
+   
+
+    content: "";
+display: inline-block;
+width: 10px;
+height: 10px;
+border: 1px solid black;
+border-radius: 50%;
+margin-right: 10px;
+vertical-align: middle;
+background-color: #282c35;
+
+margin: 4px;
+position: relative;
+top: -1px;
+bottom: 0px;
+
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]:checked + label::before {
+    background-color: #007bff;
+    color: #14162E;
+  }
+  
 .Gender{
     width: 100%;
     display: flex;
@@ -255,9 +291,6 @@ color:white;
     font-weight: 300;
     font-size: 8px;
     font-family: 'Gilroy';
-    /* color: #7d91a8; */
-    /* color: #cdced0; */
-    /* color: #cdced0; */
 }
 
 .Next{
@@ -326,8 +359,7 @@ color:white;
     letter-spacing: 0.06em;
     left: 49px;
     top: 201px;
-    /* color: white; */
-    color: #cdced0;
+    color: #282c35;
     font-family: 'Gilroy';
 }
 
@@ -402,4 +434,125 @@ border-color: #4461f2;
 .value{
     color:white;
     background-color: white;
+}
+
+
+
+@media (min-width: 1750px) and (max-width: 1920px) {
+    .main{
+        width: 1920px;
+        height: 1080px;
+    }
+    .Rec2{
+        width: 1439px;
+        height: 1000px;
+    }
+    .Rec1{
+        width: 1439px;
+        height: 1000px;
+    }
+   
+ 
+   .innerrec{
+    width: 734px;
+    height: 439px;
+    margin-top: 165px;
+   }
+
+    .Rec4{
+        width: 1294px;
+    }
+    .Rec5{
+        display: flex;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 29px 4px 65px rgb(0 0 0 / 25%);
+    border-radius: 8px;
+    
+    }
+   
+    .about{
+        width: 108px;
+        height: 27px;
+        font-size: 22px;
+        margin-top: 79px;
+    }
+    .about::after{
+       
+        left: 21px;
+        top:50%;
+    }
+    .Rec7{
+        width: 580px;
+        height: 504;
+        margin-bottom: 80px;
+    }
+    .Bio{
+        width: 580px;
+        height: 98px;
+        padding: 20px;
+    }
+    .country{
+        width: 277px;
+        height: 49px;
+    }
+    .Country{
+        font-size: 17px;
+    }
+    .Age{
+        font-size: 17px;
+    }
+    .gender_h{
+        font-size: 17px;
+    }
+    .Gender{
+        margin-top: 30px;
+        font-size: 12px;
+
+    }
+    .age{
+        width: 277px;
+        height: 49px;
+    }
+    .Bbio{
+        width: 580px;
+        margin-top: 0px;
+        font-size: 17px;
+    }
+    ::placeholder{
+        font-size: 12px;
+        padding: 15px;
+    }
+    .next_btn{
+        width: 193px;
+        height: 42px;
+        font-size: 14px;
+        border-radius: 21px;
+    }
+    .gender_h{
+        width: 76px;
+    }
+    .top_bar{
+        width: 1238px;
+        height: 78px;
+    }
+   .logout_btn{
+    width: 61px;
+    height: 16px;
+    font-size: 14px;
+   }
+   .logout_btn::after {
+    left: 15px;
+}
+.icon {
+   height: 40px;
+}
+input[type="radio"] + label::before {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    margin: 12px;
+  }
+
 }
