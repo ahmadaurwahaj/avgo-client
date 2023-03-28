@@ -6,6 +6,31 @@
     
 }
 
+  
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #282c35;
+    background-color: #282c35;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  input[type="radio"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  label {
+    display: inline-block;
+    margin-right: 2px;
+    font-size: 1.1em;
+    cursor: pointer;
+  }
+
 
 .main{
    width: 100%;
@@ -21,7 +46,6 @@
    margin-left: 220px;
    margin-right: 221px;
    margin-bottom: 19px;
-  border: 1px solid #7D91AB;
   border-width: 1px;
 }
 .Rec1{
@@ -221,6 +245,7 @@ color:white;
     font-size: 10px;
     letter-spacing: 0.07em;
     border-style: none;
+    cursor: pointer;
     border-radius: 4px;
     text-indent: 5px;
     margin-top: 10px;
@@ -232,6 +257,7 @@ color:white;
     width: 47%;
     font-size: 10px;
     letter-spacing: 0.07em;
+    /* color: white; */
     color: #f6f8f9;
   
 }
@@ -249,40 +275,17 @@ color:white;
     border-style: none;
 }
 ::placeholder{
-    color: white;   
+    
+    color: white;
     font-weight: 500;
     font-size: 10px;
 
 }
-
-input[type="radio"] + label::before {
-   
-
-    content: "";
-display: inline-block;
-width: 10px;
-height: 10px;
-border: 1px solid black;
-border-radius: 50%;
-margin-right: 10px;
-vertical-align: middle;
-background-color: #282c35;
-
-margin: 4px;
-position: relative;
-top: -1px;
-bottom: 0px;
-
+::-moz-placeholder {
+    color: white;
+    opacity: 1;  
   }
-  input[type="radio"] {
-    display: none;
-  }
-  
-  input[type="radio"]:checked + label::before {
-    background-color: #007bff;
-    color: #14162E;
-  }
-  
+
 .Gender{
     width: 100%;
     display: flex;
@@ -451,7 +454,13 @@ border-color: #4461f2;
         width: 1439px;
         height: 1000px;
     }
-   
+    input[type="radio"] {
+    
+        width: 13px;
+        height: 13px;
+        
+      }
+      
  
    .innerrec{
     width: 734px;
@@ -496,6 +505,9 @@ border-color: #4461f2;
     .country{
         width: 277px;
         height: 49px;
+      font-size: 13px;
+      padding: 10px;
+
     }
     .Country{
         font-size: 17px;
@@ -514,6 +526,7 @@ border-color: #4461f2;
     .age{
         width: 277px;
         height: 49px;
+        padding: 10px;
     }
     .Bbio{
         width: 580px;
@@ -521,8 +534,9 @@ border-color: #4461f2;
         font-size: 17px;
     }
     ::placeholder{
-        font-size: 12px;
-        padding: 15px;
+        font-size: 13px;
+        margin-right: 18px;
+    
     }
     .next_btn{
         width: 193px;
@@ -547,12 +561,13 @@ border-color: #4461f2;
 }
 .icon {
    height: 40px;
+   margin-top: 10px;
 }
-input[type="radio"] + label::before {
-    width: 14px;
-    height: 14px;
-    font-size: 14px;
-    margin: 12px;
+label {
+   
+    margin-right: 15px;
+
   }
+
 
 }

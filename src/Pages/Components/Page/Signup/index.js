@@ -65,29 +65,17 @@ function Singup() {
 <label className={style.gender_h} htmlFor="id">Gender:
         
         </label>
-  
-<input type="radio" name="male" value="" id="gmale"/>
-<label for="gender-male">Male</label>
+     <label>
+      <input type="radio" name="gender" value="male"/>
+      Male
+    </label>
+    <label>
+      <input type="radio" name="gender" value="female"/>
+      Female
+    </label>
 
-<input type="radio" name="female" value="" id="gfemale"/>
-<label for="gender-female">Female</label>
+
 </div>
-                  {/* <div className={style.Gender}>
-                    
-                  <label className={style.gender_h} htmlFor="id">Gender:
-        
-        </label>
-   
-          <input className={style.mgender} type="radio" name="gender" value="male"male/>
-             <label htmlFor="genderm" >Male</label>
-    
-          <input className={style.fgender} type="radio" name="gender" value="male"male/>
-             <label htmlFor="genderf">Female</label>
-                  </div> */}
-
-            
-
-
                   <div className={style.Next}>
                   <button className={style.next_btn}>Next</button>
                   </div>
