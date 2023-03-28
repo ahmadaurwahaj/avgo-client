@@ -15,7 +15,7 @@
     border-radius: 50%;
     border: 2px solid #282c35;
     background-color: #282c35;
-    margin-right: 10px;
+    margin-right: 4px;
     vertical-align: middle;
   }
   
@@ -26,7 +26,7 @@
   
   label {
     display: inline-block;
-    margin-right: 2px;
+    margin-right: 4px;
     font-size: 1.1em;
     cursor: pointer;
   }
@@ -458,6 +458,7 @@ border-color: #4461f2;
     
         width: 13px;
         height: 13px;
+        margin-right: 6px;
         
       }
       
