@@ -1,13 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  
-    
 }
 
-  
-  input[type="radio"] {
+input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     width: 10px;
@@ -17,46 +14,47 @@
     background-color: #282c35;
     margin-right: 4px;
     vertical-align: middle;
-  }
-  
-  input[type="radio"]:checked {
+}
+
+input[type="radio"]:checked {
     background-color: #007bff;
     border-color: #007bff;
-  }
-  
-  label {
+}
+
+label {
     display: inline-block;
     margin-right: 4px;
     font-size: 1.1em;
     cursor: pointer;
-  }
-
-
-.main{
-   width: 100%;
-   min-height: 100vh;
-    display: flex;  
-    background-color: #14162E;
-    
 }
-.Rec2{
-   display: flex;
-   width: 100%;
-   margin-top: 21px;
-   margin-left: 220px;
-   margin-right: 221px;
-   margin-bottom: 19px;
-  border-width: 1px;
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: #14162e;
 }
-.Rec1{
+
+.Rec2 {
     display: flex;
     width: 100%;
-   border-radius: 25px;
-   border: 1px solid #7D91AB;
-   border-width: 1px;
-   padding: 20px;
+    margin-top: 21px;
+    margin-left: 220px;
+    margin-right: 221px;
+    margin-bottom: 19px;
+    border-width: 1px;
 }
-.Rec3{
+
+.Rec1 {
+    display: flex;
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid #7d91ab;
+    border-width: 1px;
+    padding: 20px;
+}
+
+.Rec3 {
     display: flex;
     width: 100%;
     border-radius: 20px;
@@ -64,10 +62,10 @@
     margin-left: 1px;
     margin-bottom: 1px;
     margin-right: 1px;
-    background-color: #14162E;
-
+    background-color: #14162e;
 }
-.Rec4{
+
+.Rec4 {
     display: flex;
     width: 100%;
     margin-top: 13px;
@@ -80,7 +78,7 @@
     border-radius: 20px;
 }
 
-.Rec5{
+.Rec5 {
     display: flex;
     width: 100%;
     margin-top: 15px;
@@ -92,233 +90,44 @@
     border-radius: 8px;
 }
 
-.Rec6{
-
-display: flex;
-flex-direction: column;
- width: 100%;
- border-radius: 4px;
- align-items: center;
- border: 1px solid #3a5b82;
- background-color: #193b60;
-
-}
-.top_bar{
-    
+.Rec6 {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    display: flex;
-    height: 45px;
+    border-radius: 4px;
     align-items: center;
-   justify-content: space-between;
-   border-bottom: 0.5px solid #3a5b82;
-   font-family: 'Gilroy';
-
-}
-
-.logo{
-    width: 100%;
-    margin-left: 23px;
-    display: flex;
-    align-items: center;
-}
-.icon{
-    width: 5%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-}
-.about_you{
-    width: 100%;
-    height: 27px;
-    height: 30px;
-    font-family: 'Gilroy';
-    margin-top:5px;
-    font-size: 12px;
-    display: flex;
-    justify-content:center;
-    color: white;
-}
-.about{
-
-    width: 87px;
-    height: 37px;
-    font-size:larger;
-    font-family: 'Gilroy';
-    font-weight:500;
-    cursor: pointer;
-    letter-spacing: 0.02em;
-    color:white;
-    border-style: none;
+    border: 1px solid #3a5b82;
     background-color: #193b60;
-
 }
 
-.about::after{
-    content:" ";
-    height: 2px;
-    width: 60%;
-    background: #DFDFDF;
-    display: block;
-    position: relative;
-    top: 30%;
-    right: 0;
-    left: 17px;
-}
-input[type=number] {
-    -moz-appearance:textfield;
-  }
-
-.logout{
-margin-right: 23px;
-color:white;
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
-.innerrec{
-    display: flex;
-    margin-top: 35px;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 300px;
-    color: #7D91AB;
-    background-color: rgba(255, 255, 255, 0.1)
-    ;
-    border-radius: 8px;
-}
-.Rec7{
-    display: flex;
-    width: 70%;   
-    height: 300px;
-    border-radius: 8px;
-    margin-top: 20px;
-    font-family: 'Gilroy';
-
-}
-.Bio{
-
-    width: 100%;
-    border-radius: 4px;
-    height: 65px;
-    margin-top:10px;
-    resize: none;
-    margin-left: 0px;
-    background-color: #282c35;
-    color: white;
-    padding: 10px;
-    border-style: none;
-
-}
-.Bbio{
-   
-    width: 100%;
-    position: relative;
-    letter-spacing: 0.09em;
-    color: white;
-    font-size: 10px;
-    height: 60px;
-    font-weight: 600;
-    border-radius: 4px;
- 
-}
-.bb{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   flex-direction:row;
-   font-size: 14px;
-   margin-top: 10px;
-   width: 100%;
-    height: 98px;
-}
-.Country{
-    width: 47%;
-    letter-spacing: 0.07em;
-    font-size: 10px;
-    color: white;
-    border-style: none;
-  
-}
-.country{
-    width: 100%;
-    height: 30px;
-    color: white;
-    font-size: 10px;
-    letter-spacing: 0.07em;
-    border-style: none;
-    cursor: pointer;
-    border-radius: 4px;
-    text-indent: 5px;
-    margin-top: 10px;
-    background-color: #282c35;
-
-}
-.Age{
-
-    width: 47%;
-    font-size: 10px;
-    letter-spacing: 0.07em;
-    /* color: white; */
-    color: #f6f8f9;
-  
-}
-.age{
-    
-    width: 100%;
-    height: 30px;
-    margin-top: 10px;
-    background-color: #282c35;
-    color: #f6f8f9;
-    text-indent: 8px;
-    letter-spacing: 0.07em;
-    border-radius: 4px;
-
-    border-style: none;
-}
-::placeholder{
-    
+::placeholder {
     color: white;
     font-weight: 500;
     font-size: 10px;
-
 }
+
 ::-moz-placeholder {
     color: white;
-    opacity: 1;  
-  }
-
-.Gender{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 30px;
-    font-weight: 300;
-    font-size: 8px;
-    font-family: 'Gilroy';
+    opacity: 1;
 }
 
-.Next{
-
-    
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 14px;
-
-}
-.main_header{
-    
-    
+.main_header {
     width: 100%;
     height: 1000px;
-    background-color: #14162E;
+    background-color: #14162e;
     justify-content: center;
     padding-top: 0px;
     padding-left: 0px;
-    border: #305B83;
+    border: #305b83;
     border-radius: 20px;
     margin: auto;
 }
-.main_h{
+
+.main_h {
     width: 1440px;
     height: 1000px;
     background-color: #d0d1e0;
@@ -326,249 +135,93 @@ color:white;
     padding: 1px;
     border: #4883bb;
     margin: auto;
-
-
 }
 
-.Rec_1{
+.Rec_1 {
     width: 1294px;
     height: 936px;
     margin: auto;
     background-color: #30364e;
     margin-top: auto;
-    border-radius:10px; 
-    padding:25px;
+    border-radius: 10px;
+    padding: 25px;
     padding-bottom: 35px;
     border: 7px;
-   
 }
-.Rec_2{
+
+.Rec_2 {
     width: 1239px;
     height: 876px;
     background-color: #1e4169;
     margin: auto;
     margin-top: 15px;
-    padding:25px; 
+    padding: 25px;
     padding-bottom: 35px;
     border: 7px;
     border-radius: 10px;
-
 }
 
-
-
-.countr{ 
-
+.countr {
     letter-spacing: 0.06em;
     left: 49px;
     top: 201px;
     color: #282c35;
-    font-family: 'Gilroy';
+    font-family: "Gilroy";
 }
 
-
-.logout_btn{
-    
-    width: 41px;
-    height: 40px;
-    letter-spacing: 0.07em;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: #193b60;
-    border: none;
-    font-size: 10px;
-    font-family: 'Gilroy';
-    
-    
-}
-
-
-.logout_btn::after{
-    content:" ";
-    height: 2px;
-    width: 50%;
-    position: relative;
-    background: #DFDFDF;
-    display: block;
-    top: 6px;
-    right: 0;
-    left: 11px;
-}
-
-
-.next_btn{
-
-width: 100px;
-height: 25px;
-font-size: 10px;
-cursor: pointer;
-background-color: #4561f1 ; 
-font-family: 'Gilroy';
-font-weight:600;
-letter-spacing: 0.07rem;
-color:white;
-border-radius: 40px;
-text-align: center;
-border-style: none;
-border-color: #4461f2;
-
-}
-.gender{
-
+.gender {
     color: #f6f8f9;
     top: 227px;
-    font-family: 'Gilroy';
+    font-family: "Gilroy";
     left: 51px;
-  
-
 }
-.gender_h{
-    
+
+.value {
     color: white;
-    font-size: 11px;
-    width: 60px;
-    font-weight: 600;
-    font-family: 'Gilroy';
-}
-
-
-
-.value{
-    color:white;
     background-color: white;
 }
 
-
-
 @media (min-width: 1750px) and (max-width: 1920px) {
-    .main{
+    .main {
         width: 1920px;
         height: 1080px;
     }
-    .Rec2{
+
+    .Rec2 {
         width: 1439px;
         height: 1000px;
     }
-    .Rec1{
+
+    .Rec1 {
         width: 1439px;
         height: 1000px;
     }
+
     input[type="radio"] {
-    
         width: 13px;
         height: 13px;
         margin-right: 6px;
-        
-      }
-      
- 
-   .innerrec{
-    width: 734px;
-    height: 439px;
-    margin-top: 165px;
-   }
+    }
 
-    .Rec4{
+    .Rec4 {
         width: 1294px;
     }
-    .Rec5{
+
+    .Rec5 {
         display: flex;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    box-shadow: 29px 4px 65px rgb(0 0 0 / 25%);
-    border-radius: 8px;
-    
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        box-shadow: 29px 4px 65px rgb(0 0 0 / 25%);
+        border-radius: 8px;
     }
-   
-    .about{
-        width: 108px;
-        height: 27px;
-        font-size: 22px;
-        margin-top: 79px;
-    }
-    .about::after{
-       
-        left: 21px;
-        top:50%;
-    }
-    .Rec7{
-        width: 580px;
-        height: 504;
-        margin-bottom: 80px;
-    }
-    .Bio{
-        width: 580px;
-        height: 98px;
-        padding: 20px;
-    }
-    .country{
-        width: 277px;
-        height: 49px;
-      font-size: 13px;
-      padding: 10px;
 
-    }
-    .Country{
-        font-size: 17px;
-    }
-    .Age{
-        font-size: 17px;
-    }
-    .gender_h{
-        font-size: 17px;
-    }
-    .Gender{
-        margin-top: 30px;
-        font-size: 12px;
-
-    }
-    .age{
-        width: 277px;
-        height: 49px;
-        padding: 10px;
-    }
-    .Bbio{
-        width: 580px;
-        margin-top: 0px;
-        font-size: 17px;
-    }
-    ::placeholder{
+    ::placeholder {
         font-size: 13px;
         margin-right: 18px;
-    
     }
-    .next_btn{
-        width: 193px;
-        height: 42px;
-        font-size: 14px;
-        border-radius: 21px;
-    }
-    .gender_h{
-        width: 76px;
-    }
-    .top_bar{
-        width: 1238px;
-        height: 78px;
-    }
-   .logout_btn{
-    width: 61px;
-    height: 16px;
-    font-size: 14px;
-   }
-   .logout_btn::after {
-    left: 15px;
-}
-.icon {
-   height: 40px;
-   margin-top: 10px;
-}
-label {
-   
-    margin-right: 15px;
 
-  }
-
-
+    label {
+        margin-right: 15px;
+    }
 }
