@@ -1,0 +1,91 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* width: 100%; */
+    width: 90%;
+
+    height: 555px;
+    border-right: 1px solid #ccc;
+
+    background-color: #14162E;
+    /* padding: 10px; */
+}
+
+.sidebar_btn {
+
+    width: 44px;
+    height: 40.92px;
+    /* background-color: #14162E; */
+    /* margin-left: 50px; */
+}
+
+.sidebar_btn1 {
+    width: 46px;
+    height: 46px;
+    background-color: #14162E;
+    border: none;
+    cursor: pointer;
+    /* height: 40px; */
+}
+
+.sidebar_btn2 {
+    /* width: 100%; */
+    width: 21px;
+    height: 18px;
+    margin-top: 50px;
+    border: none;
+    cursor: pointer;
+
+    background-color: #14162E;
+
+}
+
+.sidebar_btn3 {
+    width: 16px;
+    height: 15.5px;
+    margin-top: 54px;
+    border: none;
+    cursor: pointer;
+    background-color: #14162E;
+    /* width: 100%; */
+
+}
+
+.sidebar_btn4 {
+    border: none;
+    cursor: pointer;
+    background-color: #14162E;
+}
+
+.sidebar_btn {
+    display: block;
+    width: 100%;
+    /* background-color: #006eff; */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    /* color: #fff; */
+    /* cursor: pointer; */
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar_btn1:hover {
+    background-color: aqua;
+}
+
+.sidebar_btn2:hover {
+    background-color: aqua;
+}
+
+.sidebar_btn3:hover {
+    background-color: aqua;
+}
+
+.sidebar_middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
