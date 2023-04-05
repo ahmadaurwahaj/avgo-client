@@ -5,53 +5,67 @@
 }
 
 .main {
-    /* display: flex; */
-    /* justify-content: center; */
+   
     display: flex;
     width: 100%;
     min-height: 100vh;
     font-family: 'Gilroy';
     background-color: #14162E;
 }
-.innermain{
+
+.innermain {
     display: flex;
     width: 100%;
     margin-top: 19px;
     margin-left: 100px;
-    margin-right: 100px;
-    /* margin-left: 220px;
-    margin-right: 221px; */
+    margin-right: 80px;
     margin-bottom: 19px;
-    /* border-radius: 20px; */
+    border-radius: 4px;
     border: 1px solid #7D91AA;
+
+}
+.inner{
+    display: flex;
+    width: 100%;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-radius: 6px;
     
+  
+
 }
 
-.left_container{
-/* width: 10%; */
-width: 8%;
-display: flex;
-background-color: #14162E;
+.left_container {
+    /* width: 10%; */
+    width: 8%;
+    display: flex;
+    background-color: #14162E;
 }
-.mid_container{
+
+.mid_container {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* background-color: #333; */
 }
-.add_btn{
+
+.add_btn {
     border: none;
     cursor: pointer;
     /* background-color: #14162E; */
 
 }
-.name{
+
+.name {
     margin-right: 400px;
-    
-   
+
+
 }
-.navbar_buttons_left{
+
+.navbar_buttons_left {
     /* width: 32px;
     height: 32px; */
     border: none;
@@ -59,21 +73,20 @@ background-color: #14162E;
     background-color: #14162E;
 }
 
-.add_btn{
-    /* width: 30px;
-    height: 18px; */
+.add_btn {
+   
     border: none;
     background-color: #14162E;
-    /* color: #fff; */
+
 }
-.right_container{
+
+.right_container {
     width: 40%;
-    /* background-color: black; */
 }
 
 
 
-  .top{
+.top {
     width: 100%;
     display: flex;
     /* flex-direction: column; */
@@ -82,16 +95,26 @@ background-color: #14162E;
     background-color: #14162E;
     color: #fff;
     padding: 10px;
-  }
-  .info{
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.info {
     width: 100%;
     display: flex;
     background-color: #14162E;
-color: white;
+    color: white;
+    margin-bottom: 20px;
 
-  }
-  .info_text{
+}
+.background_infoicon{
+    width: 39px;
+    height: 42px;
+
+}
+
+.info_text {
     margin-left: 16px;
     font-weight: 500;
     font-family: 'Gilroy';
-  }
+}
