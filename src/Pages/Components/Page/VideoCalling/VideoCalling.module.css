@@ -5,94 +5,75 @@
 }
 
 .main {
-   
     display: flex;
     width: 100%;
     min-height: 100vh;
-    font-family: 'Gilroy';
-    background-color: #14162E;
+    font-family: "Gilroy";
+    background-color: #14162e;
 }
 
 .innermain {
     display: flex;
     width: 100%;
-    margin-top: 19px;
-    margin-left: 100px;
-    margin-right: 80px;
-    margin-bottom: 19px;
+    margin: 19px 100px;
     border-radius: 4px;
-    border: 1px solid #7D91AA;
-
+    border: 1px solid #7d91aa;
 }
-.inner{
+
+.inner {
     display: flex;
     width: 100%;
-    margin-top: 1px;
-    margin-left: 1px;
-    margin-right: 1px;
-    margin-bottom: 1px;
+    margin: 1px;
     border-radius: 6px;
-    
-  
-
 }
 
 .left_container {
-    /* width: 10%; */
     width: 8%;
     display: flex;
-    background-color: #14162E;
+    background-color: #14162e;
 }
 
 .mid_container {
-    width: 50%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: #333; */
+    padding: 0 20px;
 }
 
 .add_btn {
     border: none;
     cursor: pointer;
     /* background-color: #14162E; */
-
 }
 
 .name {
-    margin-right: 400px;
-
-
+    margin-right: 40px;
 }
 
 .navbar_buttons_left {
-    /* width: 32px;
-    height: 32px; */
     border: none;
     cursor: pointer;
-    background-color: #14162E;
+    background-color: #14162e;
+
 }
 
 .add_btn {
-   
     border: none;
-    background-color: #14162E;
-
+    background-color: #14162e;
 }
 
 .right_container {
-    width: 40%;
+    width: 35%;
+    height: 100%;
 }
-
-
 
 .top {
     width: 100%;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
-    background-color: #14162E;
+    background-color: #14162e;
     color: #fff;
     padding: 10px;
     margin-top: 20px;
@@ -102,19 +83,18 @@
 .info {
     width: 100%;
     display: flex;
-    background-color: #14162E;
+    background-color: #14162e;
     color: white;
     margin-bottom: 20px;
-
 }
-.background_infoicon{
+
+.background_infoicon {
     width: 39px;
     height: 42px;
-
 }
 
 .info_text {
     margin-left: 16px;
     font-weight: 500;
-    font-family: 'Gilroy';
+    font-family: "Gilroy";
 }

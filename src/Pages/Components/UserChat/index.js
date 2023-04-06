@@ -5,7 +5,6 @@ import ticon from "../../../assets/icons/typing.svg";
 import sicon from "../../../assets/icons/share.svg";
 import sendicon from "../../../assets/icons/send.svg";
 const UserChat = () => {
-  // return <div>User Chat</div>;
   return (
     <div className={style.chatbox}>
       <div className={style.col_1}>
@@ -25,7 +24,9 @@ const UserChat = () => {
                 <p className={style.pra}>
                   {" "}
                   Hello Guys! Whats your opinion?
-                  <span style={{ fontSize: "6px" }}>&nbsp;&nbsp;&nbsp;&nbsp;12:02 pm</span>
+                  <span style={{ fontSize: "6px" }}>
+                    &nbsp;&nbsp;&nbsp;&nbsp;12:02 pm
+                  </span>
                 </p>
               </p>
             </div>
@@ -43,7 +44,9 @@ const UserChat = () => {
                 <p className={style.pra}>
                   {" "}
                   Images are better.
-                  <span style={{ fontSize: "6px" }}>&nbsp;&nbsp;&nbsp;&nbsp;12:03 pm</span>
+                  <span style={{ fontSize: "6px" }}>
+                    &nbsp;&nbsp;&nbsp;&nbsp;12:03 pm
+                  </span>
                 </p>
               </p>
             </div>
@@ -67,7 +70,9 @@ const UserChat = () => {
                 <p className={style.your_text}>
                   {" "}
                   Yes, it will decrease the loading{" "}
-                  <span style={{ fontSize: "6px" }}>&nbsp;&nbsp;&nbsp;&nbsp;12:00 pm</span>
+                  <span style={{ fontSize: "6px" }}>
+                    &nbsp;&nbsp;&nbsp;&nbsp;12:00 pm
+                  </span>
                 </p>
               </p>
             </div>
@@ -85,7 +90,9 @@ const UserChat = () => {
                   {" "}
                   Anyone is up for illustration. I think there are less
                   relatable images according to our brand
-                  <span style={{ fontSize: "6px" }} className={style.tiime}>12:05 pm</span>
+                  <span style={{ fontSize: "6px" }} className={style.tiime}>
+                    12:05 pm
+                  </span>
                 </p>
               </p>
             </div>
@@ -102,11 +109,7 @@ const UserChat = () => {
           </button>
           <input type="text" placeholder="Write message here" />
           <button className={style.send_btn}>
-            <img
-              className={style.background_ic}
-              alt="bg_img"
-              src={sendicon}
-            />
+            <img className={style.background_ic} alt="bg_img" src={sendicon} />
           </button>
         </div>
       </div>
