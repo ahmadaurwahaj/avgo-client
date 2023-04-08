@@ -5,7 +5,7 @@ import add1 from "../../../../assets/icons/add.svg";
 import nxt from "../../../../assets/icons/nxt.svg";
 import info from "../../../../assets/icons/info.svg";
 import SideBar from "../../Sidebar/SideBar";
-import UserChat from "../../UserChat/index";
+import UserChat from "../../UserChat/UserChat";
 function VideoCalling() {
   return (
     <div className={style.main}>

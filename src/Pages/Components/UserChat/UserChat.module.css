@@ -15,22 +15,25 @@
   box-shadow: rgba(0, 0, 0, 0.54);
   display: flex;
 }
+
 .chat_content,
 .upercontent,
 .spc {
   display: flex;
   flex-direction: column;
 }
+
 .chat_content {
   justify-content: space-between;
   height: 85%;
 }
 
 .upercontent {
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
-.spc {
-}
+.spc {}
 
 .background_icon {
   width: 46px;
@@ -49,6 +52,9 @@
 
 .col_1 {
   flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .msg_h {
@@ -111,12 +117,14 @@
   flex-direction: row-reverse;
   font-size: 9px;
 }
+
 .pra,
 .your_text {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
 }
+
 .pra {
   padding: 12px;
   background-color: #4a5767;
