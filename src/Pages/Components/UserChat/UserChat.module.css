@@ -11,8 +11,11 @@
   padding-left: 15px;
   padding-top: 20px;
   border-radius: 15px;
+  /* margin-top: 20px; */
   box-shadow: rgba(0, 0, 0, 0.54);
   display: flex;
+  /* background-color: #00fff3; */
+  /* flex-grow: 1; */
 }
 
 .background_icon {
@@ -23,11 +26,9 @@
 .background_i {
   width: 16px;
   height: 16px;
-
 }
 
 .background_ic {
-
   width: 20px;
   height: 12px;
 }
@@ -65,7 +66,6 @@
 
 .col_2 {
   flex-basis: 60px;
-  background-color: beige;
 }
 
 .msg_row {
@@ -77,7 +77,6 @@
 }
 
 .msg_text {
-
   background-color: #30364f;
   display: flex;
   align-self: self-start;
@@ -88,9 +87,8 @@
 }
 
 .para_text {
-
   padding: 6px 3px;
-  font-size: 9px;
+  font-size: 10px;
   background-color: #30364f;
 }
 
@@ -119,16 +117,16 @@
   background-color: #131b26;
   color: #fff;
   font-size: 9px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .p_typing {
   color: #bfbfbf;
   margin-bottom: 10px;
   font-size: 10px;
-
 }
-
-
 
 .yourname {
   display: flex;
@@ -155,9 +153,11 @@
   background-color: #354657;
   padding: 7px;
   border-radius: 5px;
-
+  margin-top: 8px;
+  /* margin-top: 18px; */
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  margin-bottom: 20px;
+  /* background-color: #ccc; */
+  /* margin-bottom: 10px; */
 }
 
 .message_bar input[type="text"] {
@@ -165,25 +165,31 @@
   border: none;
   background-color: transparent;
   padding: 10px;
-  font-size: 16px;
+  /* font-size: 16px; */
   color: #fff;
   border-left: 1px solid #00fff3;
   outline: none;
 }
 
 .message_bar button {
-
-  border: none;
+  /* border: none;
   border-radius: 5px;
   cursor: pointer;
   color: blue;
-  padding: 4px;
+  padding: 4px; */
+  /* background-color: #4CAF50; */
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 2px;
 }
 
 .typing {
   display: flex;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 60px;
 }
 
 .share_btn {
@@ -193,9 +199,53 @@
 
 .send_btn {
   background-color: #fff;
-  margin-right: 10px;
 }
 
 ::placeholder {
   color: #fff;
+}
+
+@media (min-width: 1750px) and (max-width: 1920px) {
+  .chatbox {
+    width: 90%;
+    height: 90%;
+    margin-top: 70px;
+    /* width: 442px;
+    height: 936px; */
+  }
+
+  .msg_h {
+    padding: 17px 45px 17px 0px;
+  }
+
+  .msg_btn {
+    width: 185px;
+    height: 53px;
+    /* padding: 17px, 45px, 17px, 45px; */
+  }
+
+  .uname {
+    width: 29px;
+    font-size: 12px;
+    font-weight: 500px;
+    height: 19px;
+  }
+
+  .para_text {
+    font-size: 12px;
+  }
+
+  .message_bar input[type="text"] {
+    padding-left: 25px;
+    font-size: 14px;
+  }
+
+  .pra {
+    height: 54px;
+    /* padding: 5px 0px 5px 0px; */
+  }
+
+  .typing {
+    margin-top: 382px;
+  }
 }

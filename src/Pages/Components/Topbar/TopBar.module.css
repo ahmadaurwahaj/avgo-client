@@ -52,7 +52,7 @@
     left: 11px;
 }
 
-@media (min-width: 1750px) and (max-width: 1920px) {
+@media (min-width: 1450px) and (max-width: 1920px) {
     .top_bar {
         width: 1238px;
         height: 78px;

@@ -99,6 +99,10 @@ const UserChat = () => {
           </div>
         </div>
 
+        {/* <div className={style.space_bar}>
+          space
+        </div> */}
+
         <div className={style.typing}>
           <img className={style.background_icon} alt="bg_img" src={ticon} />
           <p className={style.p_typing}>peter is typing</p>
