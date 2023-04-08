@@ -1,107 +1,100 @@
 .sidebar,
-.sidebar_btn {
-    display: flex;
+.sidebar_btn,
+.sidebar_middle {
+  display: flex;
+  align-items: center;
 }
 
 .sidebar {
-
-    flex-direction: column;
-    justify-content: space-between;
-    width: 135%;
-    height: 100%;
-    /* border-right: 1px solid #ccc; */
-    border: 1px solid #ccc;
-
-    background-color: #14162e;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 135%;
+  height: 100%;
+  border: 1px solid #ccc;
+  background-color: #14162e;
 }
 
 .sidebar_btn {
-    /* display: block; */
-    justify-content: center;
-    width: 100%;
-
-    border: none;
-    border-radius: 5px;
-    margin-top: 25px;
-    /* padding: 10px; */
-    /* margin: 10px; */
-    /* background-color: red; */
+  justify-content: center;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 25px;
 }
 
 .sidebar_btn1 {
-    width: 46px;
-    height: 46px;
-    background-color: #14162e;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    /* background-color: red; */
+  width: 46px;
+  height: 46px;
+  background-color: #14162e;
+  border: none;
+  cursor: pointer;
+  position: relative;
 }
 
 .sidebar_btn1::after {
-    content: "";
-    /* display: block; */
-    width: 2px;
-    position: absolute;
-    top: 5px;
-    height: 40px;
-    background-color: #4461f2;
-    right: -14px;
+  content: "";
+  width: 2px;
+  position: absolute;
+  top: 5px;
+  height: 40px;
+  background-color: #4461f2;
+  right: -14px;
 }
 
 .sidebar_btn2 {
-    width: 21px;
-    height: 18px;
-    margin-top: 50px;
-    border: none;
-    cursor: pointer;
+  width: 21px;
+  height: 18px;
+  margin-top: 50px;
+  border: none;
+  cursor: pointer;
 
-    background-color: #14162e;
+  background-color: #14162e;
 }
 
 .sidebar_btn3 {
-    width: 16px;
-    height: 15.5px;
-    margin-top: 54px;
-    border: none;
-    cursor: pointer;
-    background-color: #14162e;
+  width: 16px;
+  height: 15.5px;
+  margin-top: 54px;
+  border: none;
+  cursor: pointer;
+  background-color: #14162e;
 }
 
 .sidebar_btn4 {
-    border: none;
-    cursor: pointer;
-    background-color: #14162e;
-    margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #14162e;
+  margin-bottom: 20px;
 }
 
 .sidebar_btn1:hover {
-    background-color: aqua;
+  background-color: aqua;
 }
 
 .sidebar_btn2:hover {
-    background-color: aqua;
+  background-color: aqua;
 }
 
 .sidebar_btn3:hover {
-    background-color: aqua;
+  background-color: aqua;
 }
 
 .sidebar_middle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (min-width: 1750px) and (max-width: 1920px) {
+  .sidebar_btn {
+    margin-top: 75px;
+    width: 100px;
+  }
 
-    .sidebar_btn {
-        margin-top: 70px;
-    }
+  .sidebar_btn4 {
+    margin-bottom: 65px;
+  }
 
-    .sidebar_btn4 {
-        margin-bottom: 65px;
-    }
-
+  .sidebar_btn1::after {
+    right: -45px;
+  }
 }

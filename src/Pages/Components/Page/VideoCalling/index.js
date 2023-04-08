@@ -9,12 +9,10 @@ import UserChat from "../../UserChat/index";
 function VideoCalling() {
   return (
     <div className={style.main}>
-
       {/* <div className={style.innermain}> */}
       <div className={style.inner}>
         <div className={style.left_container}>
           <div>
-            {/* <p>VideoCalling</p> */}
             <SideBar />
           </div>
         </div>
@@ -23,7 +21,11 @@ function VideoCalling() {
             <div className={style.left_innercontainer}>
               <div>
                 <button className={style.navbar_buttons_left}>
-                  <img className={style.background_icon} alt="bg_img" src={nxt} />
+                  <img
+                    className={style.background_icon}
+                    alt="bg_img"
+                    src={nxt}
+                  />
                 </button>
               </div>
               <div className={style.name}>Peter</div>
@@ -41,13 +43,15 @@ function VideoCalling() {
           </div>
           <div className={style.m_container}>p</div>
 
-
-
           <div className={style.info}>
-            <img className={style.background_infoicon} alt="bg_img" src={info} />
-            {/* <p>Quota of the day:</p> */}
+            <img
+              className={style.background_infoicon}
+              alt="bg_img"
+              src={info}
+            />
             <p className={style.info_text}>
-              <span style={{ fontSize: "10px" }}>Quota of the day: </span> <br />
+              <span style={{ fontSize: "10px" }}>Quota of the day: </span>{" "}
+              <br />
               <span style={{ fontSize: "12px" }}>
                 Thank you everyone for joining the design critique meeting. I
                 want everyone's opinion so please start
@@ -59,13 +63,11 @@ function VideoCalling() {
         <div className={style.right_container}>
           <div className={style.space_bar}></div>
           <div>
-            {/* <p>VideoCalling</p> */}
             <UserChat />
           </div>
         </div>
         <div className={style.space_baar}></div>
       </div>
-      {/* </div> */}
     </div>
   );
 }

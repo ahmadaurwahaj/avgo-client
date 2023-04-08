@@ -8,19 +8,19 @@ const UserChat = () => {
   return (
     <div className={style.chatbox}>
       <div className={style.col_1}>
-        {/* <div className={style.msg_btn}> */}
         <div className={style.msg_h}>
           <button className={style.msg_btn}>Message (4)</button>
         </div>
-
 
         <div className={style.chat_content}>
           <div className={style.upercontent}>
             <div className={style.msg_row}>
               <div className={style.msg_text}>
-                {/* <div className={style.u_icon}> */}
-
-                <img className={style.background_icon} alt="bg_img" src={uicon} />
+                <img
+                  className={style.background_icon}
+                  alt="bg_img"
+                  src={uicon}
+                />
                 <div>
                   <p className={style.para_text}>
                     <p className={style.uname}>Peter</p>
@@ -38,9 +38,11 @@ const UserChat = () => {
 
             <div className={style.msg_row}>
               <div className={style.msg_text}>
-                {/* <div className={style.u_icon}> */}
-
-                <img className={style.background_icon} alt="bg_img" src={uicon} />
+                <img
+                  className={style.background_icon}
+                  alt="bg_img"
+                  src={uicon}
+                />
                 <div>
                   <p className={style.para_text}>
                     <p className={style.uname}>Peter</p>
@@ -56,28 +58,10 @@ const UserChat = () => {
               </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-            {/* <div className={style.msg_row}> */}
             <div className={`${style.msg_row} ${style.msg_row2}`}>
               <div className={style.msg_text}>
-                {/* <div className={style.u_icon}> */}
-
-                {/* <img
-              className={style.background_icon}
-              alt="bg_img"
-              src={uicon}
-            /> */}
                 <div>
                   <p className={style.para_text}>
-                    {/* <p className={style.uname}>Peter</p> */}
                     <p className={style.yourname}>You</p>
                     <p className={style.your_text}>
                       {" "}
@@ -92,9 +76,11 @@ const UserChat = () => {
             </div>
             <div className={style.msg_row}>
               <div className={style.msg_text}>
-                {/* <div className={style.u_icon}> */}
-
-                <img className={style.background_icon} alt="bg_img" src={uicon} />
+                <img
+                  className={style.background_icon}
+                  alt="bg_img"
+                  src={uicon}
+                />
                 <div>
                   <p className={style.para_text}>
                     <p className={style.uname}>Peter</p>
@@ -111,9 +97,6 @@ const UserChat = () => {
               </div>
             </div>
           </div>
-          {/* <div className={style.space_bar}>
-          space
-        </div> */}
 
           <div className={style.spc}>
             <div className={style.typing}>
@@ -126,7 +109,11 @@ const UserChat = () => {
               </button>
               <input type="text" placeholder="Write message here" />
               <button className={style.send_btn}>
-                <img className={style.background_ic} alt="bg_img" src={sendicon} />
+                <img
+                  className={style.background_ic}
+                  alt="bg_img"
+                  src={sendicon}
+                />
               </button>
             </div>
           </div>
