@@ -10,7 +10,7 @@
   justify-content: space-between;
   width: 135%;
   height: 100%;
-  border: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   background-color: #14162e;
 }
 
