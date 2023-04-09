@@ -1,14 +1,5 @@
-import logo from "./logo.svg";
 import "./font/stylesheet.css";
-import "./App.css";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Navigate,
-  useNavigate,
-  useLocation
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Messages, Login, Signup, VideoCalling, Settings } from "./Pages/index";
 
 import { PrivateRoute } from "./utils/PrivateRoutes";
@@ -41,14 +32,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/signup"
-          element={
-            <PrivateRoute>
-              <Signup />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/signup" element={<Signup />} />
 
         <Route
           path="/"
