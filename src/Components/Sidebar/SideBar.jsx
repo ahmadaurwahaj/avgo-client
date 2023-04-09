@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./SideBar.module.css";
-import vid from "../../../assets/icons/vid.svg";
-import msg from "../../../assets/icons/msg.svg";
-import acnt from "../../../assets/icons/acnt.svg";
-import icn from "../../../assets/icons/icn.svg";
-import prof from "../../../assets/icons/prof.svg";
+import vid from "../../assets/icons/vid.svg";
+import msg from "../../assets/icons/msg.svg";
+import acnt from "../../assets/icons/acnt.svg";
+import icn from "../../assets/icons/icn.svg";
+import prof from "../../assets/icons/prof.svg";
 
 const SideBar = () => {
   return (

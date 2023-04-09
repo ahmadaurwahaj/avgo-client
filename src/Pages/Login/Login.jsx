@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./login.module.css";
-import NavBar from "../../Navbar/NavBar";
-import illustration from "../../../../assets/Pic.svg";
+import NavBar from "../../Components/Navbar/NavBar";
+import illustration from "../../assets/Pic.svg";
 
 const Login = () => {
   return (

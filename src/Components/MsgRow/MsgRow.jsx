@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./MsgRow.module.css";
-import uicon from "../../../assets/icons/usericon.svg";
+import uicon from "../../assets/icons/usericon.svg";
 
-const MsgRow = (props) => {
+const MsgRow = props => {
   const { textmsg } = props;
   return (
     <div className={style.msg_row}>

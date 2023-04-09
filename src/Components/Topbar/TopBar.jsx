@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./TopBar.module.css";
-import illustration from "../../../assets/log.svg";
+import illustration from "../../assets/log.svg";
 
 const TopBar = () => {
   return (

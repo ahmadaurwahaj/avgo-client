@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./signup.module.css";
-import TopBar from "../../Topbar/TopBar";
-import AboutYou from "../../AboutYou/AboutYou";
+import TopBar from "../../Components/Topbar/TopBar";
+import AboutYou from "../../Components/AboutYou/AboutYou";
 const Singup = () => {
   return (
     <div className={style.main}>

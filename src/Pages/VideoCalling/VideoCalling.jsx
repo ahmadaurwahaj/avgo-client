@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./VideoCalling.module.css";
-import add1 from "../../../../assets/icons/add.svg";
-import nxt from "../../../../assets/icons/nxt.svg";
-import info from "../../../../assets/icons/info.svg";
-import SideBar from "../../Sidebar/SideBar";
-import UserChat from "../../UserChat/UserChat";
+import add1 from "../../assets/icons/add.svg";
+import nxt from "../../assets/icons/nxt.svg";
+import info from "../../assets/icons/info.svg";
+import SideBar from "../../Components/Sidebar/SideBar";
+import UserChat from "../../Components/UserChat/UserChat";
 function VideoCalling() {
   return (
     <div className={style.main}>

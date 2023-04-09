@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./UserChat.module.css";
-import uicon from "../../../assets/icons/usericon.svg";
-import ticon from "../../../assets/icons/typing.svg";
-import sicon from "../../../assets/icons/share.svg";
-import sendicon from "../../../assets/icons/send.svg";
+import uicon from "../../assets/icons/usericon.svg";
+import ticon from "../../assets/icons/typing.svg";
+import sicon from "../../assets/icons/share.svg";
+import sendicon from "../../assets/icons/send.svg";
 import MsgRow from "../MsgRow/MsgRow";
 import OurMsgRow from "../OurMsgRow/OurMsgRow";
 

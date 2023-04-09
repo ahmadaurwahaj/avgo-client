@@ -5,13 +5,14 @@ function PrivateRoute({ children }) {
   //   const { userInfo } = useSelector(state => state.loggedInUser);
   //   const { data } = userInfo;
   const data = { key: "hello" };
-  if (!data) {
-    // not logged in so redirect to login page with the return url
-    return <Navigate to="/login" />;
-  }
+  return !data ? <Navigate to="/login" /> : children;
+  // if (!data) {
+  //   // not logged in so redirect to login page with the return url
+  //   return ;
+  // }
 
   // authorized so return child components
-  return children;
+  // return children;
 }
 
 export { PrivateRoute };
