@@ -16,7 +16,8 @@
 
 .para_text {
   padding: 6px 3px;
-  font-size: 10px;
+  font-size: 8px;
+  font-weight: 500;
   background-color: #30364f;
 }
 
@@ -42,4 +43,29 @@
   display: flex;
   justify-content: flex-end;
   color: #fff;
+}
+
+@media (min-width: 1750px) and (max-width: 1920px) {
+  .uname {
+    width: 29px;
+    font-size: 12px;
+    font-weight: 500px;
+    height: 19px;
+  }
+
+  .para_text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .your_text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .msg_text {
+    /* flex-basis: 90%; */
+    /* flex-basis: 65%; */
+    /* background-color: #00fff3; */
+    /* font-size: 12px; */
+  }
 }
