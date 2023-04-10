@@ -1,3 +1,12 @@
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import style from "./VideoCalling.module.css";
+// import add1 from "../../../../assets/icons/add.svg";
+// import nxt from "../../../../assets/icons/nxt.svg";
+// import info from "../../../../assets/icons/info.svg";
+// import SideBar from "../../Sidebar/SideBar";
+// import UserChat from "../../UserChat/UserChat";
+
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./VideoCalling.module.css";
@@ -50,11 +59,11 @@ function VideoCalling() {
               src={info}
             />
             <p className={style.info_text}>
-              <span style={{ fontSize: "10px" }}>Quota of the day: </span>{" "}
+              <span className={style.user_quota}>Quota of the day: </span>
               <br />
-              <span style={{ fontSize: "12px" }}>
+              <span className={style.user_infotext}>
                 Thank you everyone for joining the design critique meeting. I
-                want everyone's opinion so please start
+                want everyone's opinion so please start!
               </span>
             </p>
           </div>
