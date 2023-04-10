@@ -50,11 +50,11 @@ function VideoCalling() {
               src={info}
             />
             <p className={style.info_text}>
-              <span style={{ fontSize: "10px" }}>Quota of the day: </span>{" "}
+              <span className={style.user_quota}>Quota of the day: </span>
               <br />
-              <span style={{ fontSize: "12px" }}>
+              <span className={style.user_infotext}>
                 Thank you everyone for joining the design critique meeting. I
-                want everyone's opinion so please start
+                want everyone's opinion so please start!
               </span>
             </p>
           </div>

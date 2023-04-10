@@ -1,61 +1,61 @@
 .msg_row {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    font-size: 10px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-size: 10px;
 }
 
 .msg_text {
-    background-color: #30364f;
-    display: flex;
-    align-self: self-start;
-    border-radius: 8px;
-    flex-basis: 80%;
-    font-weight: 300px;
+  background-color: #30364f;
+  display: flex;
+  align-self: self-start;
+  border-radius: 8px;
+  flex-basis: 80%;
+  font-weight: 300px;
 }
 
 .background_icon {
-    width: 46px;
-    height: 46px;
+  width: 46px;
+  height: 46px;
 }
 
 .para_text {
-    padding: 6px 3px;
-    font-size: 10px;
-    background-color: #30364f;
+  padding: 6px 3px;
+  font-size: 8px;
+  background-color: #30364f;
 }
 
 .uname {
-    padding: 2px;
-    color: #fff;
+  padding: 2px;
+  color: #fff;
 }
 
 .pra,
 .your_text {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .pra {
-    padding: 12px;
-    background-color: #4a5767;
-    color: #fff;
+  padding: 12px;
+  background-color: #4a5767;
+  color: #fff;
 }
 
 @media (min-width: 1750px) and (max-width: 1920px) {
-    .uname {
-        width: 29px;
-        font-size: 12px;
-        font-weight: 500px;
-        height: 19px;
-    }
+  .uname {
+    width: 29px;
+    font-size: 12px;
+    font-weight: 500px;
+    height: 19px;
+  }
 
-    .para_text {
-        font-size: 12px;
-    }
+  .para_text {
+    font-size: 12px;
+  }
 
-    .pra {
-        height: 54px;
-    }
+  .pra {
+    height: 54px;
+  }
 }
