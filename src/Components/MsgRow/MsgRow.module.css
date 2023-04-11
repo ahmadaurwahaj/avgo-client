@@ -18,9 +18,12 @@
   width: 46px;
   height: 46px;
 }
+span {
+  color: #bfbfbf;
+}
 
 .para_text {
-  padding: 6px 3px;
+  padding: 0px 3px;
   font-size: 8px;
   font-weight: 500;
   background-color: #30364f;

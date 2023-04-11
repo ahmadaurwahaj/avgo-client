@@ -27,7 +27,8 @@
 
 .chat_content {
   justify-content: space-between;
-  height: 90%;
+  height: 86%;
+  /* height: 90%; */
 }
 
 .upercontent {
@@ -36,6 +37,8 @@
 }
 
 .spc {
+  width: 100%;
+  /* width: 80%; */
 }
 
 .background_icon {
@@ -62,21 +65,58 @@
 }
 
 .msg_h {
-  display: flex;
-  width: 95%;
+  /* display: flex;
+  width: 80%;
   margin: auto;
   align-items: center;
-  padding: 10px;
   border-bottom: 1px solid #ccc;
+  border-width: 1px;
+  border-top: 3px; */
   /* padding: 50px; */
+  display: flex;
+  width: 85%;
+  /* margin: auto; */
+  align-items: center;
+  /* padding: 10px; */
+  border-bottom: 1px solid #ccc;
+  /* border-bottom-width: 1px; */
+  /* border-width: 1px; */
+  /* border-top-width: 1px; */
+  /* border-top: 2px; */
+  /* padding: 10px; */
+  padding-top: 10px;
+  /* padding-right: 10px; */
+  padding-bottom: 20px;
+  margin-left: 14px;
+  /* padding-left: 10px; */
+  margin-top: 5px;
+  /* padding: ; */
+  padding-bottom: 20px;
+}
+.msg_h::after {
+  /* content: "";
+  display: block;
+  width: 270px;
+  height: 1px; */
+  /* background: white; */
+  /* right: 81px;
+  top: 23%;
+  position: absolute; */
+  /* content: " ";
+  height: 1px;
+  width: 80%;
+  background: #dfdfdf;
+  position: relative;
+  top: -304px;
+  right: -13px; */
 }
 
 .msg_btn {
   width: 140px;
   height: 43px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border-radius: 8px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   padding: 17px, 45px, 17px, 45px;
   background-color: #49627d;
   color: #fff;
@@ -102,7 +142,8 @@
   display: flex;
   align-self: self-start;
   border-radius: 8px;
-  flex-basis: 86%;
+  /* flex-basis: 65%; */
+  flex-basis: 65%;
   /* flex-basis: 80%; */
   font-weight: 300px;
 }
@@ -173,9 +214,10 @@
 
 .message_bar {
   display: flex;
-  width: 80%;
+  /* width: 80%; */
   height: 46px;
   margin-left: 13px;
+  margin-right: 35px;
   align-items: center;
   background-color: #354657;
   padding: 7px;
@@ -261,6 +303,9 @@
   .your_text {
     font-size: 12px;
     font-weight: 500;
+  }
+  .message_bar {
+    margin-right: 42px;
   }
 
   .message_bar input[type="text"] {

@@ -10,7 +10,7 @@
   display: flex;
   align-self: self-start;
   border-radius: 8px;
-  flex-basis: 80%;
+  flex-basis: 62%;
   font-weight: 300px;
 }
 
@@ -64,7 +64,7 @@
 
   .msg_text {
     /* flex-basis: 90%; */
-    /* flex-basis: 65%; */
+    flex-basis: 71%;
     /* background-color: #00fff3; */
     /* font-size: 12px; */
   }
