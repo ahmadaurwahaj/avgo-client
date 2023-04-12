@@ -1,41 +1,71 @@
 .msg_row {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    font-size: 10px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-size: 10px;
 }
 
 .msg_text {
-    background-color: #30364f;
-    display: flex;
-    align-self: self-start;
-    border-radius: 8px;
-    flex-basis: 80%;
-    font-weight: 300px;
+  background-color: #30364f;
+  display: flex;
+  align-self: self-start;
+  border-radius: 8px;
+  flex-basis: 62%;
+  font-weight: 300px;
 }
 
 .para_text {
-    padding: 6px 3px;
-    font-size: 10px;
-    background-color: #30364f;
+  padding: 6px 3px;
+  font-size: 8px;
+  font-weight: 500;
+  background-color: #30364f;
 }
 
 .uname {
-    padding: 2px;
-    color: #fff;
+  padding: 2px;
+  color: #fff;
 }
 
 .msg_row2 {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
-
 .your_text {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    padding: 12px;
-    background-color: #131b26;
-    color: #fff;
-    font-size: 9px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding: 12px;
+  background-color: #131b26;
+  color: #fff;
+  font-size: 8px;
+}
+.yourname {
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+@media (min-width: 1750px) and (max-width: 1920px) {
+  .uname {
+    width: 29px;
+    font-size: 12px;
+    font-weight: 500px;
+    height: 19px;
+  }
+
+  .para_text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .your_text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .msg_text {
+    /* flex-basis: 90%; */
+    flex-basis: 71%;
+    /* background-color: #00fff3; */
+    /* font-size: 12px; */
+  }
 }

@@ -64,7 +64,7 @@
   border: none;
   cursor: pointer;
   background-color: #14162e;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .sidebar_btn1:hover {
@@ -85,6 +85,11 @@
 }
 
 @media (min-width: 1750px) and (max-width: 1920px) {
+  .sidebar {
+    width: 100%;
+    /* right: -28px; */
+    /* left: 72px; */
+  }
   .sidebar_btn {
     margin-top: 75px;
     width: 100px;
@@ -95,6 +100,6 @@
   }
 
   .sidebar_btn1::after {
-    right: -45px;
+    right: -28px;
   }
 }

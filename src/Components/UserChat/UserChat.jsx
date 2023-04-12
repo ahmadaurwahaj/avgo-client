@@ -49,7 +49,7 @@ const UserChat = () => {
           <div className={style.spc}>
             <div className={style.typing}>
               <img className={style.background_icon} alt="bg_img" src={ticon} />
-              <p className={style.p_typing}>peter is typing</p>
+              <p className={style.p_typing}>peter is typing..</p>
             </div>
             <div className={style.message_bar}>
               <button className={style.share_btn}>
