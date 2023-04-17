@@ -6,11 +6,11 @@
 }
 
 .msg_text {
-  background-color: #30364f;
+  /* background-color: #30364f; */
   display: flex;
   align-self: self-start;
   border-radius: 8px;
-  flex-basis: 62%;
+  /* flex-basis: 62%; */
   font-weight: 300px;
 }
 
@@ -18,7 +18,7 @@
   padding: 6px 3px;
   font-size: 8px;
   font-weight: 500;
-  background-color: #30364f;
+  /* background-color: #30364f; */
 }
 
 .uname {
@@ -63,9 +63,6 @@
   }
 
   .msg_text {
-    /* flex-basis: 90%; */
     flex-basis: 71%;
-    /* background-color: #00fff3; */
-    /* font-size: 12px; */
   }
 }

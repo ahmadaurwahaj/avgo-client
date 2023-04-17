@@ -1,29 +1,33 @@
 .msg_row {
   display: flex;
   align-items: center;
-  margin: 10px;
+  /* margin: 15px; */
+  margin: 15px 0px 18px 32px;
+  /* margin: 15px 0px 18px 18px; */
   font-size: 10px;
 }
 
 .msg_text {
-  /* background-color: #30364f; */
+  background-color: #345378;
   display: flex;
   align-self: self-start;
   border-radius: 8px;
-  flex-basis: 80%;
+  flex-basis: 92%;
   font-weight: 300px;
 }
 
 .background_icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  margin-left: 10px;
+  /* height: 46px; */
 }
 span {
   color: #bfbfbf;
 }
 
 .para_text {
-  padding: 0px 3px;
+  padding: 0px 3px 0px 8px;
+  /* padding: 0px 3px; */
   font-size: 8px;
   font-weight: 500;
   /* background-color: #30364f; */
@@ -31,6 +35,7 @@ span {
 
 .uname {
   padding: 2px;
+  margin-top: 12px;
   color: #fff;
 }
 
@@ -42,9 +47,13 @@ span {
 }
 
 .pra {
-  padding: 12px;
-  background-color: #4a5767;
+  /* padding-right: 40px; */
+  /* padding: 12px; */
+  /* background-color: #4a5767; */
   color: #fff;
+
+  padding-top: 4px;
+  padding-bottom: 15px;
 }
 
 @media (min-width: 1750px) and (max-width: 1920px) {

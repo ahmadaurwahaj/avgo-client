@@ -31,19 +31,22 @@
   position: relative;
 }
 
-.sidebar_btn1::after {
+.sidebar_btn2::after {
   content: "";
   width: 2px;
   position: absolute;
-  top: 5px;
-  height: 40px;
+  /* top: 285px; */
+  height: 46px;
   background-color: #4461f2;
-  right: -14px;
+  left: 70px;
+  /* right: -14px; */
 }
 
 .sidebar_btn2 {
-  width: 21px;
-  height: 18px;
+  width: 46px;
+  height: 46px;
+  /* width: 21px;
+  height: 18px; */
   margin-top: 50px;
   border: none;
   cursor: pointer;
