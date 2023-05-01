@@ -44,43 +44,41 @@
 .login2 {
     background-color: #14162E;
     border: none;
+    border-bottom: 2px solid #ffffff;
+    padding: 10px 0px;
     font-weight: 600;
     color: white;
     cursor: pointer;
-    font-family: 'Gilroy';
     width: 49px;
-    height: 16px;
+    /* height: 16px; */
     margin-right: 44px;
+    text-decoration: none;
 }
 
-.login2::after {
+/* .login2::after {
     content: " ";
     display: block;
     height: 2px;
-    width: 25%;
+    width: 75%;
     background-color: white;
     position: relative;
     top: 10px;
     cursor: pointer;
     margin-left: 18px;
 
-}
+} */
 
 .register {
     background-color: #ffffff;
     color: #4562f2;
-    border: none;
     cursor: pointer;
-    font-weight: 600;
-    font-family: 'Gilroy';
-    border-radius: 21px;
-    padding: 4px 10px;
+    padding: 15px 20px;
     font-size: 16px;
     font-weight: 700;
-    cursor: pointer;
     border-radius: 100px;
-    width: 94px;
-    height: 41px;
+    /* width: 94px; */
+    /* height: 41px; */
+    text-decoration: none;
 
 }
 

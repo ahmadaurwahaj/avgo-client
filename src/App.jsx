@@ -32,14 +32,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Login type="signup" />} />
 
         <Route
           path="/"
           exact
           element={userInfo !== undefined ? <VideoCalling /> : <Login />}
         />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login type="login" />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
