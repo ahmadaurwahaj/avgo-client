@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 
 const NavBar = () => {
@@ -20,12 +21,16 @@ const NavBar = () => {
 
           {/* <div className={style.log}> */}
           <div>
-            <button className={style.login2}>Login</button>
+            <Link to="/login" className={style.login2}>
+              Login
+            </Link>
           </div>
 
           {/* <div className={style.reg}> */}
           <div>
-            <button className={style.register}>Register</button>
+            <Link to="/signup" className={style.register}>
+              Register
+            </Link>
           </div>
         </div>
       </nav>

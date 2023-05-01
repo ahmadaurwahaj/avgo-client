@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
 
-const Login = () => {
+const Login = ({ type }) => {
+  console.log("type", type);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const clickLogin = (e) => {
+    e.preventDefault();
+    let item = { email, password };
+    console.log("item", item);
+  };
+  const clickSignup = (e) => {
+    e.preventDefault();
+    let item = { email, password };
+    console.log("item", item);
+  };
+
   return (
     <>
       <div className={style.main}>
@@ -45,41 +61,57 @@ const Login = () => {
             <div className={style.centr}></div>
 
             <div className={style.thrItem}>
-              <div className={style.form}>
-                <div>
-                  <input
-                    className={style.enterEmail}
-                    type="text"
-                    placeholder="Enter Email"
-                    color="black"
-                  />
-                </div>
-
-                <div>
-                  <input
-                    className={style.password}
-                    type="password"
-                    placeholder="••••••••"
-                  />
-                </div>
-                <div>
-                  <p className={style.rec_pass}>Recover password ?</p>
-                </div>
-
-                <div>
-                  <button className={style.loginBtn}>Login</button>
-                </div>
-
-                <div className={style.notRegistered}>not registered?</div>
-                <div className={style.regs_here}>
-                  <p>
-                    <span>{`you can `}</span>
-                    <button className={style.register_Here2}>
-                      Register here!
+              <form className={style.form} onSubmit={() => {}}>
+                <input
+                  className={style.enterEmail}
+                  type="email"
+                  placeholder="Enter Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  refquired
+                ></input>
+                <input
+                  className={style.password}
+                  type="password"
+                  placeholder="••••••••"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                ></input>
+                {type === "signup" ? (
+                  <>
+                    <button onClick={clickSignup} className={style.loginBtn}>
+                      Signup
                     </button>
-                  </p>
-                </div>
-              </div>
+                    <div className={style.notRegistered}>
+                      already registered?
+                    </div>
+                    <div className={style.regs_here}>
+                      <p>
+                        <span>{`you can `}</span>
+                        <Link to="/login" className={style.register_Here2}>
+                          Login here!
+                        </Link>
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className={style.rec_pass}>Recover password ?</p>
+
+                    <button onClick={clickLogin} className={style.loginBtn}>
+                      Login
+                    </button>
+                    <div className={style.notRegistered}>not registered?</div>
+                    <div className={style.regs_here}>
+                      <p>
+                        <span>{`you can `}</span>
+                        <Link to="/signup" className={style.register_Here2}>
+                          Register here!
+                        </Link>
+                      </p>
+                    </div>
+                  </>
+                )}
+              </form>
             </div>
           </div>
         </div>
