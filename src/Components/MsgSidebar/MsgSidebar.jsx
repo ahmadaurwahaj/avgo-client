@@ -5,7 +5,7 @@ import msgbtn from "../../assets/icons/msgbtn.svg";
 import acnt from "../../assets/icons/acnt.svg";
 import icn from "../../assets/icons/icn.svg";
 import prof from "../../assets/icons/prof.svg";
-
+import vid from "../../assets/icons/vid.svg";
 
 
 const MsgSideBar = () => {
@@ -17,7 +17,7 @@ const MsgSideBar = () => {
 
       <div class={style.sidebar_middle}>
         <button class={style.sidebar_btn1}>
-          <img className={style.background_icon} alt="bg_img" src={vidbtn} />
+          <img className={style.background_icon} alt="bg_img" src={vid} />
         </button>
         <button class={style.sidebar_btn2}>
           <img className={style.background_icon} alt="bg_img" src={msgbtn} />

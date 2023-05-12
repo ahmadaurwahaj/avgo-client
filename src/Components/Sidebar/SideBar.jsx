@@ -1,14 +1,16 @@
 import React from "react";
 import style from "./SideBar.module.css";
 import vid from "../../assets/icons/vid.svg";
+import vidbtn from "../../assets/icons/vidbtn.svg";
 import msg from "../../assets/icons/msg.svg";
+import msgbtn from "../../assets/icons/msgbtn.svg";
 import acnt from "../../assets/icons/acnt.svg";
 import icn from "../../assets/icons/icn.svg";
 import prof from "../../assets/icons/prof.svg";
 
 
 
-const SideBar = () => {
+const SideBar = ({type}) => {
   return (
     <div class={style.sidebar}>
       <div class={style.sidebar_btn}>
@@ -16,12 +18,20 @@ const SideBar = () => {
       </div>
 
       <div class={style.sidebar_middle}>
-        <button class={style.sidebar_btn1}>
+        
+      {type === "videoCall" ?(<button class={style.sidebar_btn1}>
           <img className={style.background_icon} alt="bg_img" src={vid} />
-        </button>
-        <button class={style.sidebar_btn2}>
+        </button>):(<button class={style.sidebar_btn1}>
+          <img className={style.background_icon} alt="bg_img" src={vidbtn} />
+        </button>)}
+                
+        
+        {type === "message" ?(<button class={style.sidebar_btn2}>
           <img className={style.background_icon} alt="bg_img" src={msg} />
-        </button>
+        </button>):(<button class={style.sidebar_btn2}>
+          <img className={style.background_icon} alt="bg_img" src={msgbtn} />
+        </button>)}
+        
         <button class={style.sidebar_btn3}>
           <img className={style.background_icon} alt="bg_img" src={acnt} />
         </button>
