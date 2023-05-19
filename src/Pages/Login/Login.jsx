@@ -9,17 +9,12 @@ const Login = ({ type }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const clickLogin = e => {
+  const submitForm = e => {
     e.preventDefault();
     let item = { email, password };
     console.log("item", item);
-    navigate("/");
-  };
-  const clickSignup = e => {
-    e.preventDefault();
-    let item = { email, password };
-    console.log("item", item);
-    navigate("/register2");
+    if (type === "login") navigate("/");
+    else navigate("/register2");
   };
 
   return (
@@ -78,13 +73,13 @@ const Login = ({ type }) => {
             <div className={style.centr}></div>
 
             <div className={style.thrItem}>
-              <form className={style.form} onSubmit={() => {}}>
+              <form className={style.form} onSubmit={submitForm}>
                 <input
                   className={style.enterEmail}
                   type="email"
                   placeholder="Enter Email"
                   onChange={e => setEmail(e.target.value)}
-                  refquired
+                  required
                 ></input>
                 <input
                   className={style.password}
@@ -95,7 +90,7 @@ const Login = ({ type }) => {
                 ></input>
                 {type === "register" ? (
                   <>
-                    <button onClick={clickSignup} className={style.loginBtn}>
+                    <button type="submit" className={style.loginBtn}>
                       Register
                     </button>
                     <div className={style.notRegistered}>
@@ -114,7 +109,7 @@ const Login = ({ type }) => {
                   <>
                     <p className={style.rec_pass}>Recover password ?</p>
 
-                    <button onClick={clickLogin} className={style.loginBtn}>
+                    <button type="submit" className={style.loginBtn}>
                       Login
                     </button>
                     <div className={style.notRegistered}>not registered?</div>

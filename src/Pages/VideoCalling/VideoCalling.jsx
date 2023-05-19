@@ -41,7 +41,7 @@ function VideoCalling() {
               </button>
             </div>
           </div>
-          <div className={style.m_container}>p</div>
+          <div className={style.m_container}>Camera to go here </div>
 
           <div className={style.info}>
             <img
@@ -50,11 +50,10 @@ function VideoCalling() {
               src={info}
             />
             <p className={style.info_text}>
-              <span className={style.user_quota}>Quota of the day: </span>
+              <span className={style.user_quota}>Bio: </span>
               <br />
               <span className={style.user_infotext}>
-                Thank you everyone for joining the design critique meeting. I
-                want everyone's opinion so please start!
+                AI will change this world.
               </span>
             </p>
           </div>
