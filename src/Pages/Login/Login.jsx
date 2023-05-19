@@ -1,23 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import style from "./login.module.css";
+import { Link,useNavigate } from "react-router-dom";
+import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
 
 const Login = ({ type }) => {
-  console.log("type", type);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const clickLogin = (e) => {
+  const clickLogin = e => {
     e.preventDefault();
     let item = { email, password };
     console.log("item", item);
+    navigate("/");
   };
-  const clickSignup = (e) => {
+  const clickSignup = e => {
     e.preventDefault();
     let item = { email, password };
     console.log("item", item);
+    navigate("/");
   };
 
   return (
@@ -36,14 +38,13 @@ const Login = ({ type }) => {
 
               <div className={style.regHere}>
                 <p>
-                  <span>if you don't an account</span>
+                  <span>If you don't have an account</span>
                   <div className={style.bckColor}></div>
                 </p>
 
                 <p>
                   <span>{`you can `}</span>
                   <button className={style.register_here}>
-                    {" "}
                     Register here!
                   </button>
                 </p>
@@ -66,20 +67,20 @@ const Login = ({ type }) => {
                   className={style.enterEmail}
                   type="email"
                   placeholder="Enter Email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
                   refquired
                 ></input>
                 <input
                   className={style.password}
                   type="password"
                   placeholder="••••••••"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                   required
                 ></input>
-                {type === "signup" ? (
+                {type === "register" ? (
                   <>
                     <button onClick={clickSignup} className={style.loginBtn}>
-                      Signup
+                      Register
                     </button>
                     <div className={style.notRegistered}>
                       already registered?
@@ -104,7 +105,7 @@ const Login = ({ type }) => {
                     <div className={style.regs_here}>
                       <p>
                         <span>{`you can `}</span>
-                        <Link to="/signup" className={style.register_Here2}>
+                        <Link to="/register" className={style.register_Here2}>
                           Register here!
                         </Link>
                       </p>

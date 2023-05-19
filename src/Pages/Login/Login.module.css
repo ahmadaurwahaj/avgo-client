@@ -1,380 +1,376 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 100vh;
-    font-family: 'Gilroy';
-    background-color: #14162E;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Gilroy";
+  background-color: #14162e;
 }
 
 .innerMain {
-    width: 90%;
+  width: 90%;
 }
 
-
-
 .bottomContent {
-    display: flex;
-    width: 100%;
-    background-color: #14162E;
+  display: flex;
+  width: 100%;
+  background-color: #14162e;
 }
 
 .istItem {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30%;
-    background-color: #14162E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  background-color: #14162e;
 }
 
 .secItem {
-    display: flex;
-    width: 34%;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    background-color: #14162E;
+  display: flex;
+  width: 34%;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  background-color: #14162e;
 }
 
 .thrItem {
-    display: flex;
-    width: 35%;
-    flex-direction: column;
-    margin-left: 8px;
-    margin-top: 110px;
-    justify-content: center;
-    background-color: #14162E;
-    align-items: center;
+  display: flex;
+  width: 35%;
+  flex-direction: column;
+  margin-left: 8px;
+  margin-top: 110px;
+  justify-content: center;
+  background-color: #14162e;
+  align-items: center;
 }
 
 .form {
-    width: 100%;
-    display: flex;
-    align-self: flex-end;
-    flex-direction: column;
-    background-color: #14162E;
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  background-color: #14162e;
 }
 
 .centr {
-    width: 5%;
-    display: flex;
-    background-color: #14162E;
+  width: 5%;
+  display: flex;
+  background-color: #14162e;
 }
 
 .space {
-    width: 5%;
-    display: flex;
-    background-color: #14162E;
+  width: 5%;
+  display: flex;
+  background-color: #14162e;
 }
 
 .meetStrangers {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    font-size: 40px;
-    letter-spacing: 0.01em;
-    color: white;
-    font-family: 'Gilroy';
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 40px;
+  letter-spacing: 0.01em;
+  color: white;
+  font-family: "Gilroy";
 }
 
 .regHere {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: 77px;
-    font-family: 'Gilroy';
-    letter-spacing: 0.01em;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 77px;
+  font-family: "Gilroy";
+  letter-spacing: 0.01em;
+  color: white;
 }
 
 .bckColor {
-    width: 80px;
-    height: 80px;
-    background: #4461F2;
-    filter: blur(158.5px);
-    border-radius: 317px;
-    position: absolute;
-    top: 350px;
-    left: 268px;
+  width: 80px;
+  height: 80px;
+  background: #4461f2;
+  filter: blur(158.5px);
+  border-radius: 317px;
+  position: absolute;
+  top: 350px;
+  left: 268px;
 }
 
 .background_icon {
-    width: 80%;
+  width: 80%;
 }
 
 .bottom_content {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row-reverse;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
 }
 
 .enterEmail {
-    width: 100%;
-    height: 60px;
-    border-style: none;
-    margin-top: 1px;
-    margin-left: 1px;
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-    letter-spacing: 0.01em;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: 500px;
-    text-decoration: #4F555A;
-    background-color: #eaf0f7;
-    font-size: large;
-    font-family: 'Gilroy-Light', sans-serif;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: medium;
+  width: 100%;
+
+  height: 60px;
+  border-style: none;
+  margin-top: 1px;
+  margin-left: 1px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  letter-spacing: 0.01em;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500px;
+  text-decoration: #4f555a;
+  background-color: #eaf0f7;
+  font-size: large;
+  font-family: "Gilroy-Light", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: medium;
 }
 
-::placeholder {
-    color: black;
-    font-weight: 500;
-    font-size: 18px;
-    font-family: 'Gilroy';
-
+.password::placeholder,
+.enterEmail::placeholder {
+  color: black;
+  font-weight: 500;
+  font-size: medium;
+  font-family: "Gilroy";
+}
+.password::placeholder {
+  letter-spacing: 2px;
 }
 
 .password {
-    width: 100%;
-    height: 60px;
-    margin-bottom: 1px;
-    margin-left: 1px;
-    margin-top: 10px;
-    border-style: none;
-    background-color: #eaf0f7;
-    font-family: 'Gilroy-Light', sans-serif;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    font-size: medium;
-
+  width: 100%;
+  height: 60px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-top: 10px;
+  border-style: none;
+  background-color: #eaf0f7;
+  font-family: "Gilroy-Light", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  font-size: medium;
+  letter-spacing: 2px;
 }
 
 .rec_pass {
-
-    width: 100%;
-    color: #F6F6F6;
-    font-family: 'Gilroy';
-    display: flex;
-    justify-content: flex-end;
-    background-color: #14162E;
-    letter-spacing: 0.01em;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    height: 60px;
-    align-items: center;
+  width: 100%;
+  color: #f6f6f6;
+  font-family: "Gilroy";
+  display: flex;
+  justify-content: flex-end;
+  background-color: #14162e;
+  letter-spacing: 0.01em;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  height: 60px;
+  align-items: center;
 }
 
 .loginBtn {
-    width: 100%;
+  width: 100%;
 
-    padding: 20px;
-    height: 60px;
-    border-radius: 10px;
-    background-color: var(--color-mediumslateblue);
-    background-color: #4461f2;
-    color: rgb(255, 255, 255);
-    font-family: 'Gilroy';
-    letter-spacing: 0.01em;
-    font-style: bold;
-    font-weight: 500;
-    font-size: 19px;
-    cursor: pointer;
-    margin-top: 18px;
-    border-style: none;
-
+  padding: 20px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: var(--color-mediumslateblue);
+  background-color: #4461f2;
+  color: rgb(255, 255, 255);
+  font-family: "Gilroy";
+  letter-spacing: 0.01em;
+  font-style: bold;
+  font-weight: 500;
+  font-size: 19px;
+  cursor: pointer;
+  margin-top: 18px;
+  border-style: none;
 }
 
 .notRegistered {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    justify-content: center;
-    margin-top: 53px;
-    letter-spacing: 0.01em;
-    color: #F6F6F6;
-    font-family: 'Gilroy';
-    font-size: 14px;
-    font-weight: 500;
-    font-style: medium;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 33px;
+  margin-bottom: 23px;
 
+  letter-spacing: 0.01em;
+  color: #f6f6f6;
+  font-family: "Gilroy";
+  font-size: 14px;
+  font-weight: 500;
+  font-style: medium;
 }
 
-
 .notRegistered::before {
-
-    content: " ";
-    height: 1px;
-    width: 25%;
-    background: #DFDFDF;
-    position: relative;
-    right: 35px;
+  content: " ";
+  height: 1px;
+  width: 25%;
+  background: #dfdfdf;
+  position: relative;
+  right: 35px;
 }
 
 .notRegistered::after {
-
-    content: " ";
-    height: 1px;
-    width: 25%;
-    background: #DFDFDF;
-    position: relative;
-    left: 35px;
-
+  content: " ";
+  height: 1px;
+  width: 25%;
+  background: #dfdfdf;
+  position: relative;
+  left: 35px;
 }
 
 .regs_here {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    border: none;
-    color: white;
-    background-color: #14162E;
-
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+  color: white;
+  background-color: #14162e;
 }
 
 .you-can {
-    color: white;
-    font-size: large;
-    font-family: sans-serif;
+  color: white;
+  font-size: large;
+  font-family: sans-serif;
 }
 
 .you {
-    color: white;
+  color: white;
 }
 
 .register_here {
-    font-size: medium;
-    border: none;
-    color: #DCA82A;
-    background: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: 'Gilroy';
+  font-size: medium;
+  border: none;
+  color: #dca82a;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Gilroy";
 }
 
 .register_Here2 {
-    font-size: medium;
-    border: none;
-    background: none;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #DCA82A;
-    font-family: 'Gilroy';
-    cursor: pointer;
+  font-size: medium;
+  border: none;
+  background: none;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #dca82a;
+  font-family: "Gilroy";
+  cursor: pointer;
+  text-decoration: none;
 }
 
 @media (min-width: 1750px) and (max-width: 1920px) {
-    .enterEmail {
-        width: 400px;
-        height: 60px;
-    }
+  .enterEmail {
+    width: 400px;
+    height: 60px;
+  }
 
-    .password {
-        width: 400px;
-        height: 60px;
-        margin-top: 12px;
-    }
+  .password {
+    width: 400px;
+    height: 60px;
+    margin-top: 12px;
+  }
 
-    .form {
-        width: 400px;
-        font-weight: 500;
-        font-style: normal;
-        margin-right: 30px;
-        ;
-    }
+  .form {
+    width: 400px;
+    font-weight: 500;
+    font-style: normal;
+    margin-right: 30px;
+  }
 
-    .meetStrangers {
-        width: 607px;
-        height: 141px;
-        font-style: normal;
-        font-weight: 700;
-        margin-left: 60px;
-        font-size: 58px;
-    }
+  .meetStrangers {
+    width: 607px;
+    height: 141px;
+    font-style: normal;
+    font-weight: 700;
+    margin-left: 60px;
+    font-size: 58px;
+  }
 
-    .rec_pass {
-        font-style: medium;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 10%;
-    }
+  .rec_pass {
+    font-style: medium;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 10%;
+  }
 
-    .regHere {
-        width: 299px;
-        height: 63px;
-        font-style: normal;
-        font-weight: 500;
-        margin-left: 60px;
-        font-size: 23px;
-        line-height: 28px;
-    }
+  .regHere {
+    width: 299px;
+    height: 63px;
+    font-style: normal;
+    font-weight: 500;
+    margin-left: 60px;
+    font-size: 23px;
+    line-height: 28px;
+  }
 
-    .background_icon {
-        width: 545px;
-        height: 449px;
-    }
+  .background_icon {
+    width: 545px;
+    height: 449px;
+  }
 
-    .secItem {
-        margin-top: 138px;
-    }
+  .secItem {
+    margin-top: 138px;
+  }
 
-    .bckColor {
-        filter: blur(158.5px);
-        position: absolute;
-        top: 546px;
-        left: 350px;
-        width: 226px;
-        height: 226px;
-    }
+  .bckColor {
+    filter: blur(158.5px);
+    position: absolute;
+    top: 546px;
+    left: 350px;
+    width: 226px;
+    height: 226px;
+  }
 
-    .bottomContent {
-        margin-top: 100px;
-    }
+  .bottomContent {
+    margin-top: 100px;
+  }
 
-    .rightBar {
-        margin-right: 30px;
-        margin-top: 98px;
-    }
+  .rightBar {
+    margin-right: 30px;
+    margin-top: 98px;
+  }
 
-    .leftBar {
-        margin-left: 60px;
-        margin-top: 98px;
-    }
+  .leftBar {
+    margin-left: 60px;
+    margin-top: 98px;
+  }
 
-    .register_here {
-        font-weight: 700px;
-        font-size: 23px;
-        line-height: 28.47px;
-    }
+  .register_here {
+    font-weight: 700px;
+    font-size: 23px;
+    line-height: 28.47px;
+  }
 
-    .regs_here {
-        margin-top: 14px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 23px;
-        line-height: 28px
-    }
+  .regs_here {
+    margin-top: 14px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 28px;
+  }
 
-    .register_Here2 {
-        font-weight: 700px;
-        font-size: 24px;
-        line-height: 29.71px;
-    }
+  .register_Here2 {
+    font-weight: 700px;
+    font-size: 24px;
+    line-height: 29.71px;
+  }
 
-    .notRegistered {
-        line-height: 9%;
-    }
+  .notRegistered {
+    line-height: 9%;
+  }
 }

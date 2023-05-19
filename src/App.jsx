@@ -32,7 +32,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/signup" element={<Login type="signup" />} />
+        <Route path="/register" element={<Login type="register" />} />
 
         <Route
           path="/"

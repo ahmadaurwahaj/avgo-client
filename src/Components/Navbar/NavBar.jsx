@@ -19,17 +19,12 @@ const NavBar = () => {
             </select>
           </div>
 
-          {/* <div className={style.log}> */}
           <div>
-            <Link to="/login" className={style.login2}>
-              Login
-            </Link>
+            <button className={style.login2}>Login</button>
           </div>
-
-          {/* <div className={style.reg}> */}
           <div>
-            <Link to="/signup" className={style.register}>
-              Register
+            <Link to="/register" className={style.link}>
+              <button className={style.register}>Register</button>
             </Link>
           </div>
         </div>

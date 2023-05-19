@@ -1,90 +1,93 @@
 .mainNav {
-    width: 100%;
-    height: 42px;
-    margin-top: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Gilroy';
-    background-color: #14162E;
+  width: 100%;
+  height: 42px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Gilroy";
+  background-color: #14162e;
 }
 
 .leftBar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 20%;
-    height: 42px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 20%;
+  height: 42px;
 }
 
 .rightBar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
 }
 
 .logo {
-    color: white;
-    letter-spacing: 0.01em;
+  color: white;
+  letter-spacing: 0.01em;
 }
 
 .Language {
-    background-color: #14162E;
-    border: none;
-    font-family: 'Gilroy';
-    color: white;
-    cursor: pointer;
-    font-style: medium;
-    display: flex;
-    margin-right: 44px;
-    letter-spacing: 6%;
+  background-color: #14162e;
+  border: none;
+  font-family: "Gilroy";
+  color: white;
+  cursor: pointer;
+  font-style: medium;
+  display: flex;
+  margin-right: 44px;
+  letter-spacing: 6%;
 }
 
 .login2 {
-    background-color: #14162E;
-    border: none;
-    border-bottom: 2px solid #ffffff;
-    padding: 10px 0px;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    width: 49px;
-    /* height: 16px; */
-    margin-right: 44px;
-    text-decoration: none;
+  background-color: #14162e;
+  border: none;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  font-family: "Gilroy";
+  width: 49px;
+  height: 16px;
+  margin-right: 44px;
 }
 
-/* .login2::after {
-    content: " ";
-    display: block;
-    height: 2px;
-    width: 75%;
-    background-color: white;
-    position: relative;
-    top: 10px;
-    cursor: pointer;
-    margin-left: 18px;
-
-} */
-
+.login2::after {
+  content: " ";
+  display: block;
+  height: 2px;
+  width: 25%;
+  background-color: white;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+  margin-left: 18px;
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
 .register {
-    background-color: #ffffff;
-    color: #4562f2;
-    cursor: pointer;
-    padding: 15px 20px;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 100px;
-    /* width: 94px; */
-    /* height: 41px; */
-    text-decoration: none;
-
+  background-color: #ffffff;
+  color: #4562f2;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Gilroy";
+  border-radius: 21px;
+  padding: 4px 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 100px;
+  width: 94px;
+  height: 41px;
 }
 
 @media (min-width: 1750px) and (max-width: 1920px) {
-    .Language {
-        font-weight: 500;
-        font-size: 17px;
-    }
+  .Language {
+    font-weight: 500;
+    font-size: 17px;
+  }
 }
