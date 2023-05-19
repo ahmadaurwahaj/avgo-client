@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
@@ -19,34 +19,50 @@ const Login = ({ type }) => {
     e.preventDefault();
     let item = { email, password };
     console.log("item", item);
-    navigate("/");
+    navigate("/register2");
   };
 
   return (
     <>
       <div className={style.main}>
         <div className={style.innerMain}>
-          <NavBar />
+          <NavBar type={type} />
           <div className={style.bottomContent}>
             <div className={style.istItem}>
               <div className={style.meetStrangers}>
                 <b>
-                  <p>Sign In to</p>
+                  {type !== "register" ? <p>Sign In to</p> : <p>Register to</p>}
+
                   <p>Meet strangers</p>
                 </b>
               </div>
 
               <div className={style.regHere}>
                 <p>
-                  <span>If you don't have an account</span>
+                  {type !== "register" ? (
+                    <span>If you don't have an account</span>
+                  ) : (
+                    <span>If you have an account</span>
+                  )}
+
                   <div className={style.bckColor}></div>
                 </p>
 
                 <p>
                   <span>{`you can `}</span>
-                  <button className={style.register_here}>
-                    Register here!
-                  </button>
+                  {type !== "register" ? (
+                    <Link to="/register">
+                      <button className={style.register_here}>
+                        Register here!
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link to="/Login">
+                      <button className={style.register_here}>
+                        Login here!
+                      </button>
+                    </Link>
+                  )}
                 </p>
               </div>
             </div>

@@ -41,7 +41,7 @@
   letter-spacing: 6%;
 }
 
-.login2 {
+.underlinedBtn {
   background-color: #14162e;
   border: none;
   font-weight: 600;
@@ -50,10 +50,14 @@
   font-family: "Gilroy";
   width: 49px;
   height: 16px;
+}
+.right {
   margin-right: 44px;
 }
-
-.login2::after {
+.left {
+  margin-left: 44px;
+}
+.underlinedBtn::after {
   content: " ";
   display: block;
   height: 2px;
@@ -68,7 +72,7 @@
   text-decoration: none;
   color: white;
 }
-.register {
+.nonUnderlined {
   background-color: #ffffff;
   color: #4562f2;
   border: none;

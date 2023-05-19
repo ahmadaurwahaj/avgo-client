@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
 
-const NavBar = () => {
+const NavBar = ({ type }) => {
+  const navigate = useNavigate();
+  const nav = to => {
+    console.log(to, type);
+
+    if (to !== type) navigate(`/${to}`);
+  };
   return (
     <div>
       <nav className={style.mainNav}>
@@ -20,12 +26,28 @@ const NavBar = () => {
           </div>
 
           <div>
-            <button className={style.login2}>Login</button>
+            <button
+              className={
+                type !== "register"
+                  ? `${style.underlinedBtn} ${style.right}`
+                  : style.nonUnderlined
+              }
+              onClick={() => nav("login")}
+            >
+              Login
+            </button>
           </div>
           <div>
-            <Link to="/register" className={style.link}>
-              <button className={style.register}>Register</button>
-            </Link>
+            <button
+              className={
+                type !== "register"
+                  ? style.nonUnderlined
+                  : `${style.underlinedBtn} ${style.left}`
+              }
+              onClick={() => nav("register")}
+            >
+              Register
+            </button>
           </div>
         </div>
       </nav>
