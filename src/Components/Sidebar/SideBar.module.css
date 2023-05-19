@@ -22,16 +22,18 @@
   margin-top: 25px;
 }
 
-.sidebar_btn1 {
+.focused {
   width: 46px;
   height: 46px;
   background-color: #14162e;
   border: none;
   cursor: pointer;
   position: relative;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
-.sidebar_btn1::after {
+.focused::after {
   content: "";
   width: 2px;
   position: absolute;
@@ -41,22 +43,14 @@
   right: -14px;
 }
 
-.sidebar_btn2 {
+.non_focused {
   width: 21px;
   height: 18px;
-  margin-top: 50px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   border: none;
   cursor: pointer;
 
-  background-color: #14162e;
-}
-
-.sidebar_btn3 {
-  width: 16px;
-  height: 15.5px;
-  margin-top: 54px;
-  border: none;
-  cursor: pointer;
   background-color: #14162e;
 }
 
@@ -65,18 +59,6 @@
   cursor: pointer;
   background-color: #14162e;
   margin-bottom: 30px;
-}
-
-.sidebar_btn1:hover {
-  background-color: aqua;
-}
-
-.sidebar_btn2:hover {
-  background-color: aqua;
-}
-
-.sidebar_btn3:hover {
-  background-color: aqua;
 }
 
 .sidebar_middle {
@@ -97,7 +79,7 @@
     margin-bottom: 65px;
   }
 
-  .sidebar_btn1::after {
+  .focused::after {
     right: -28px;
   }
 }

@@ -1,11 +1,10 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./VideoCalling.module.css";
 import add1 from "../../assets/icons/add.svg";
 import nxt from "../../assets/icons/nxt.svg";
 import info from "../../assets/icons/info.svg";
-// import SideBar from "../../Components/Sidebar/SideBar";
+
 import SideBar from "../../Components/Sidebar/SideBar";
 import UserChat from "../../Components/UserChat/UserChat";
 function VideoCalling() {
@@ -14,7 +13,7 @@ function VideoCalling() {
       <div className={style.inner}>
         <div className={style.left_container}>
           <div>
-            <SideBar type="videoCall"/>
+            <SideBar type="videoCall" />
           </div>
         </div>
         <div className={style.mid_container}>
