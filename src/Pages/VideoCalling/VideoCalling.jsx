@@ -4,7 +4,7 @@ import style from "./VideoCalling.module.css";
 import add1 from "../../assets/icons/add.svg";
 import nxt from "../../assets/icons/nxt.svg";
 import info from "../../assets/icons/info.svg";
-
+import FaceDetection from "../../Components/FaceDetection/FaceDetection";
 import SideBar from "../../Components/Sidebar/SideBar";
 import UserChat from "../../Components/UserChat/UserChat";
 function VideoCalling() {
@@ -41,7 +41,9 @@ function VideoCalling() {
               </button>
             </div>
           </div>
-          <div className={style.m_container}>Camera to go here </div>
+          <div className={style.m_container}>
+            <FaceDetection />
+          </div>
 
           <div className={style.info}>
             <img

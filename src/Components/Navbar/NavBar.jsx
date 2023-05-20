@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
+import icn from "../../assets/icons/icn.svg";
 
 const NavBar = ({ type }) => {
   const navigate = useNavigate();
@@ -13,17 +14,19 @@ const NavBar = ({ type }) => {
     <div>
       <nav className={style.mainNav}>
         <div className={style.leftBar}>
-          <div className={style.logo}>Logo</div>
+          <div className={style.logo}>
+            <img src={icn} />
+          </div>
         </div>
         <div className={style.rightBar}>
           {/* <div className={style.lng}> */}
-          <div>
+          {/* <div>
             <select className={style.Language} id="language">
               <option value="eng">English</option>
               <option value="spa">Spanish</option>
               <option value="fre">French</option>
             </select>
-          </div>
+          </div> */}
 
           <div>
             <button
