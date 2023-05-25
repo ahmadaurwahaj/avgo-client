@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
+//import { signup } from "../../utils/api"; // API function to handle signup
+
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
@@ -9,7 +13,7 @@ const Login = ({ type }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitForm = e => {
+  const submitForm = (e) => {
     e.preventDefault();
     let item = { email, password };
     console.log("item", item);
@@ -78,14 +82,14 @@ const Login = ({ type }) => {
                   className={style.enterEmail}
                   type="email"
                   placeholder="Enter Email"
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 ></input>
                 <input
                   className={style.password}
                   type="password"
                   placeholder="••••••••"
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 ></input>
                 {type === "register" ? (
