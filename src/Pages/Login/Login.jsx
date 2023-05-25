@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useMutation } from "react-query";
@@ -57,6 +56,14 @@ const Login = ({ type }) => {
     else handleSignup.mutate({ email, password });
     // else navigate("/register2"); // todo: change this logic, its just temp.
   };
+
+  // const submitForm = (e) => {
+  //   e.preventDefault();
+  //   let item = { email, password };
+  //   console.log("item", item);
+  //   if (type === "login") navigate("/");
+  //   else navigate("/register2");
+  // };
 
   return (
     <>

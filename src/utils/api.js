@@ -1,7 +1,7 @@
-const API_BASE_URL = "https://api.example.com";
+const API_BASE_URL = "http://localhost:5173";
 
 export const signup = async (user) => {
-  const response = await fetch(`${API_BASE_URL}/signup`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1/users/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const signup = async (user) => {
 };
 
 export const login = async (user) => {
-  const response = await fetch(`${API_BASE_URL}/login`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1/users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
