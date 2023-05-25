@@ -1,25 +1,57 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useMutation } from "react-query";
-//import { signup } from "../../utils/api"; // API function to handle signup
+import { signup } from "../../utils/api";
+import { login } from "../../utils/api";
+import { setToken } from "../../redux/Slices/authSlice";
 
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
+import { sign } from "@tensorflow/tfjs";
 
 const Login = ({ type }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleLogin = useMutation(login, {
+    onSuccess: (data) => {
+      dispatch(setToken(data.token));
+      navigate("/");
+    },
+    onError: (error) => {
+      console.log("Login failed:", error);
+      // Show error message to the user
+    },
+  });
+
+  const handleSignup = useMutation(signup, {
+    onSuccess: (data) => {
+      dispatch(setToken(data.token));
+      navigate("/");
+    },
+    onError: (error) => {
+      console.log("Signup failed:", error);
+      // Show error message to the user
+    },
+  });
+
   const submitForm = (e) => {
     e.preventDefault();
-    let item = { email, password };
-    console.log("item", item);
-    if (type === "login") navigate("/");
-    else navigate("/register2");
+    if (type === "login") handleLogin.mutate({ email, password });
+    else handleSignup.mutate({ email, password });
   };
+
+  // const submitForm = (e) => {
+  //   e.preventDefault();
+  //   let item = { email, password };
+  //   console.log("item", item);
+  //   if (type === "login") navigate("/");
+  //   else navigate("/register2");
+  // };
 
   return (
     <>
