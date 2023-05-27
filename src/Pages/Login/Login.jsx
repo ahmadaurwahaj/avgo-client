@@ -57,14 +57,6 @@ const Login = ({ type }) => {
     // else navigate("/register2"); // todo: change this logic, its just temp.
   };
 
-  // const submitForm = (e) => {
-  //   e.preventDefault();
-  //   let item = { email, password };
-  //   console.log("item", item);
-  //   if (type === "login") navigate("/");
-  //   else navigate("/register2");
-  // };
-
   return (
     <>
       <div className={style.main}>
