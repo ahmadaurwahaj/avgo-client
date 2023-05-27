@@ -9,7 +9,6 @@ import { setToken } from "../../redux/Slices/authSlice";
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
-import { sign } from "@tensorflow/tfjs";
 
 const Login = ({ type }) => {
   const dispatch = useDispatch();
@@ -44,14 +43,6 @@ const Login = ({ type }) => {
     if (type === "login") handleLogin.mutate({ email, password });
     else handleSignup.mutate({ email, password });
   };
-
-  // const submitForm = (e) => {
-  //   e.preventDefault();
-  //   let item = { email, password };
-  //   console.log("item", item);
-  //   if (type === "login") navigate("/");
-  //   else navigate("/register2");
-  // };
 
   return (
     <>
