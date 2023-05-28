@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useMutation } from "react-query";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { signup } from "../../utils/api";
 import { login } from "../../utils/api";
 import { setToken } from "../../redux/Slices/authSlice";
@@ -16,6 +19,19 @@ const Login = ({ type }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const showErrorMsg = (msg) => {
+    toast.error(`${msg}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   const handleLogin = useMutation(login, {
     onSuccess: (data) => {
       dispatch(setToken(data.token));
@@ -24,17 +40,19 @@ const Login = ({ type }) => {
     onError: (error) => {
       console.log("Login failed:", error);
       // Show error message to the user
+      showErrorMsg(error);
     },
   });
 
   const handleSignup = useMutation(signup, {
     onSuccess: (data) => {
       dispatch(setToken(data.token));
-      navigate("/");
+      navigate("/register2");
     },
     onError: (error) => {
       console.log("Signup failed:", error);
       // Show error message to the user
+      showErrorMsg(error);
     },
   });
 
@@ -155,6 +173,7 @@ const Login = ({ type }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
