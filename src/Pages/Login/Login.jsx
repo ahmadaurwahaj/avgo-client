@@ -22,6 +22,19 @@ const Login = ({ type }) => {
   const [password, setPassword] = useState("");
   // let isLoggedIn = useSelector((state) => state?.user?.isLoggedIn);
 
+  const showErrorMsg = msg => {
+    toast.error(`${msg}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark"
+    });
+  };
+
   const handleLogin = useMutation(login, {
     onSuccess: data => {
       dispatch(setToken(data.token));
