@@ -6,16 +6,18 @@ import { store } from "./store";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "react-query";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <App />
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>
