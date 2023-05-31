@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useMutation } from "react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { signup } from "../../utils/api";
 import { login } from "../../utils/api";
 import { setToken } from "../../redux/Slices/authSlice";
+import { setIsLoggedIn, setName } from "../../redux/Slices/userSlice";
 
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
@@ -18,6 +19,9 @@ const Login = ({ type }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let isLoggedIn = useSelector((state) => state?.user?.isLoggedIn);
+  let name = useSelector((state) => state?.user?.name);
+  console.log("🚀 ~ file: Login.jsx:24 ~ Login ~ name:", name);
 
   const showErrorMsg = (msg) => {
     toast.error(`${msg}`, {
@@ -35,10 +39,16 @@ const Login = ({ type }) => {
   const handleLogin = useMutation(login, {
     onSuccess: (data) => {
       dispatch(setToken(data.token));
+      dispatch(setIsLoggedIn(true));
+      dispatch(setName("ALI")); // tesing
+      console.log("User logged in successfullys");
+      console.log("🚀 ~ file: Login.jsx:45 ~ Login ~ name:", name);
+
       navigate("/");
     },
     onError: (error) => {
       console.log("Login failed:", error);
+      dispatch(setIsLoggedIn(false));
       // Show error message to the user
       showErrorMsg(error);
     },
