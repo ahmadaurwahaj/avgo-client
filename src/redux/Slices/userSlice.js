@@ -10,11 +10,6 @@ const initialState = {
   country: "",
   age: 0,
   gender: "",
-  isLogout: false,
-};
-
-const userSlice = createSlice({
-  name: "user",
   initialState,
   reducers: {
     updateIsLoggedIn: (state, action) => {
