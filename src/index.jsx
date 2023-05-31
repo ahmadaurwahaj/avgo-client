@@ -7,6 +7,10 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore, persistReducer } from "redux-persist";
+
+let persistor = persistStore(store);
 
 const queryClient = new QueryClient();
 
@@ -16,7 +20,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
         <ReactQueryDevtools />
       </QueryClientProvider>
     </Provider>
