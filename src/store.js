@@ -1,9 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import thunk from "redux-thunk";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import authReducer from "./redux/Slices/authSlice";
+import userReducer from "./redux/Slices/userSlice";
 
 const persistConfig = {
   key: "root",
@@ -12,14 +23,22 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  user: userReducer,
   // more reducers here
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  // reducer: rootReducer,
   reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: [thunk],
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: {
+  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  //     },
+  //   }),
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(queryClient.middleware),
 });
 
