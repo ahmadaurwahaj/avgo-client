@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   /* margin: 15px; */
-  margin: 15px 0px 18px 32px;
+  /* margin: 15px 0px 18px 32px; */
+  margin: 4px 8px 12px 34px;
   /* margin: 15px 0px 18px 18px; */
   font-size: 10px;
 }
