@@ -40,13 +40,17 @@ function App() {
         <Route
           path="/"
           exact
-          element={isLoggedIn ? <VideoCalling /> : <Login />}
+          // element={isLoggedIn ? <VideoCalling /> : <Login />}
+          element={
+            isLoggedIn ? <Navigate to="videocall" /> : <Navigate to="login" />
+          }
         />
         <Route
           path="/login"
           exact
           // element={<Login type="login" />}
           element={isLoggedIn ? <VideoCalling /> : <Login type="login" />}
+          // element={isLoggedIn ? <Navigate to="/videocall" /> : <Navigate to="/login" />} // TODO: fix this, it should navigagte to the url rather than shwoing the component
         />
 
         <Route path="*" element={<Navigate to="/" />} />

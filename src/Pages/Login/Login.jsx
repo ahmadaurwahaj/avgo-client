@@ -40,8 +40,8 @@ const Login = ({ type }) => {
     onSuccess: (data) => {
       dispatch(setToken(data.token));
       dispatch(setIsLoggedIn(true));
-      dispatch(setName("ALI")); // tesing
-      console.log("User logged in successfullys");
+      // dispatch(setName("ALI")); // tesing
+      console.log("User logged in successfully");
       console.log("🚀 ~ file: Login.jsx:45 ~ Login ~ name:", name);
 
       navigate("/");
