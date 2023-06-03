@@ -16,21 +16,21 @@ const AboutYou = () => {
   const [age, setAge] = useState(0);
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("");
-  const token = useSelector((state) => state?.auth?.token);
-  const id = useSelector((state) => state.user.id);
+  const token = useSelector(state => state?.auth?.token);
+  const id = useSelector(state => state.user.id);
 
   const handleSignup = useMutation(signup2, {
-    onSuccess: (data) => {
+    onSuccess: data => {
       dispatch(updateSignUpInfo({ bio, age, country, gender }));
       navigate("/");
     },
-    onError: (error) => {
+    onError: error => {
       console.log("Signup failed:", error);
       notifyError(error.message);
-    },
+    }
   });
 
-  const formHandler = (e) => {
+  const formHandler = e => {
     e.preventDefault();
     handleSignup.mutate({ id, bio, age, country, gender, token });
   };
@@ -52,7 +52,7 @@ const AboutYou = () => {
               required
               maxLength={100}
               value={bio}
-              onChange={(e) => setBio(e.target.value)}
+              onChange={e => setBio(e.target.value)}
             />
 
             <div className={style.bb}>
@@ -63,7 +63,7 @@ const AboutYou = () => {
                   className={style.country}
                   id="country"
                   required
-                  onChange={(e) => setCountry(e.target.value)}
+                  onChange={e => setCountry(e.target.value)}
                 >
                   <option value="null">Country</option>
                   <option value="pakistan">Pakistan</option>
@@ -81,7 +81,7 @@ const AboutYou = () => {
                   placeholder="Age"
                   required
                   value={age}
-                  onChange={(e) => setAge(e.target.value)}
+                  onChange={e => setAge(e.target.value)}
                 />
               </div>
             </div>
@@ -89,11 +89,11 @@ const AboutYou = () => {
               <label className={style.gender_h} htmlFor="id">
                 Gender:
               </label>
-              <label onChange={(e) => setGender(e.target.value)}>
+              <label onChange={e => setGender(e.target.value)}>
                 <input type="radio" name="gender" value="male" />
                 Male
               </label>
-              <label onChange={(e) => setGender(e.target.value)}>
+              <label onChange={e => setGender(e.target.value)}>
                 <input type="radio" name="gender" value="female" required />
                 Female
               </label>
