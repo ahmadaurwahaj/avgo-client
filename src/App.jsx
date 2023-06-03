@@ -49,7 +49,7 @@ function App() {
           path="/login"
           exact
           // element={<Login type="login" />}
-          element={isLoggedIn ? <VideoCalling /> : <Login type="login" />}
+          element={isLoggedIn ? <VideoCalling /> : <Login type="login" />} // todo: change this to the below line
           // element={isLoggedIn ? <Navigate to="/videocall" /> : <Navigate to="/login" />} // TODO: fix this, it should navigagte to the url rather than shwoing the component
         />
 
