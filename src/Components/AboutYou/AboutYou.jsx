@@ -5,7 +5,7 @@ import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSignUpInfo } from "../../redux/Slices/userSlice";
 
-import { signup2 } from "../../utils/authApi";
+import { signup2 } from "../../utils/api/authApi";
 
 const AboutYou = () => {
   const navigate = useNavigate();

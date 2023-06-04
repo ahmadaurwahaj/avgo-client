@@ -5,8 +5,8 @@ import { useMutation } from "react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { signup } from "../../utils/authApi";
-import { login } from "../../utils/authApi";
+import { signup } from "../../utils/api/authApi";
+import { login } from "../../utils/api/authApi";
 import { setToken } from "../../redux/Slices/authSlice";
 import { setIsLoggedIn, updateLoginInfo } from "../../redux/Slices/userSlice";
 
