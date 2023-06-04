@@ -5,8 +5,8 @@ import { useMutation } from "react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { signup } from "../../utils/api";
-import { login } from "../../utils/api";
+import { signup } from "../../utils/authApi";
+import { login } from "../../utils/authApi";
 import { setToken } from "../../redux/Slices/authSlice";
 import { setIsLoggedIn, updateLoginInfo } from "../../redux/Slices/userSlice";
 
@@ -21,7 +21,7 @@ const Login = ({ type }) => {
   const [password, setPassword] = useState("");
   // let isLoggedIn = useSelector((state) => state?.user?.isLoggedIn);
 
-  const showErrorMsg = (msg) => {
+  const notifyError = (msg) => {
     toast.error(`${msg}`, {
       position: "top-right",
       autoClose: 5000,
@@ -46,7 +46,7 @@ const Login = ({ type }) => {
       console.log("Login failed:", error);
       dispatch(setIsLoggedIn(false));
       // Show error message to the user
-      showErrorMsg(error);
+      notifyError(error);
     },
   });
 
@@ -58,8 +58,7 @@ const Login = ({ type }) => {
     },
     onError: (error) => {
       console.log("Signup failed:", error);
-      // Show error message to the user
-      showErrorMsg(error);
+      notifyError(error);
     },
   });
 

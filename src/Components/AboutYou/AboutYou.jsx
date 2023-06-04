@@ -5,7 +5,7 @@ import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSignUpInfo } from "../../redux/Slices/userSlice";
 
-import { signup2 } from "../../utils/api";
+import { signup2 } from "../../utils/authApi";
 
 const AboutYou = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const AboutYou = () => {
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("");
 
-  const showErrorMsg = (msg) => {
+  const notifyError = (msg) => {
     toast.error(`${msg}`, {
       position: "top-right",
       autoClose: 5000,
@@ -37,7 +37,7 @@ const AboutYou = () => {
     onError: (error) => {
       console.log("Signup failed:", error);
       // Show error message to the user
-      showErrorMsg(error);
+      notifyError(error);
     },
   });
 
