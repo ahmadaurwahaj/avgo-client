@@ -13,8 +13,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import authReducer from "./redux/Slices/authSlice";
-import userReducer from "./redux/Slices/userSlice";
+import authReducer from "./Slices/authSlice";
+import userReducer from "./Slices/userSlice";
 
 const persistConfig = {
   key: "root",
