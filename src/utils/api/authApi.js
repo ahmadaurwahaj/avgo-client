@@ -11,12 +11,11 @@ export const signup = async (user) => {
 };
 
 export const signup2 = async (user) => {
+  console.log("🚀 ~ file: authApi.js:14 ~ signup2 ~ user:", user);
   try {
-    const token = useSelector((state) => state?.auth?.token);
-    console.log("🚀 ~ file: authApi.js:20 ~ signup2 ~ token:", token);
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${user?.token}`,
     };
 
     const response = await axios.post(`/api/v1/users/${user.id}`, user, {

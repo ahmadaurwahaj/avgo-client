@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSignUpInfo } from "../../redux/Slices/userSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { signup2 } from "../../utils/api/authApi";
 
@@ -15,6 +17,8 @@ const AboutYou = () => {
   const [age, setAge] = useState(0);
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("");
+  const token = useSelector((state) => state?.auth?.token);
+  const id = useSelector((state) => state.user.id);
 
   const notifyError = (msg) => {
     toast.error(`${msg}`, {
@@ -36,14 +40,13 @@ const AboutYou = () => {
     },
     onError: (error) => {
       console.log("Signup failed:", error);
-      // Show error message to the user
       notifyError(error);
     },
   });
 
   const formHandler = (e) => {
     e.preventDefault();
-    handleSignup.mutate({ bio, age, country, gender });
+    handleSignup.mutate({ id, bio, age, country, gender, token });
   };
 
   return (
@@ -117,6 +120,7 @@ const AboutYou = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };
