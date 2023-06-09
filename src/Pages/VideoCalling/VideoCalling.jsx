@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./VideoCalling.module.css";
 import add1 from "../../assets/icons/add.svg";
@@ -8,6 +8,8 @@ import FaceDetection from "../../Components/FaceDetection/FaceDetection";
 import SideBar from "../../Components/Sidebar/SideBar";
 import UserChat from "../../Components/UserChat/UserChat";
 function VideoCalling() {
+  const [cameraAllowed, setCameraAllowed] = useState(false);
+  const [faceDetectionRunning, setFaceDetectionRunning] = useState(false);
   return (
     <div className={style.main}>
       <div className={style.inner}>
@@ -16,57 +18,71 @@ function VideoCalling() {
             <SideBar type="videoCall" />
           </div>
         </div>
+
         <div className={style.mid_container}>
-          <div className={style.top}>
-            <div className={style.left_innercontainer}>
-              <div>
-                <button className={style.navbar_buttons_left}>
+          {cameraAllowed && faceDetectionRunning && (
+            <div className={style.top}>
+              <div className={style.left_innercontainer}>
+                <div>
+                  <button className={style.navbar_buttons_left}>
+                    <img
+                      className={style.background_icon}
+                      alt="bg_img"
+                      src={nxt}
+                    />
+                  </button>
+                </div>
+                <div className={style.name}>Peter</div>
+              </div>
+
+              <div className={style.navbar_buttons_right}>
+                <button className={style.add_btn}>
                   <img
                     className={style.background_icon}
                     alt="bg_img"
-                    src={nxt}
+                    src={add1}
                   />
                 </button>
               </div>
-              <div className={style.name}>Peter</div>
             </div>
-
-            <div className={style.navbar_buttons_right}>
-              <button className={style.add_btn}>
-                <img
-                  className={style.background_icon}
-                  alt="bg_img"
-                  src={add1}
-                />
-              </button>
-            </div>
-          </div>
+          )}
           <div className={style.m_container}>
-            <FaceDetection />
-          </div>
-
-          <div className={style.info}>
-            <img
-              className={style.background_infoicon}
-              alt="bg_img"
-              src={info}
+            {(!cameraAllowed || !faceDetectionRunning) && (
+              <h1 className={style.loadingText}>
+                Loading necessary resources...
+              </h1>
+            )}
+            <FaceDetection
+              setCameraAllowed={setCameraAllowed}
+              setFaceDetectionRunning={setFaceDetectionRunning}
+              faceDetectionRunning={faceDetectionRunning}
             />
-            <p className={style.info_text}>
-              <span className={style.user_quota}>Bio: </span>
-              <br />
-              <span className={style.user_infotext}>
-                AI will change this world.
-              </span>
-            </p>
           </div>
+          {cameraAllowed && faceDetectionRunning && (
+            <div className={style.info}>
+              <img
+                className={style.background_infoicon}
+                alt="bg_img"
+                src={info}
+              />
+              <div className={style.info_text}>
+                <span className={style.user_quota}>Bio: </span>
+                <br />
+                <span className={style.user_infotext}>
+                  AI will change this world.
+                </span>
+              </div>
+            </div>
+          )}
         </div>
-
-        <div className={style.right_container}>
-          <div className={style.space_bar}></div>
-          <div>
-            <UserChat />
+        {cameraAllowed && faceDetectionRunning && (
+          <div className={style.right_container}>
+            <div className={style.space_bar}></div>
+            <div>
+              <UserChat />
+            </div>
           </div>
-        </div>
+        )}
         <div className={style.space_baar}></div>
       </div>
     </div>

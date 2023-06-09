@@ -6,7 +6,12 @@ import * as faceLandmarksDetection from "@tensorflow-models/face-landmarks-detec
 // import '@tensorflow/tfjs-backend-cpu';
 import "@tensorflow/tfjs-backend-webgl";
 
-export const runDetector = async (video, canvasRef) => {
+export const runDetector = async (
+  video,
+  canvasRef,
+  setFaceDetectionRunning,
+  faceDetectionRunning
+) => {
   const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
   const detectorConfig = {
     runtime: "tfjs",
@@ -16,9 +21,9 @@ export const runDetector = async (video, canvasRef) => {
     model,
     detectorConfig
   );
-  console.log("detecting");
+
   const detect = async net => {
-    console.log("Here detecting");
+    if (!faceDetectionRunning) setFaceDetectionRunning(true);
     const estimationConfig = { flipHorizontal: false };
     const faces = await net.estimateFaces(video, estimationConfig);
     console.log("Faces:", faces);
@@ -38,13 +43,23 @@ const videoConstraints = {
   facingMode: "user"
 };
 
-function FaceDetection() {
+function FaceDetection({
+  setCameraAllowed,
+  setFaceDetectionRunning,
+  faceDetectionRunning
+}) {
   const [loaded, setLoaded] = useState(false);
   const handleVideoLoad = (videoNode, canvasRef) => {
     const video = videoNode.target;
     if (video.readyState !== 4) return;
     if (loaded) return;
-    runDetector(video, canvasRef); //running detection on video
+    setCameraAllowed(true);
+    runDetector(
+      video,
+      canvasRef,
+      setFaceDetectionRunning,
+      faceDetectionRunning
+    ); //running detection on video
 
     setLoaded(true);
   };
@@ -59,6 +74,7 @@ function FaceDetection() {
         videoConstraints={videoConstraints}
         ref={webcamRef}
         onLoadedData={e => handleVideoLoad(e, webcamRef)}
+        mirrored={true}
       />
       <canvas
         ref={canvasRef}
