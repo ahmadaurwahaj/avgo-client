@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import style from "./VideoCalling.module.css";
 import add1 from "../../assets/icons/add.svg";
@@ -7,9 +7,124 @@ import info from "../../assets/icons/info.svg";
 import FaceDetection from "../../Components/FaceDetection/FaceDetection";
 import SideBar from "../../Components/Sidebar/SideBar";
 import UserChat from "../../Components/UserChat/UserChat";
+import io from "socket.io-client";
+import { Peer } from "peerjs";
+import { useSelector } from "react-redux";
+const socket = io(`http://localhost:3300`);
 function VideoCalling() {
   const [cameraAllowed, setCameraAllowed] = useState(false);
-  const [faceDetectionRunning, setFaceDetectionRunning] = useState(false);
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [faceDetectionRunning, setFaceDetectionRunning] = useState(true);
+  const [userConnected, setUserConnected] = useState(null);
+  const [messageInput, setMessageInput] = useState("");
+  const [roomIdOtherUser, setRoomIdOtherUser] = useState("");
+  const [message, setMessage] = useState([]);
+  const [mystream, setMystream] = useState(null);
+  const [peerId, setpeerId] = useState(null);
+  const [otherpeerId, setotherpeerId] = useState(null);
+  const [roomStatus, setRoomStatus] = useState({
+    connected: false,
+    message: ""
+  });
+  const peerInstance = useRef(null);
+  const [otherStream, setOtherStream] = useState(null);
+  const user = useSelector(state => state?.user);
+  useEffect(() => {
+    console.log("BEFORE", socket.id);
+    socket.on("connect", () => {});
+
+    // const peer = new Peer("", {
+    //   host: "0.peerjs.com",
+    //   port: 443,
+    //   path: "/",
+    //   pingInterval: 5000
+    // });
+    // peerInstance.current = peer;
+    // peer.on("open", id => {
+    //   console.log(id);
+    //   setpeerId(id);
+    //   socket.on("ack", d => {
+    //     console.log("PEER ID", id);
+    //     socket.emit("privateRoom", {
+    //       room: "private room",
+    //       peerId: id
+    //     });
+    //   });
+    // });
+    socket.on("ack", id => {
+      console.log("PEER ID", id);
+      socket.emit("privateRoom", {
+        room: "private room"
+        // peerId: id
+      });
+    });
+    socket.on("wait", ({ message }) => {
+      console.log(message);
+      setRoomStatus({ connected: false, message });
+    });
+    socket.on("private ack", data => {
+      setRoomIdOtherUser(data.roomID);
+    });
+    socket.on("toast", ({ message }) => {
+      console.log("USER CONNECTED");
+      setRoomStatus({ connected: true, message });
+    });
+    socket.on("newMessage", data => {
+      const messObj = {
+        message: data.message.encryptedMessage,
+        senderId: data.senderId
+      };
+      setMessage(prevArray => [...prevArray, messObj]);
+      //msgs.insertAdjacentHTML("beforeend", template);
+      //let height = msgs.offsetHeight;
+      //window.scroll(0, height);
+    });
+    // socket.on("init-call", async ({ pId }) => {
+    //   console.log("CONNECTED, init-call", pId);
+    //   const stream = await navigator.mediaDevices.getUserMedia({
+    //     video: true,
+    //     audio: true
+    //   });
+    //   const call = peer.call(pId, stream);
+    //   call.on("stream", remoteStream => {
+    //     setOtherStream(remoteStream);
+    //   });
+
+    /*const call = peerInstance.current.call(pId, mystream);
+      console.log(typeof peer.call(pId, mystream));
+      call.on("stream", remoteStream => {
+        setOtherStream(remoteStream);
+      });*/
+    // });
+    // peer.on("call", async call => {
+    //   const stream = await navigator.mediaDevices.getUserMedia({
+    //     video: true,
+    //     audio: true
+    //   });
+    //   call.answer(stream);
+
+    //   call.on("stream", remoteStream => {
+    //     setOtherStream(remoteStream);
+    //   });
+    // });
+    // socket.on("disconnect", () => {
+    //   setIsConnected(false);
+    // });
+
+    return () => {
+      socket.off("connect");
+      socket.off("ack");
+      socket.off("private ack");
+      socket.off("wait");
+      socket.off("toast");
+      socket.off("newMessage");
+
+      socket.off("disconnect");
+      // peer.off("open");
+      // peer.off("call");
+    };
+  }, []);
+
   return (
     <div className={style.main}>
       <div className={style.inner}>
@@ -79,7 +194,13 @@ function VideoCalling() {
           <div className={style.right_container}>
             <div className={style.space_bar}></div>
             <div>
-              <UserChat />
+              {roomStatus?.connected && (
+                <UserChat
+                  message={message}
+                  socket={socket}
+                  roomID={roomIdOtherUser}
+                />
+              )}
             </div>
           </div>
         )}
