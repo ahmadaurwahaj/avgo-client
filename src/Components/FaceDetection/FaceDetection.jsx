@@ -12,6 +12,7 @@ export const runDetector = async (
   setFaceDetectionRunning,
   faceDetectionRunning
 ) => {
+  console.log("here in detector\n");
   const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
   const detectorConfig = {
     runtime: "tfjs",
@@ -28,7 +29,7 @@ export const runDetector = async (
     const faces = await net.estimateFaces(video, estimationConfig);
     console.log("Faces:", faces);
 
-    detect(detector);
+    // detect(detector);
   };
   detect(detector);
 };
