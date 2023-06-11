@@ -60,6 +60,7 @@ function VideoCalling() {
         // peerId: id
       });
     });
+
     socket.on("wait", ({ message }) => {
       console.log(message);
       setRoomStatus({ connected: false, message });
