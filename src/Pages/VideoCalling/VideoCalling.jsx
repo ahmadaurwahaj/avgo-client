@@ -31,7 +31,9 @@ function VideoCalling() {
   const user = useSelector(state => state?.user);
   useEffect(() => {
     console.log("BEFORE", socket.id);
-    socket.on("connect", () => {});
+    socket.on("connect", () => {
+      socket.emit("setUserData", { ...user });
+    });
 
     // const peer = new Peer("", {
     //   host: "0.peerjs.com",
@@ -58,6 +60,7 @@ function VideoCalling() {
         // peerId: id
       });
     });
+
     socket.on("wait", ({ message }) => {
       console.log(message);
       setRoomStatus({ connected: false, message });
@@ -65,9 +68,10 @@ function VideoCalling() {
     socket.on("private ack", data => {
       setRoomIdOtherUser(data.roomID);
     });
-    socket.on("toast", ({ message }) => {
+    socket.on("toast", ({ message, userData }) => {
       console.log("USER CONNECTED");
       setRoomStatus({ connected: true, message });
+      setUserConnected(userData);
     });
     socket.on("newMessage", data => {
       const messObj = {
@@ -147,7 +151,7 @@ function VideoCalling() {
                     />
                   </button>
                 </div>
-                <div className={style.name}>Peter</div>
+                <div className={style.name}>{userConnected?.name}</div>
               </div>
 
               <div className={style.navbar_buttons_right}>
@@ -184,7 +188,7 @@ function VideoCalling() {
                 <span className={style.user_quota}>Bio: </span>
                 <br />
                 <span className={style.user_infotext}>
-                  AI will change this world.
+                  {userConnected?.bio}
                 </span>
               </div>
             </div>
