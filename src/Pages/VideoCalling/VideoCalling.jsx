@@ -115,7 +115,11 @@ function VideoCalling() {
     // socket.on("disconnect", () => {
     //   setIsConnected(false);
     // });
-
+    socket.on("alone", () => {
+      setRoomStatus({ ...roomStatus, connected: false });
+      setUserConnected(null);
+      socket.emit("setUserData", { ...user });
+    });
     return () => {
       socket.off("connect");
       socket.off("ack");
@@ -123,8 +127,11 @@ function VideoCalling() {
       socket.off("wait");
       socket.off("toast");
       socket.off("newMessage");
+      // socket.emit("disconnect", () => {
+      //   setIsConnected(false);
+      // });
 
-      socket.off("disconnect");
+      socket.off("alone");
       // peer.off("open");
       // peer.off("call");
     };
