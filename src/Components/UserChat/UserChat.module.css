@@ -32,6 +32,13 @@
   flex-grow: 1;
   overflow-y: auto;
 }
+.upercontent::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+.upercontent {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
 
 .spc {
   width: 100%;

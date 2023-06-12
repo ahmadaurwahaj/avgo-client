@@ -6,15 +6,18 @@ import sicon from "../../assets/icons/share.svg";
 import sendicon from "../../assets/icons/send.svg";
 import MsgRow from "../MsgRow/MsgRow";
 import OurMsgRow from "../OurMsgRow/OurMsgRow";
-
+import { useSelector } from "react-redux";
 const UserChat = ({ message, socket, roomID }) => {
+  const user = useSelector(state => state?.user);
   const [messageInput, setMessageInput] = useState("");
-  const sendMessage = () => {
+  const sendMessage = e => {
+    e.preventDefault();
     if (messageInput !== "") {
       console.log("Sending Message");
       socket.emit("sendMessage", {
         room: roomID,
-        encryptedMessage: messageInput
+        encryptedMessage: messageInput,
+        senderId: user?.name
       });
       setMessageInput("");
     }
@@ -31,10 +34,10 @@ const UserChat = ({ message, socket, roomID }) => {
         <div className={style.chat_content}>
           <div className={style.upercontent}>
             {message?.map((data, index) =>
-              socket?.id === data.senderId ? (
-                <OurMsgRow textmsg={data?.message} key={index} />
+              user?.name === data.senderId ? (
+                <OurMsgRow msg={data} key={index} />
               ) : (
-                <MsgRow textmsg={data?.message} key={index} />
+                <MsgRow msg={data} key={index} />
               )
             )}
             {/* <div className={style.msg_row}>
@@ -49,27 +52,29 @@ const UserChat = ({ message, socket, roomID }) => {
           </div>
 
           <div className={style.spc}>
-            <div className={style.typing}>
+            {/* <div className={style.typing}>
               <img className={style.background_icon} alt="bg_img" src={ticon} />
               <p className={style.p_typing}>peter is typing..</p>
-            </div>
+            </div> */}
             <div className={style.message_bar}>
               {/* <button className={style.share_btn}>
                 <img className={style.background_i} alt="bg_img" src={sicon} />
               </button> */}
-              <input
-                type="text"
-                placeholder="Write message here"
-                value={messageInput}
-                onChange={e => setMessageInput(e.target.value)}
-              />
-              <button className={style.send_btn} onClick={sendMessage}>
-                <img
-                  className={style.background_ic}
-                  alt="bg_img"
-                  src={sendicon}
+              <form onSubmit={sendMessage}>
+                <input
+                  type="text"
+                  placeholder="Write message here"
+                  value={messageInput}
+                  onChange={e => setMessageInput(e.target.value)}
                 />
-              </button>
+                <button type="submit" className={style.send_btn}>
+                  <img
+                    className={style.background_ic}
+                    alt="bg_img"
+                    src={sendicon}
+                  />
+                </button>
+              </form>
             </div>
           </div>
         </div>
