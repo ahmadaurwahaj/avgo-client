@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./OurMsgRow.module.css";
 
-const OurMsgRow = ({ textmsg }) => {
+const OurMsgRow = ({ msg }) => {
   return (
     <div className={`${style.msg_row} ${style.msg_row2}`}>
       <div className={style.msg_text}>
@@ -9,7 +9,7 @@ const OurMsgRow = ({ textmsg }) => {
           <div className={style.para_text}>
             <p className={style.yourname}>You</p>
             <p className={style.your_text}>
-              {textmsg}
+              {msg?.message}
               <span style={{ fontSize: "6px" }}>
                 &nbsp;&nbsp;&nbsp;&nbsp;12:00 pm
               </span>

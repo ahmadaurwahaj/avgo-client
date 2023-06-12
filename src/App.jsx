@@ -5,7 +5,7 @@ import { PrivateRoute } from "./utils/PrivateRoutes";
 import { useSelector } from "react-redux";
 
 function App() {
-  const isLoggedIn = useSelector((state) => state?.user?.isLoggedIn);
+  const isLoggedIn = useSelector(state => state?.user?.isLoggedIn);
   const userInfo = "Hello";
   return (
     <BrowserRouter>
@@ -50,7 +50,7 @@ function App() {
           exact
           // element={<Login type="login" />}
           element={isLoggedIn ? <VideoCalling /> : <Login type="login" />} // todo: change this to the below line
-          // element={isLoggedIn ? <Navigate to="/videocall" /> : <Navigate to="/login" />} // TODO: fix this, it should navigagte to the url rather than shwoing the component
+          // element={isLoggedIn && <Navigate to="videocall" />} // TODO: fix this, it should navigagte to the url rather than shwoing the component
         />
 
         <Route path="*" element={<Navigate to="/" />} />

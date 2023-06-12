@@ -68,10 +68,11 @@ function VideoCalling() {
     socket.on("private ack", data => {
       setRoomIdOtherUser(data.roomID);
     });
-    socket.on("toast", ({ message, userData }) => {
-      console.log("USER CONNECTED");
+    socket.on("toast", ({ message, user1, user2 }) => {
+      console.log("USER CONNECTED", user1);
       setRoomStatus({ connected: true, message });
-      setUserConnected(userData);
+      if (user1?.id === user?.id) setUserConnected(user2);
+      else setUserConnected(user1);
     });
     socket.on("newMessage", data => {
       const messObj = {
