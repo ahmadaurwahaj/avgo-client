@@ -13,9 +13,6 @@ import { useDispatch } from "react-redux";
 
 function Settings() {
   const dispatch = useDispatch();
-  const handleLogout = () => {
-    console.log("Hello logout function");
-  };
 
   return (
     <div className={style.main}>
@@ -30,11 +27,7 @@ function Settings() {
               <button className={style.set_btn}> Setting</button>
               <button
                 className={style.logout_btn}
-                // onClick={handleLogout()}
                 onClick={() => {
-                  console.log("Handle Logut call");
-                  // dispatch(setIsLogout(true));
-                  // dispatch(setIsLoggedIn(false));
                   dispatch(clearUser());
                 }}
               >
