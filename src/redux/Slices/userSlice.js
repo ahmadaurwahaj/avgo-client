@@ -10,6 +10,7 @@ const initialState = {
   country: "",
   age: 0,
   gender: "",
+  isLogout: false,
 };
 
 const userSlice = createSlice({
@@ -40,6 +41,9 @@ const userSlice = createSlice({
     setGender: (state, action) => {
       state.gender = action.payload;
     },
+    setIsLogout: (state, action) => {
+      state.isLogout = action.payload;
+    },
 
     updateSignUpInfo: (state, action) => {
       const { bio, age, country, gender } = action.payload;
@@ -47,6 +51,7 @@ const userSlice = createSlice({
       state.age = age;
       state.country = country;
       state.gender = gender;
+      state.isLogout = false;
     },
 
     updateLoginInfo: (state, action) => {
@@ -60,15 +65,20 @@ const userSlice = createSlice({
       state.country = country;
       state.gender = gender;
       state.isLoggedIn = true;
+      state.isLogout = false;
     },
 
     clearUser: (state) => {
+      state.id = "0";
       state.name = "";
       state.email = "";
       state.isLoggedIn = false;
       state.isSignup = false;
       state.bio = "";
       state.country = "";
+      state.age = 0;
+      state.gender = "";
+      state.isLogout = true;
     },
   },
 });
@@ -82,6 +92,7 @@ export const {
   setCountry,
   setAge,
   setGender,
+  setIsLogout,
   updateSignUpInfo,
   updateLoginInfo,
   clearUser,
