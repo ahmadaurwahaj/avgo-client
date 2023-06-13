@@ -8,6 +8,8 @@
 }
 .m_container {
   color: white;
+  background: green;
+  height: 400px;
 }
 .main {
   display: flex;

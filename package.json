@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mantine/core": "^6.0.13",
+    "@react-three/drei": "^9.74.13",
+    "@react-three/fiber": "^8.13.3",
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query-devtools": "^4.29.11",
     "@tensorflow-models/face-landmarks-detection": "^1.0.2",
