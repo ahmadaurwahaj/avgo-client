@@ -35,32 +35,33 @@ function VideoCalling() {
       socket.emit("setUserData", { ...user });
     });
 
-    // const peer = new Peer("", {
-    //   host: "0.peerjs.com",
-    //   port: 443,
-    //   path: "/",
-    //   pingInterval: 5000
-    // });
-    // peerInstance.current = peer;
-    // peer.on("open", id => {
-    //   console.log(id);
-    //   setpeerId(id);
-    //   socket.on("ack", d => {
-    //     console.log("PEER ID", id);
-    //     socket.emit("privateRoom", {
-    //       room: "private room",
-    //       peerId: id
-    //     });
-    //   });
-    // });
+    const peer = new Peer("", {
+      host: "0.peerjs.com",
+      port: 443,
+      path: "/",
+      pingInterval: 5000
+    });
+    peerInstance.current = peer;
+    peer.on("open", id => {
+      console.log(id);
+      setpeerId(id);
+      socket.emit("peerInit", { peerId: id });
+      console.log("PEER INIT EMIT\n");
+      // socket.on("ack", d => {
+      //   console.log("PEER ID", id);
+      //   socket.emit("privateRoom", {
+      //     room: "private room",
+      //     peerId: id
+      //   });
+      // });
+    });
     socket.on("ack", id => {
-      console.log("PEER ID", id);
+      console.log("\nACKKKKK\n");
       socket.emit("privateRoom", {
-        room: "private room"
-        // peerId: id
+        room: "private room",
+        peerId: peerId
       });
     });
-
     socket.on("wait", ({ message }) => {
       console.log(message);
       setRoomStatus({ connected: false, message });
@@ -84,41 +85,47 @@ function VideoCalling() {
       //let height = msgs.offsetHeight;
       //window.scroll(0, height);
     });
-    // socket.on("init-call", async ({ pId }) => {
-    //   console.log("CONNECTED, init-call", pId);
-    //   const stream = await navigator.mediaDevices.getUserMedia({
-    //     video: true,
-    //     audio: true
-    //   });
-    //   const call = peer.call(pId, stream);
-    //   call.on("stream", remoteStream => {
-    //     setOtherStream(remoteStream);
-    //   });
-
-    /*const call = peerInstance.current.call(pId, mystream);
-      console.log(typeof peer.call(pId, mystream));
+    socket.on("init-call", async ({ pId }) => {
+      console.log("CONNECTED, init-call", pId);
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+      });
+      const call = peer.call(pId, stream);
+      console.log("Initiated call");
       call.on("stream", remoteStream => {
         setOtherStream(remoteStream);
-      });*/
-    // });
-    // peer.on("call", async call => {
-    //   const stream = await navigator.mediaDevices.getUserMedia({
-    //     video: true,
-    //     audio: true
-    //   });
-    //   call.answer(stream);
+        console.log(remoteStream);
+      });
+    });
 
-    //   call.on("stream", remoteStream => {
-    //     setOtherStream(remoteStream);
-    //   });
+    /*const call = peerInstance.current.call(pId, mystream);
+        console.log(typeof peer.call(pId, mystream));
+        call.on("stream", remoteStream => {
+          setOtherStream(remoteStream);
+        });*/
     // });
+    peer.on("call", async call => {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+      });
+      call.answer(stream);
+
+      call.on("stream", remoteStream => {
+        console.log(remoteStream);
+        setOtherStream(remoteStream);
+      });
+    });
     // socket.on("disconnect", () => {
     //   setIsConnected(false);
     // });
     socket.on("alone", () => {
       setRoomStatus({ ...roomStatus, connected: false });
       setUserConnected(null);
+      setMessage([]);
       socket.emit("setUserData", { ...user });
+      socket.emit("peerInit", { peerId: peerId });
     });
     return () => {
       socket.off("connect");
@@ -127,13 +134,10 @@ function VideoCalling() {
       socket.off("wait");
       socket.off("toast");
       socket.off("newMessage");
-      // socket.emit("disconnect", () => {
-      //   setIsConnected(false);
-      // });
-
       socket.off("alone");
-      // peer.off("open");
-      // peer.off("call");
+      socket.off("init-call");
+      peer.off("open");
+      peer.off("call");
     };
   }, []);
 
@@ -223,9 +227,3 @@ function VideoCalling() {
 }
 
 export default VideoCalling;
-
-{
-  /* <Link to="/video-calling">VideoCalling </Link>
-<Link to="/messages">Message </Link>
-<Link to="/settings">Settings </Link> */
-}

@@ -29,7 +29,7 @@ export const runDetector = async (
     const faces = await net.estimateFaces(video, estimationConfig);
     console.log("Faces:", faces);
 
-    // detect(detector);
+    detect(detector);
   };
   detect(detector);
 };
