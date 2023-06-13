@@ -10,10 +10,11 @@ import UserChat from "../../Components/UserChat/UserChat";
 import io from "socket.io-client";
 import { Peer } from "peerjs";
 import { useSelector } from "react-redux";
-const socket = io(`http://localhost:3300`);
+import AvatarRenderer from "../../Components/AvatarRenderer/AvatarRenderer";
+// const socket = io(`http://localhost:3300`);
 function VideoCalling() {
   const [cameraAllowed, setCameraAllowed] = useState(false);
-  const [isConnected, setIsConnected] = useState(socket.connected);
+  // const [isConnected, setIsConnected] = useState(socket.connected);
   const [faceDetectionRunning, setFaceDetectionRunning] = useState(true);
   const [userConnected, setUserConnected] = useState(null);
   const [messageInput, setMessageInput] = useState("");
@@ -29,117 +30,117 @@ function VideoCalling() {
   const peerInstance = useRef(null);
   const [otherStream, setOtherStream] = useState(null);
   const user = useSelector(state => state?.user);
-  useEffect(() => {
-    console.log("BEFORE", socket.id);
-    socket.on("connect", () => {
-      socket.emit("setUserData", { ...user });
-    });
+  // useEffect(() => {
+  //   console.log("BEFORE", socket.id);
+  //   socket.on("connect", () => {
+  //     socket.emit("setUserData", { ...user });
+  //   });
 
-    const peer = new Peer("", {
-      host: "0.peerjs.com",
-      port: 443,
-      path: "/",
-      pingInterval: 5000
-    });
-    peerInstance.current = peer;
-    peer.on("open", id => {
-      console.log(id);
-      setpeerId(id);
-      socket.emit("peerInit", { peerId: id });
-      console.log("PEER INIT EMIT\n");
-      // socket.on("ack", d => {
-      //   console.log("PEER ID", id);
-      //   socket.emit("privateRoom", {
-      //     room: "private room",
-      //     peerId: id
-      //   });
-      // });
-    });
-    socket.on("ack", id => {
-      console.log("\nACKKKKK\n");
-      socket.emit("privateRoom", {
-        room: "private room",
-        peerId: peerId
-      });
-    });
-    socket.on("wait", ({ message }) => {
-      console.log(message);
-      setRoomStatus({ connected: false, message });
-    });
-    socket.on("private ack", data => {
-      setRoomIdOtherUser(data.roomID);
-    });
-    socket.on("toast", ({ message, user1, user2 }) => {
-      console.log("USER CONNECTED", user1);
-      setRoomStatus({ connected: true, message });
-      if (user1?.id === user?.id) setUserConnected(user2);
-      else setUserConnected(user1);
-    });
-    socket.on("newMessage", data => {
-      const messObj = {
-        message: data.message.encryptedMessage,
-        senderId: data.senderId
-      };
-      setMessage(prevArray => [...prevArray, messObj]);
-      //msgs.insertAdjacentHTML("beforeend", template);
-      //let height = msgs.offsetHeight;
-      //window.scroll(0, height);
-    });
-    socket.on("init-call", async ({ pId }) => {
-      console.log("CONNECTED, init-call", pId);
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true
-      });
-      const call = peer.call(pId, stream);
-      console.log("Initiated call");
-      call.on("stream", remoteStream => {
-        setOtherStream(remoteStream);
-        console.log(remoteStream);
-      });
-    });
+  //   const peer = new Peer("", {
+  //     host: "0.peerjs.com",
+  //     port: 443,
+  //     path: "/",
+  //     pingInterval: 5000
+  //   });
+  //   peerInstance.current = peer;
+  //   peer.on("open", id => {
+  //     console.log(id);
+  //     setpeerId(id);
+  //     socket.emit("peerInit", { peerId: id });
+  //     console.log("PEER INIT EMIT\n");
+  //     // socket.on("ack", d => {
+  //     //   console.log("PEER ID", id);
+  //     //   socket.emit("privateRoom", {
+  //     //     room: "private room",
+  //     //     peerId: id
+  //     //   });
+  //     // });
+  //   });
+  //   socket.on("ack", id => {
+  //     console.log("\nACKKKKK\n");
+  //     socket.emit("privateRoom", {
+  //       room: "private room",
+  //       peerId: peerId
+  //     });
+  //   });
+  //   socket.on("wait", ({ message }) => {
+  //     console.log(message);
+  //     setRoomStatus({ connected: false, message });
+  //   });
+  //   socket.on("private ack", data => {
+  //     setRoomIdOtherUser(data.roomID);
+  //   });
+  //   socket.on("toast", ({ message, user1, user2 }) => {
+  //     console.log("USER CONNECTED", user1);
+  //     setRoomStatus({ connected: true, message });
+  //     if (user1?.id === user?.id) setUserConnected(user2);
+  //     else setUserConnected(user1);
+  //   });
+  //   socket.on("newMessage", data => {
+  //     const messObj = {
+  //       message: data.message.encryptedMessage,
+  //       senderId: data.senderId
+  //     };
+  //     setMessage(prevArray => [...prevArray, messObj]);
+  //     //msgs.insertAdjacentHTML("beforeend", template);
+  //     //let height = msgs.offsetHeight;
+  //     //window.scroll(0, height);
+  //   });
+  //   socket.on("init-call", async ({ pId }) => {
+  //     console.log("CONNECTED, init-call", pId);
+  //     const stream = await navigator.mediaDevices.getUserMedia({
+  //       video: true,
+  //       audio: true
+  //     });
+  //     const call = peer.call(pId, stream);
+  //     console.log("Initiated call");
+  //     call.on("stream", remoteStream => {
+  //       setOtherStream(remoteStream);
+  //       console.log(remoteStream);
+  //     });
+  //   });
 
-    /*const call = peerInstance.current.call(pId, mystream);
-        console.log(typeof peer.call(pId, mystream));
-        call.on("stream", remoteStream => {
-          setOtherStream(remoteStream);
-        });*/
-    // });
-    peer.on("call", async call => {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true
-      });
-      call.answer(stream);
+  //   /*const call = peerInstance.current.call(pId, mystream);
+  //       console.log(typeof peer.call(pId, mystream));
+  //       call.on("stream", remoteStream => {
+  //         setOtherStream(remoteStream);
+  //       });*/
+  //   // });
+  //   peer.on("call", async call => {
+  //     const stream = await navigator.mediaDevices.getUserMedia({
+  //       video: true,
+  //       audio: true
+  //     });
+  //     call.answer(stream);
 
-      call.on("stream", remoteStream => {
-        console.log(remoteStream);
-        setOtherStream(remoteStream);
-      });
-    });
-    // socket.on("disconnect", () => {
-    //   setIsConnected(false);
-    // });
-    socket.on("alone", () => {
-      setRoomStatus({ ...roomStatus, connected: false });
-      setUserConnected(null);
-      setMessage([]);
-      socket.emit("setUserData", { ...user });
-      socket.emit("peerInit", { peerId: peerId });
-    });
-    return () => {
-      socket.off("connect");
-      socket.off("ack");
-      socket.off("private ack");
-      socket.off("wait");
-      socket.off("toast");
-      socket.off("newMessage");
-      socket.off("alone");
-      socket.off("init-call");
-      peer.off("open");
-      peer.off("call");
-    };
-  }, []);
+  //     call.on("stream", remoteStream => {
+  //       console.log(remoteStream);
+  //       setOtherStream(remoteStream);
+  //     });
+  //   });
+  //   // socket.on("disconnect", () => {
+  //   //   setIsConnected(false);
+  //   // });
+  //   socket.on("alone", () => {
+  //     setRoomStatus({ ...roomStatus, connected: false });
+  //     setUserConnected(null);
+  //     setMessage([]);
+  //     socket.emit("setUserData", { ...user });
+  //     socket.emit("peerInit", { peerId: peerId });
+  //   });
+  //   return () => {
+  //     socket.off("connect");
+  //     socket.off("ack");
+  //     socket.off("private ack");
+  //     socket.off("wait");
+  //     socket.off("toast");
+  //     socket.off("newMessage");
+  //     socket.off("alone");
+  //     socket.off("init-call");
+  //     peer.off("open");
+  //     peer.off("call");
+  //   };
+  // }, []);
 
   return (
     <div className={style.main}>
@@ -178,17 +179,23 @@ function VideoCalling() {
             </div>
           )}
           <div className={style.m_container}>
-            {(!cameraAllowed || !faceDetectionRunning) && (
+            {/* {(!cameraAllowed || !faceDetectionRunning) && (
               <h1 className={style.loadingText}>
                 Loading necessary resources...
               </h1>
             )}
-            <FaceDetection
+               */}
+
+            <AvatarRenderer />
+            {/* <FaceDetection
               setCameraAllowed={setCameraAllowed}
               setFaceDetectionRunning={setFaceDetectionRunning}
               faceDetectionRunning={faceDetectionRunning}
-            />
+            /> */}
           </div>
+          {/* <div>
+          </div> */}
+
           {cameraAllowed && faceDetectionRunning && (
             <div className={style.info}>
               <img
