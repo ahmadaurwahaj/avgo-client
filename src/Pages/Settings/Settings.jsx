@@ -19,6 +19,7 @@ import {
   updateAge,
   updateCountry,
   updateGender,
+  updateBio,
 } from "../../redux/Slices/userSlice";
 
 import { notifyError } from "../../Components/NotifyError";
@@ -30,14 +31,16 @@ function Settings() {
   const token = useSelector((state) => state?.auth?.token);
   const id = useSelector((state) => state.user.id);
   const email = useSelector((state) => state.user.email);
+  const storeBio = useSelector((state) => state.user.bio);
 
-  const [bio, setBio] = useState("");
+  const [bio, setBio] = useState(storeBio);
   const [age, setAge] = useState(0);
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [editState, setEditState] = useState(false);
 
   const handleUpdatePassword = useMutation(updatePassword, {
     onSuccess: (data) => {
@@ -53,17 +56,27 @@ function Settings() {
       dispatch(updateCountry(country));
       dispatch(updateAge(age));
       dispatch(updateGender(gender));
-      alert("General Info Updated");
+      notifySuccess("General Info Updated");
     },
     onError: (error) => {
-      alert("General Info updation failed");
+      notifyError(error.message);
+    },
+  });
+
+  const handleBio = useMutation(updateGeneralInfo, {
+    onSuccess: (data) => {
+      dispatch(updateBio(bio));
+      notifySuccess("Bio data Updated");
+    },
+    onError: (error) => {
+      notifyError(error.message);
     },
   });
 
   const passwordFormHandler = (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
-      alert("New Passwords and Confirm Password do not match");
+      notifyError("New Passwords and Confirm Password do not match");
     } else {
       handleUpdatePassword.mutate({
         id,
@@ -78,6 +91,12 @@ function Settings() {
   const generalInfoFormHalder = (e) => {
     e.preventDefault();
     handleGeneralInfo.mutate({ id, age, country, gender, token });
+  };
+  const bioFormHalder = (e) => {
+    e.preventDefault();
+    setEditState(false);
+    dispatch(updateBio(bio));
+    handleBio.mutate({ id, bio, token });
   };
 
   return (
@@ -108,14 +127,41 @@ function Settings() {
                   <div className={style.left_userchat}>
                     <div className={style.inner_chat}>
                       <div>
-                        <EditBio textmsg="BIO will go down here no more than 100 words should go there" />
+                        {editState ? (
+                          <>
+                            <textarea
+                              className={style.Bio}
+                              type="text"
+                              placeholder="Not more than 100 Words"
+                              required
+                              maxLength={100}
+                              value={bio}
+                              onChange={(e) => setBio(e.target.value)}
+                            />
+                          </>
+                        ) : (
+                          <EditBio textmsg={bio} />
+                        )}
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className={style.right_side}>
-                  <button className={style.edit_btn}> edit</button>
+                  {!editState ? (
+                    <button
+                      className={style.edit_btn}
+                      onClick={() => {
+                        setEditState(true);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  ) : (
+                    <button className={style.edit_btn} onClick={bioFormHalder}>
+                      Update
+                    </button>
+                  )}
                 </div>
               </div>
 

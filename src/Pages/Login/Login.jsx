@@ -13,6 +13,7 @@ import { notifyError } from "../../Components/NotifyError";
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
 import illustration from "../../assets/Pic.svg";
+import { ToastContainer } from "react-toastify";
 
 const Login = ({ type }) => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Login = ({ type }) => {
       console.log("Login failed:", error);
       dispatch(updateIsLoggedIn(false));
       // Show error message to the user
-      notifyError(error);
+      notifyError(error.message);
     },
   });
 

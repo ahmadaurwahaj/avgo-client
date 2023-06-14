@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateSignUpInfo } from "../../redux/Slices/userSlice";
 import { signup2 } from "../../utils/api/authApi";
 import { notifyError } from "../../Components/NotifyError";
+import { ToastContainer } from "react-toastify";
+
 const AboutYou = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
