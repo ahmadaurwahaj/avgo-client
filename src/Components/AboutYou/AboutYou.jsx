@@ -4,11 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSignUpInfo } from "../../redux/Slices/userSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { signup2 } from "../../utils/api/authApi";
-
+import { notifyError } from "../../Components/NotifyError";
 const AboutYou = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,19 +17,6 @@ const AboutYou = () => {
   const token = useSelector((state) => state?.auth?.token);
   const id = useSelector((state) => state.user.id);
 
-  const notifyError = (msg) => {
-    toast.error(`${msg}`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
   const handleSignup = useMutation(signup2, {
     onSuccess: (data) => {
       dispatch(updateSignUpInfo({ bio, age, country, gender }));
@@ -40,7 +24,7 @@ const AboutYou = () => {
     },
     onError: (error) => {
       console.log("Signup failed:", error);
-      notifyError(error);
+      notifyError(error.message);
     },
   });
 

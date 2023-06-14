@@ -21,6 +21,10 @@ import {
   updateGender,
 } from "../../redux/Slices/userSlice";
 
+import { notifyError } from "../../Components/NotifyError";
+import { ToastContainer } from "react-toastify";
+import { notifySuccess } from "../../Components/NotifySuccess";
+
 function Settings() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state?.auth?.token);
@@ -37,10 +41,10 @@ function Settings() {
 
   const handleUpdatePassword = useMutation(updatePassword, {
     onSuccess: (data) => {
-      alert("Password Updated");
+      notifySuccess("Password Updated");
     },
     onError: (error) => {
-      alert("Password updation failed");
+      notifyError(error.message);
     },
   });
 
@@ -238,6 +242,7 @@ function Settings() {
       <Link to="/messages">Message </Link>
       <Link to="/settings">Settings </Link>
     </div> */}
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
