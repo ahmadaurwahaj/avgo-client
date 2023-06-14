@@ -8,7 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { signup } from "../../utils/api/authApi";
 import { login } from "../../utils/api/authApi";
 import { setToken } from "../../redux/Slices/authSlice";
-import { setIsLoggedIn, updateLoginInfo } from "../../redux/Slices/userSlice";
+import {
+  updateIsLoggedIn,
+  updateLoginInfo,
+} from "../../redux/Slices/userSlice";
 
 import style from "./Login.module.css";
 import NavBar from "../../Components/Navbar/NavBar";
@@ -44,7 +47,7 @@ const Login = ({ type }) => {
     },
     onError: (error) => {
       console.log("Login failed:", error);
-      dispatch(setIsLoggedIn(false));
+      dispatch(updateIsLoggedIn(false));
       // Show error message to the user
       notifyError(error);
     },

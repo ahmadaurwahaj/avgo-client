@@ -17,31 +17,31 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setIsLoggedIn: (state, action) => {
+    updateIsLoggedIn: (state, action) => {
       state.isLoggedIn = action.payload;
     },
-    setIsSignedUp: (state, action) => {
+    updateIsSignedUp: (state, action) => {
       state.isSignup = action.payload;
     },
-    setName: (state, action) => {
+    updateName: (state, action) => {
       state.name = action.payload;
     },
-    setEmail: (state, action) => {
+    updateEmail: (state, action) => {
       state.email = action.payload;
     },
-    setBio: (state, action) => {
+    updateBio: (state, action) => {
       state.bio = action.payload;
     },
-    setCountry: (state, action) => {
+    updateCountry: (state, action) => {
       state.country = action.payload;
     },
-    setAge: (state, action) => {
+    updateAge: (state, action) => {
       state.age = action.payload;
     },
-    setGender: (state, action) => {
+    updateGender: (state, action) => {
       state.gender = action.payload;
     },
-    setIsLogout: (state, action) => {
+    updateIsLogout: (state, action) => {
       state.isLogout = action.payload;
     },
 
@@ -84,15 +84,15 @@ const userSlice = createSlice({
 });
 
 export const {
-  setIsLoggedIn,
-  setIsSignedUp,
-  setName,
-  setEmail,
-  setBio,
-  setCountry,
-  setAge,
-  setGender,
-  setIsLogout,
+  updateIsLoggedIn,
+  updateIsSignedUp,
+  updateName,
+  updateEmail,
+  updateBio,
+  updateCountry,
+  updateAge,
+  updateGender,
+  updateIsLogout,
   updateSignUpInfo,
   updateLoginInfo,
   clearUser,
