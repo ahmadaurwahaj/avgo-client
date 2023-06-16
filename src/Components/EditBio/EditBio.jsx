@@ -4,18 +4,20 @@ import uicon from "../../assets/icons/usericon1.svg";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { updateGeneralInfo } from "../../utils/api/updateUserApi";
-import { updateBio } from "../../redux/Slices/userSlice";
+import userSlice, { updateBio, updateName } from "../../redux/Slices/userSlice";
 import { notifyError } from "../../Components/NotifyError";
 import { notifySuccess } from "../../Components/NotifySuccess";
 import { ToastContainer } from "react-toastify";
 
 const EditBio = () => {
   const dispatch = useDispatch();
-  const storeBio = useSelector((state) => state.user.bio);
+  const storeName = useSelector((state) => state?.user?.name);
+  const storeBio = useSelector((state) => state?.user?.bio);
   const token = useSelector((state) => state?.auth?.token);
-  const id = useSelector((state) => state.user.id);
+  const id = useSelector((state) => state?.user?.id);
 
   const [bio, setBio] = useState(storeBio);
+  const [name, setName] = useState(storeName);
   const [editState, setEditState] = useState(false);
 
   const handleBio = useMutation(updateGeneralInfo, {
@@ -32,7 +34,9 @@ const EditBio = () => {
     e.preventDefault();
     setEditState(false);
     dispatch(updateBio(bio));
-    handleBio.mutate({ id, bio, token });
+    dispatch(updateName(name));
+    let user_name = name;
+    handleBio.mutate({ id, user_name, bio, token });
   };
 
   return (
@@ -42,7 +46,22 @@ const EditBio = () => {
 
         <div>
           <div className={style.para_text}>
-            <p className={style.uname}>Casey</p>
+            {editState ? (
+              <>
+                <textarea
+                  className={style.Bio}
+                  type="text"
+                  placeholder="Name"
+                  required
+                  maxLength={100}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </>
+            ) : (
+              <p className={style.uname}>{storeName}</p>
+            )}
+
             <div>
               {editState ? (
                 <>
