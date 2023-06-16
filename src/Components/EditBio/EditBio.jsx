@@ -1,27 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./EditBio.module.css";
 import uicon from "../../assets/icons/usericon1.svg";
+import { useMutation } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { updateGeneralInfo } from "../../utils/api/updateUserApi";
+import { updateBio } from "../../redux/Slices/userSlice";
+import { notifyError } from "../../Components/NotifyError";
+import { notifySuccess } from "../../Components/NotifySuccess";
+import { ToastContainer } from "react-toastify";
 
-const EditBio = (props) => {
-  const { textmsg } = props;
+const EditBio = () => {
+  const dispatch = useDispatch();
+  const storeBio = useSelector((state) => state.user.bio);
+  const token = useSelector((state) => state?.auth?.token);
+  const id = useSelector((state) => state.user.id);
+
+  const [bio, setBio] = useState(storeBio);
+  const [editState, setEditState] = useState(false);
+
+  const handleBio = useMutation(updateGeneralInfo, {
+    onSuccess: (data) => {
+      dispatch(updateBio(bio));
+      notifySuccess("Bio data Updated");
+    },
+    onError: (error) => {
+      notifyError(error.message);
+    },
+  });
+
+  const bioFormHalder = (e) => {
+    e.preventDefault();
+    setEditState(false);
+    dispatch(updateBio(bio));
+    handleBio.mutate({ id, bio, token });
+  };
+
   return (
     <div className={style.msg_row}>
       <div className={style.msg_text}>
         <img className={style.background_icon} alt="bg_img" src={uicon} />
-        
+
         <div>
-                     
-          <p className={style.para_text}>
+          <div className={style.para_text}>
             <p className={style.uname}>Casey</p>
-            <p className={style.pra}>
-              {textmsg}
-              {/* <span style={{ fontSize: "6px" }}>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12:02 pm
-              </span> */}
-            </p>
-          </p>
+            <div>
+              {editState ? (
+                <>
+                  <textarea
+                    className={style.Bio}
+                    type="text"
+                    placeholder="Not more than 100 Words"
+                    required
+                    maxLength={100}
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                  />
+                </>
+              ) : (
+                <p className={style.pra}>{storeBio}</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
+      <div className={style.right_editside}>
+        <div>
+          {!editState ? (
+            <button
+              className={style.edit_btn}
+              onClick={() => {
+                setEditState(true);
+              }}
+            >
+              Edit
+            </button>
+          ) : (
+            <button className={style.edit_btn} onClick={bioFormHalder}>
+              Update
+            </button>
+          )}
+        </div>
+      </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

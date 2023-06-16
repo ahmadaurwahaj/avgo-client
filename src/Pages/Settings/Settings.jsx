@@ -7,7 +7,6 @@ import EditBio from "../../Components/EditBio/EditBio";
 import uicon from "../../assets/icons/usericon.svg";
 import TopBar from "../../Components/Topbar/TopBar";
 
-import { Link } from "react-router-dom";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -19,7 +18,6 @@ import {
   updateAge,
   updateCountry,
   updateGender,
-  updateBio,
 } from "../../redux/Slices/userSlice";
 
 import { notifyError } from "../../Components/NotifyError";
@@ -31,16 +29,13 @@ function Settings() {
   const token = useSelector((state) => state?.auth?.token);
   const id = useSelector((state) => state.user.id);
   const email = useSelector((state) => state.user.email);
-  const storeBio = useSelector((state) => state.user.bio);
 
-  const [bio, setBio] = useState(storeBio);
   const [age, setAge] = useState(0);
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [editState, setEditState] = useState(false);
 
   const handleUpdatePassword = useMutation(updatePassword, {
     onSuccess: (data) => {
@@ -57,16 +52,6 @@ function Settings() {
       dispatch(updateAge(age));
       dispatch(updateGender(gender));
       notifySuccess("General Info Updated");
-    },
-    onError: (error) => {
-      notifyError(error.message);
-    },
-  });
-
-  const handleBio = useMutation(updateGeneralInfo, {
-    onSuccess: (data) => {
-      dispatch(updateBio(bio));
-      notifySuccess("Bio data Updated");
     },
     onError: (error) => {
       notifyError(error.message);
@@ -91,12 +76,6 @@ function Settings() {
   const generalInfoFormHalder = (e) => {
     e.preventDefault();
     handleGeneralInfo.mutate({ id, age, country, gender, token });
-  };
-  const bioFormHalder = (e) => {
-    e.preventDefault();
-    setEditState(false);
-    dispatch(updateBio(bio));
-    handleBio.mutate({ id, bio, token });
   };
 
   return (
@@ -126,44 +105,13 @@ function Settings() {
                 <div className={style.left_side}>
                   <div className={style.left_userchat}>
                     <div className={style.inner_chat}>
-                      <div>
-                        {editState ? (
-                          <>
-                            <textarea
-                              className={style.Bio}
-                              type="text"
-                              placeholder="Not more than 100 Words"
-                              required
-                              maxLength={100}
-                              value={bio}
-                              onChange={(e) => setBio(e.target.value)}
-                            />
-                          </>
-                        ) : (
-                          <EditBio textmsg={bio} />
-                        )}
-                      </div>
+                      <EditBio />
                     </div>
                   </div>
                 </div>
-
-                <div className={style.right_side}>
-                  {!editState ? (
-                    <button
-                      className={style.edit_btn}
-                      onClick={() => {
-                        setEditState(true);
-                      }}
-                    >
-                      Edit
-                    </button>
-                  ) : (
-                    <button className={style.edit_btn} onClick={bioFormHalder}>
-                      Update
-                    </button>
-                  )}
-                </div>
               </div>
+
+              {/* --------------------------------------- Password Starts --------------------------------------- */}
 
               <form className={style.password} onSubmit={passwordFormHandler}>
                 {/* <div className={style.top} ></div> */}
