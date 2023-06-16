@@ -7,7 +7,6 @@ import { updateGeneralInfo } from "../../utils/api/updateUserApi";
 import userSlice, { updateBio, updateName } from "../../redux/Slices/userSlice";
 import { notifyError } from "../../Components/NotifyError";
 import { notifySuccess } from "../../Components/NotifySuccess";
-import { ToastContainer } from "react-toastify";
 
 const EditBio = () => {
   const dispatch = useDispatch();
@@ -100,7 +99,6 @@ const EditBio = () => {
           )}
         </div>
       </div>
-      <ToastContainer></ToastContainer>
     </div>
   );
 };
