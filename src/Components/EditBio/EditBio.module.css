@@ -17,7 +17,40 @@
   flex-basis: 92%;
   font-weight: 300px;
 }
-
+.right_editside {
+  width: 20%;
+  background-color: #2f4d6d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gilroy";
+}
+.edit_btn {
+  /* position: absolute; */
+  /* top: 50%; */
+  /* display: inline-block; */
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+  /* line-height: 1; */
+  border-radius: 345px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  letter-spacing: 1px;
+  min-width: 75px;
+  /* min-width: 100px; */
+  /* text-transform: uppercase; */
+  white-space: normal;
+  font-weight: 396;
+  text-align: center;
+  padding: 6px 4px 8px;
+  color: #4461f2;
+  font-family: "Gilroy";
+  background-color: white;
+  height: 30px;
+  /* height: 35px; */
+}
 .background_icon {
   /* width: 38px; */
   margin-left: 10px;

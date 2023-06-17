@@ -40,9 +40,9 @@ function Settings() {
         
         </div>
 
-        <div className={style.right_side} >
+        {/* <div className={style.right_side} >
     <button className={style.edit_btn}> edit</button>
-    </div>
+    </div> */}
         </div>
 
 

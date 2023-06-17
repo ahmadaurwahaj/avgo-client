@@ -114,7 +114,8 @@
 }
 
 .left_side {
-  width: 80%;
+  /* width: 80%; */
+  width: 100%;
   font-family: "Gilroy";
   background-color: #2f4d6d;
 }
@@ -195,22 +196,17 @@
   height: 30px;
   /* height: 35px; */
 }
-.edit_btn {
-  /* position: absolute; */
-  /* top: 50%; */
-  /* display: inline-block; */
+/* .edit_btn {
   outline: none;
   cursor: pointer;
   font-size: 13px;
-  /* line-height: 1; */
   border-radius: 345px;
   transition-property: background-color, border-color, color, box-shadow, filter;
   transition-duration: 0.3s;
   border: 1px solid transparent;
   letter-spacing: 1px;
   min-width: 75px;
-  /* min-width: 100px; */
-  /* text-transform: uppercase; */
+
   white-space: normal;
   font-weight: 396;
   text-align: center;
@@ -219,8 +215,7 @@
   font-family: "Gilroy";
   background-color: white;
   height: 30px;
-  /* height: 35px; */
-}
+} */
 
 .gen_info {
   display: flex;
