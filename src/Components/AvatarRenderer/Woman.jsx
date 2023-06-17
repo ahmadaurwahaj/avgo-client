@@ -45,13 +45,6 @@ function Woman(props) {
   }, [names]);
 
   useEffect(() => {
-    actions[names[animationIndex]].reset().fadeIn(0.5).play();
-    return () => {
-      actions[names[animationIndex]].fadeOut(0.5);
-    };
-  }, [animationIndex]);
-
-  useEffect(() => {
     setMorphTargetDictionary(Object.keys(nodes.Mesh019.morphTargetDictionary));
     setMorphTargetInfluences(nodes.Mesh019.morphTargetInfluences);
 
