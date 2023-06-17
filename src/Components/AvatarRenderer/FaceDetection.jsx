@@ -13,23 +13,24 @@ const smileProbability = (
   morphTargetInfluences,
   setMorphTargetInfluences
 ) => {
+  console.log("HERE SOLving");
   const landmarks = faces[0]?.keypoints;
   let data = Face.solve(landmarks, {
     runtime: "tfjs", // default is 'tfjs'
-    video: canvasRef.current,
-    imageSize: {
-      width: 1080,
-      height: 900
-    },
+    video: canvasRef,
+    // imageSize: {
+    //   width: 1080,
+    //   height: 900
+    // },
     smoothBlink: false, // smooth left and right eye blink delays
     blinkSettings: [0.5, 0.75] // adjust upper and lower bound blink sensitivity
   });
-  console.log("HERE SOLving");
+  console.log("DATA:", data?.eye?.r, data?.eye?.l);
   if (data) {
     morphTargetInfluences[3] = Math.abs(1 - data?.eye?.r);
     morphTargetInfluences[0] = data?.mouth?.x;
     morphTargetInfluences[4] = Math.abs(1 - data?.eye?.l);
-
+    console.log("MORPH TARGET INFLUENCES");
     setMorphTargetInfluences(morphTargetInfluences);
   }
 
@@ -40,6 +41,7 @@ export const runDetector = async (
   morphTargetInfluences,
   setMorphTargetInfluences
 ) => {
+  console.log("STARTED DETECTOR");
   const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
   const detectorConfig = {
     runtime: "tfjs",
@@ -53,9 +55,10 @@ export const runDetector = async (
     console.log("Here detecting");
     const estimationConfig = { flipHorizontal: false };
     const faces = await net.estimateFaces(video, estimationConfig);
+    // console.log("detect", faces);
     smileProbability(
       faces,
-      canvasRef,
+      video,
       morphTargetInfluences,
       setMorphTargetInfluences
     );
@@ -78,52 +81,43 @@ function App({ streaming }) {
   // useEffect(() => {
   //   tf.setBackend('webgpu').then(() => main());
   // }, []);
+  const videoRef = useRef(null);
+  useEffect(() => {
+    videoRef.current.srcObject = streaming;
+    console.log("VIDEO REkF:", videoRef.current.srcObject, streaming);
+    if (videoRef.current.srcObject) {
+      handleVideoLoad(
+        videoRef.current,
+        morphTargetInfluences,
+        setMorphTargetInfluences
+      );
+    }
+  }, []);
   const [loaded, setLoaded] = useState(false);
   const handleVideoLoad = (
-    streaming,
+    stream,
     morphTargetInfluences,
     setMorphTargetInfluences
   ) => {
-    console.log("HELLO");
-    const video = streaming;
+    const video = stream;
 
     if (loaded) return;
-    runDetector(
-      video,
-
-      morphTargetInfluences,
-      setMorphTargetInfluences
-    ); //running detection on video
+    runDetector(video, morphTargetInfluences, setMorphTargetInfluences); //running detection on video
 
     setLoaded(true);
   };
   const { morphTargetInfluences, setMorphTargetInfluences } =
     useCharacterCustomization();
-  useEffect(() => {
-    if (streaming)
-      handleVideoLoad(
-        streaming,
-        morphTargetInfluences,
-        setMorphTargetInfluences
-      );
-  }, [streaming]);
+
   return (
     <div>
-      {/* <Webcam
+      <video
+        ref={videoRef}
         width={inputResolution.width}
         height={inputResolution.height}
-        style={{ visibility: "hidden", position: "absolute" }}
-        videoConstraints={videoConstraints}
-        ref={webcamRef}
-        onLoadedData={e =>
-          handleVideoLoad(
-            e,
-            webcamRef,
-            morphTargetInfluences,
-            setMorphTargetInfluences
-          )
-        }
-      /> */}
+        autoPlay={true}
+        style={{ display: "none" }}
+      />
     </div>
   );
 }
