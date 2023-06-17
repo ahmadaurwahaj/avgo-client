@@ -2,11 +2,8 @@ import "./font/stylesheet.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Messages, Login, Signup, VideoCalling, Settings } from "./Pages/index";
 import { PrivateRoute } from "./utils/PrivateRoutes";
-import { useSelector } from "react-redux";
 
 function App() {
-  const isLoggedIn = useSelector((state) => state?.user?.isLoggedIn);
-  const userInfo = "Hello";
   return (
     <BrowserRouter>
       <Routes>
@@ -54,9 +51,7 @@ function App() {
         <Route
           path="/"
           exact
-          // element={isLoggedIn ? <VideoCalling /> : <Login />}
           element={
-            // isLoggedIn ? <Navigate to="videocall" /> : <Navigate to="login" />
             <PrivateRoute>
               <VideoCalling />
             </PrivateRoute>
