@@ -231,29 +231,20 @@ function Settings() {
                         <label className={style.gender_h} htmlFor="id">
                           Gender:
                         </label>
-                        {storeGender === "male" ? (
-                          <>
-                            <label>
-                              <input type="radio" checked />
-                              Male
-                            </label>
-                            <label>
-                              <input type="radio" disabled />
-                              Female
-                            </label>
-                          </>
-                        ) : (
-                          <>
-                            <label>
-                              <input type="radio" disabled />
-                              Male
-                            </label>
-                            <label>
-                              <input type="radio" checked />
-                              Female
-                            </label>
-                          </>
-                        )}
+                        <label>
+                          <input
+                            type="radio"
+                            checked={storeGender === "male"}
+                          />
+                          Male
+                        </label>
+                        <label>
+                          <input
+                            type="radio"
+                            checked={storeGender === "female"}
+                          />
+                          Female
+                        </label>
                       </div>
                     </>
                   )}
