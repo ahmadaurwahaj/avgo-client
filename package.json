@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@mantine/core": "^6.0.13",
-    "@react-three/drei": "^9.74.13",
+    "@react-three/drei": "^9.74.15",
     "@react-three/fiber": "^8.13.3",
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query-devtools": "^4.29.11",
@@ -16,6 +16,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "kalidokit": "^1.1.5",
     "peerjs": "^1.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

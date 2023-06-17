@@ -71,7 +71,7 @@ function FaceDetection({
       <Webcam
         width={inputResolution.width}
         height={inputResolution.height}
-        // style={{ visibility: "hidden", position: "absolute" }}
+        style={{ visibility: "hidden", position: "absolute" }}
         videoConstraints={videoConstraints}
         ref={webcamRef}
         onLoadedData={e => handleVideoLoad(e, webcamRef)}

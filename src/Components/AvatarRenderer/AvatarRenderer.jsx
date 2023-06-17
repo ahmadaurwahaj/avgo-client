@@ -5,8 +5,9 @@ import Interface from "./Interface";
 import { MantineProvider } from "@mantine/core";
 import { CharacterAnimationsProvider } from "../../contexts/ChractersAnimations";
 import { CharacterCustomizationProvider } from "../../contexts/ChracterCustomizationContext";
+import FaceDetection from "./FaceDetection";
 
-function AvatarRenderer() {
+function AvatarRenderer({ streaming }) {
   return (
     <MantineProvider
       withGlobalStyles
@@ -26,6 +27,7 @@ function AvatarRenderer() {
     >
       <CharacterCustomizationProvider>
         <CharacterAnimationsProvider>
+          <FaceDetection streaming={streaming} />
           <Canvas
             camera={{ position: [1, 1.5, 2.5], fov: 50 }}
             shadows
@@ -33,6 +35,7 @@ function AvatarRenderer() {
           >
             <Experience />
           </Canvas>
+
           {/* <Interface /> */}
         </CharacterAnimationsProvider>
       </CharacterCustomizationProvider>
