@@ -29,13 +29,17 @@ function Settings() {
   const token = useSelector((state) => state?.auth?.token);
   const id = useSelector((state) => state.user.id);
   const email = useSelector((state) => state.user.email);
+  const storeAge = useSelector((state) => state.user.age);
+  const storeGender = useSelector((state) => state.user.gender);
+  const storeCountry = useSelector((state) => state.user.country);
 
-  const [age, setAge] = useState(0);
-  const [country, setCountry] = useState("");
-  const [gender, setGender] = useState("");
+  const [age, setAge] = useState(storeAge);
+  const [country, setCountry] = useState(storeCountry);
+  const [gender, setGender] = useState(storeGender);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isEditStateGeneralInfo, setIsEditStateGeneralInfo] = useState(false);
 
   const handleUpdatePassword = useMutation(updatePassword, {
     onSuccess: (data) => {
@@ -74,7 +78,9 @@ function Settings() {
   };
 
   const generalInfoFormHalder = (e) => {
+    console.log("I'm called");
     e.preventDefault();
+    setIsEditStateGeneralInfo(false);
     handleGeneralInfo.mutate({ id, age, country, gender, token });
   };
 
@@ -159,70 +165,120 @@ function Settings() {
               <form className={style.gen_info} onSubmit={generalInfoFormHalder}>
                 <div className={style.info_container}>
                   General info
-                  {/* <form className={style.Rec7} onSubmit={formHandler}> */}
-                  {/* <div className={style.Bbio}> */}
-                  {/* <label htmlFor="bi">Bio</label> */}
-                  {/* <textarea
-              className={style.Bio}
-              type="text"
-              placeholder="Not more than 100 Words"
-              required
-              maxLength={100}
-            /> */}
-                  <div className={style.bb}>
-                    <div className={style.Country}>
-                      <select
-                        className={style.country}
-                        id="country"
-                        required
-                        onChange={(e) => setCountry(e.target.value)}
-                      >
-                        <option value="null">Country</option>
-                        <option value="pakistan">Pakistan</option>
-                        <option value="america">America</option>
-                        <option value="mexico">Mexico</option>
-                        <option value="france">France</option>
-                      </select>
-                    </div>
+                  {isEditStateGeneralInfo ? (
+                    <>
+                      <div className={style.bb}>
+                        <div className={style.Country}>
+                          <select
+                            className={style.country}
+                            id="country"
+                            required
+                            onChange={(e) => setCountry(e.target.value)}
+                          >
+                            <option value="null">Country</option>
+                            <option value="pakistan">Pakistan</option>
+                            <option value="america">America</option>
+                            <option value="mexico">Mexico</option>
+                            <option value="france">France</option>
+                          </select>
+                        </div>
 
-                    <div className={style.Age}>
-                      <input
-                        className={style.age}
-                        type="number"
-                        placeholder="Age"
-                        required
-                        value={age}
-                        onChange={(e) => setAge(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className={style.Gender}>
-                    <label className={style.gender_h} htmlFor="id">
-                      Gender:
-                    </label>
-                    <label onChange={(e) => setGender(e.target.value)}>
-                      <input type="radio" name="gender" value="male" />
-                      Male
-                    </label>
-                    <label onChange={(e) => setGender(e.target.value)}>
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="female"
-                        required
-                      />
-                      Female
-                    </label>
-                  </div>
+                        <div className={style.Age}>
+                          <input
+                            className={style.age}
+                            type="number"
+                            placeholder="Age"
+                            required
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      <div className={style.Gender}>
+                        <label className={style.gender_h} htmlFor="id">
+                          Gender:
+                        </label>
+                        <label onChange={(e) => setGender(e.target.value)}>
+                          <input type="radio" name="gender" value="male" />
+                          Male
+                        </label>
+                        <label onChange={(e) => setGender(e.target.value)}>
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            required
+                          />
+                          Female
+                        </label>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={style.bb}>
+                        <div className={style.Country}>
+                          <select className={style.country} disabled>
+                            <option>{storeCountry.toUpperCase()}</option>
+                          </select>
+                        </div>
+
+                        <div className={style.Age}>
+                          <input className={style.age} value={age} />
+                        </div>
+                      </div>
+
+                      <div className={style.Gender}>
+                        <label className={style.gender_h} htmlFor="id">
+                          Gender:
+                        </label>
+                        {storeGender === "male" ? (
+                          <>
+                            <label>
+                              <input type="radio" checked />
+                              Male
+                            </label>
+                            <label>
+                              <input type="radio" disabled />
+                              Female
+                            </label>
+                          </>
+                        ) : (
+                          <>
+                            <label>
+                              <input type="radio" disabled />
+                              Male
+                            </label>
+                            <label>
+                              <input type="radio" checked />
+                              Female
+                            </label>
+                          </>
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className={style.right_side}>
-                  <button className={style.update_btn}> Update</button>
+                  {isEditStateGeneralInfo ? (
+                    <button type="submit" className={style.update_btn}>
+                      Update
+                    </button>
+                  ) : (
+                    <div
+                      className={style.update_btn}
+                      onClick={() => {
+                        setIsEditStateGeneralInfo(true);
+                      }}
+                    >
+                      Edit
+                    </div>
+                  )}
                 </div>
                 {/* <div className={style.Next}>
-              <button type="submit" className={style.next_btn}>
-                Next
-              </button>
-            </div> */}
+                  <button type="submit" className={style.next_btn}>
+                    Next
+                  </button>
+                </div> */}
                 {/* </div> */}
                 {/* </form> */}
               </form>
