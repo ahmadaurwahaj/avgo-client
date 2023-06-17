@@ -34,6 +34,7 @@
   outline: none;
   cursor: pointer;
   font-size: 13px;
+  /* font-weight: bold; */
   /* line-height: 1; */
   border-radius: 345px;
   transition-property: background-color, border-color, color, box-shadow, filter;
@@ -48,6 +49,7 @@
   text-align: center;
   padding: 6px 4px 8px;
   color: #4461f2;
+  font-weight: bold;
   font-family: "Gilroy";
   background-color: white;
   height: 30px;
@@ -65,12 +67,26 @@ span {
 }
 
 .para_text {
-  padding: 19px 7px 19px 8px;
+  padding: 13px 7px 19px 8px;
   /* padding: 0px 3px 0px 8px; */
   /* padding: 0px 3px; */
+  color: #bfbfbf;
   font-size: 8px;
   font-weight: 500;
   /* background-color: #30364f; */
+}
+.Bio {
+  display: flex;
+  /* width: 75%; */
+  width: 100%;
+  background-color: #282c34;
+  /* margin-top: 30px; */
+  margin-top: 5px;
+  resize: none;
+  border-radius: 4px;
+  height: 30px;
+  border: none;
+  padding: 4px;
 }
 
 .uname {
@@ -78,7 +94,8 @@ span {
   margin-top: 12px;
   font-size: 12px;
   font-weight: bold;
-  color: #fff;
+  color: white;
+  /* background-color: #30364f; */
 }
 
 .pra,

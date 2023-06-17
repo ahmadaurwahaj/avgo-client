@@ -88,7 +88,7 @@ function Settings() {
         <div className={style.Rec_1}>
           <div className={style.Rec_2}>
             <div className={style.left_topbar}>
-              <button className={style.set_btn}> Setting</button>
+              <button className={style.set_btn}> Settings</button>
               <button
                 className={style.logout_btn}
                 onClick={() => {
@@ -158,7 +158,7 @@ function Settings() {
 
               <form className={style.gen_info} onSubmit={generalInfoFormHalder}>
                 <div className={style.info_container}>
-                  General info
+                  General information
                   {/* <form className={style.Rec7} onSubmit={formHandler}> */}
                   {/* <div className={style.Bbio}> */}
                   {/* <label htmlFor="bi">Bio</label> */}
