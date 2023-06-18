@@ -6,7 +6,7 @@ import * as faceLandmarksDetection from "@tensorflow-models/face-landmarks-detec
 // import '@tensorflow/tfjs-backend-cpu';
 import "@tensorflow/tfjs-backend-webgl";
 import { Face, Pose, Hand } from "kalidokit";
-import { useCharacterCustomization } from "../../contexts/ChracterCustomizationContext";
+import { useCharacterCustomization } from "../../contexts/ChracterCustomizationContext.jsx";
 const smileProbability = (
   faces,
   canvasRef,
@@ -27,11 +27,13 @@ const smileProbability = (
   });
   console.log("DATA:", data?.eye?.r, data?.eye?.l);
   if (data) {
-    morphTargetInfluences[3] = Math.abs(1 - data?.eye?.r);
-    morphTargetInfluences[0] = data?.mouth?.x;
-    morphTargetInfluences[4] = Math.abs(1 - data?.eye?.l);
+    let morphs = morphTargetInfluences;
+    console.log("MORPHS:", morphs);
+    morphs[3] = Math.abs(1 - data?.eye?.r);
+    morphs[0] = data?.mouth?.x;
+    morphs[4] = Math.abs(1 - data?.eye?.l);
     console.log("MORPH TARGET INFLUENCES");
-    setMorphTargetInfluences(morphTargetInfluences);
+    setMorphTargetInfluences(morphs);
   }
 
   // smile : 1, eyeRightClosed:3, eyeLeftClosed
@@ -71,29 +73,11 @@ const inputResolution = {
   height: 900
 };
 
-const videoConstraints = {
-  width: inputResolution.width,
-  height: inputResolution.height,
-  facingMode: "user"
-};
-
 function App({ streaming }) {
-  // useEffect(() => {
-  //   tf.setBackend('webgpu').then(() => main());
-  // }, []);
-  const videoRef = useRef(null);
-  useEffect(() => {
-    videoRef.current.srcObject = streaming;
-    console.log("VIDEO REkF:", videoRef.current.srcObject, streaming);
-    if (videoRef.current.srcObject) {
-      handleVideoLoad(
-        videoRef.current,
-        morphTargetInfluences,
-        setMorphTargetInfluences
-      );
-    }
-  }, []);
   const [loaded, setLoaded] = useState(false);
+  const { morphTargetInfluences, setMorphTargetInfluences } =
+    useCharacterCustomization();
+  const videoRef = useRef(null);
   const handleVideoLoad = (
     stream,
     morphTargetInfluences,
@@ -106,8 +90,18 @@ function App({ streaming }) {
 
     setLoaded(true);
   };
-  const { morphTargetInfluences, setMorphTargetInfluences } =
-    useCharacterCustomization();
+
+  useEffect(() => {
+    videoRef.current.srcObject = streaming;
+  }, []);
+  const videoPlayed = () => {
+    console.log("\nVIDEO GETTING PLAYED\n");
+    handleVideoLoad(
+      videoRef.current,
+      morphTargetInfluences,
+      setMorphTargetInfluences
+    );
+  };
 
   return (
     <div>
@@ -117,6 +111,7 @@ function App({ streaming }) {
         height={inputResolution.height}
         autoPlay={true}
         style={{ display: "none" }}
+        onPlay={videoPlayed}
       />
     </div>
   );
