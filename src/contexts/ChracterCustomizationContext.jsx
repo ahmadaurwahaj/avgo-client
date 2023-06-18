@@ -28,7 +28,7 @@ export const SwatchesColors = [
 
 export const CharacterCustomizationProvider = ({ children }) => {
   const [takeScreenshot, setTakeScreenshot] = useState(false);
-  const [cameraMode, setCameraMode] = useState(CameraModes.FREE);
+  const [cameraMode, setCameraMode] = useState(CameraModes.HEAD);
   const [hairColor, setHairColor] = useState();
   const [eyesColor, setEyesColor] = useState();
   const [mouthColor, setMouthColor] = useState();
