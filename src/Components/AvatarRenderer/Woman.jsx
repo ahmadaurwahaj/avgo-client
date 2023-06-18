@@ -38,14 +38,21 @@ function Woman(props) {
     lacesColor,
     setLacesColor
   } = useCharacterCustomization();
-  console.log("HERE ");
+
   useEffect(() => {
-    console.log("I am getting triggered");
     setAnimations(names);
   }, [names]);
 
+  // useEffect(() => {
+  //   actions[names[animationIndex]].reset().fadeIn(0.5).play();
+  //   return () => {
+  //     actions[names[animationIndex]].fadeOut(0.5);
+  //   };
+  // }, [animationIndex]);
+
   useEffect(() => {
     setMorphTargetDictionary(Object.keys(nodes.Mesh019.morphTargetDictionary));
+    console.log("Here influencing");
     setMorphTargetInfluences(nodes.Mesh019.morphTargetInfluences);
 
     setHairColor(`#${materials.Hair.color.getHexString()}`);
@@ -59,6 +66,9 @@ function Woman(props) {
     setLacesColor(`#${materials.Laces.color.getHexString()}`);
     setSoleColor(`#${materials.Sole.color.getHexString()}`);
   }, []);
+  useEffect(() => {
+    console.log("INFLUENCES CHANGRD", morphTargetInfluences);
+  }, [morphTargetInfluences]);
 
   return (
     <group ref={group} {...props} dispose={null}>

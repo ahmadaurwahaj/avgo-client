@@ -27,7 +27,6 @@ function AvatarRenderer({ streaming }) {
     >
       <CharacterCustomizationProvider>
         <CharacterAnimationsProvider>
-          <FaceDetection streaming={streaming} />
           <Canvas
             camera={{ position: [1, 1.5, 2.5], fov: 50 }}
             shadows
@@ -35,6 +34,7 @@ function AvatarRenderer({ streaming }) {
           >
             <Experience />
           </Canvas>
+          <FaceDetection streaming={streaming} />
 
           {/* <Interface /> */}
         </CharacterAnimationsProvider>
