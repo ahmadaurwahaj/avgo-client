@@ -26,19 +26,18 @@ const smileProbability = (
     blinkSettings: [0.5, 0.75] // adjust upper and lower bound blink sensitivity
   });
   console.log("DATA:", data?.head);
-  if (data) {
+  if (data && morphTargetInfluences.length > 0) {
     morphTargetInfluences[0] = Math.abs(data?.mouth?.y);
     morphTargetInfluences[1] = Math.abs(data?.mouth?.x);
     morphTargetInfluences[5] = Math.abs(1 - data?.eye?.l);
     morphTargetInfluences[8] = Math.abs(1 - data?.eye?.r);
-    morphTargetInfluences[58] = Math.abs(data?.mouth?.shape?.A);
-    morphTargetInfluences[59] = Math.abs(data?.mouth?.shape?.E);
-    morphTargetInfluences[60] = Math.abs(data?.mouth?.shape?.I);
-    morphTargetInfluences[61] = Math.abs(data?.mouth?.shape?.O);
-    morphTargetInfluences[62] = Math.abs(data?.mouth?.shape?.U);
+    // morphTargetInfluences[58] = Math.abs(data?.mouth?.shape?.A);
+    // morphTargetInfluences[59] = Math.abs(data?.mouth?.shape?.E);
+    // morphTargetInfluences[60] = Math.abs(data?.mouth?.shape?.I);
+    // morphTargetInfluences[61] = Math.abs(data?.mouth?.shape?.O);
+    // morphTargetInfluences[62] = Math.abs(data?.mouth?.shape?.U);
 
     setMorphTargetInfluences(morphTargetInfluences);
-
     // setMorphTargetInfluences(morphTargetInfluences);
   }
 
