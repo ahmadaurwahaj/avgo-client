@@ -40,39 +40,27 @@ export const CharacterCustomizationProvider = ({ children }) => {
   const [lacesColor, setLacesColor] = useState();
   const [soleColor, setSoleColor] = useState();
   const [morphTargetDictionary, setMorphTargetDictionary] = useState([]);
-  const [morphTargetInfluences, setMorphTargetInfluences] = useState([]);
+  const [morphTargetLeftEye, setMorphTargetLeftEye] = useState([]);
+  const [morphTargetRightEye, setMorphTargetRightEye] = useState([]);
+  const [morphTargetMouth, setMorphTargetMouth] = useState([]);
+  const [morphTargetTeeth, setMorphTargetTeeth] = useState([]);
 
   return (
     <CharacterCustomizationContext.Provider
       value={{
         cameraMode,
         setCameraMode,
-        hairColor,
-        setHairColor,
-        mouthColor,
-        setMouthColor,
-        eyesColor,
-        setEyesColor,
-        glassesColor,
-        setGlassesColor,
-        skinColor,
-        setSkinColor,
-        shirtColor,
-        setShirtColor,
-        pantsColor,
-        setPantsColor,
-        shoesColor,
-        setShoesColor,
-        lacesColor,
-        setLacesColor,
-        soleColor,
-        setSoleColor,
+
         morphTargetDictionary,
         setMorphTargetDictionary,
-        morphTargetInfluences,
-        setMorphTargetInfluences,
-        takeScreenshot,
-        setTakeScreenshot
+        morphTargetLeftEye,
+        setMorphTargetLeftEye,
+        morphTargetRightEye,
+        setMorphTargetRightEye,
+        morphTargetMouth,
+        setMorphTargetMouth,
+        morphTargetTeeth,
+        setMorphTargetTeeth
       }}
     >
       {children}
