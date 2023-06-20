@@ -4,7 +4,7 @@ import uicon from "../../assets/icons/usericon1.svg";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { updateGeneralInfo } from "../../utils/api/updateUserApi";
-import userSlice, { updateBio, updateName } from "../../redux/Slices/userSlice";
+import { updateBio, updateName } from "../../redux/Slices/userSlice";
 import { notifyError } from "../../Components/NotifyError";
 import { notifySuccess } from "../../Components/NotifySuccess";
 

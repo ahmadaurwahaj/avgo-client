@@ -11,13 +11,13 @@ import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateGeneralInfo,
-  updatePassword,
+  updatePassword
 } from "../../utils/api/updateUserApi";
 import {
   clearUser,
   updateAge,
   updateCountry,
-  updateGender,
+  updateGender
 } from "../../redux/Slices/userSlice";
 
 import { notifyError } from "../../Components/NotifyError";
@@ -26,39 +26,43 @@ import { notifySuccess } from "../../Components/NotifySuccess";
 
 function Settings() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state?.auth?.token);
-  const id = useSelector((state) => state.user.id);
-  const email = useSelector((state) => state.user.email);
+  const token = useSelector(state => state?.auth?.token);
+  const id = useSelector(state => state.user.id);
+  const email = useSelector(state => state.user.email);
+  const storeAge = useSelector(state => state.user.age);
+  const storeGender = useSelector(state => state.user.gender);
+  const storeCountry = useSelector(state => state.user.country);
 
-  const [age, setAge] = useState(0);
-  const [country, setCountry] = useState("");
-  const [gender, setGender] = useState("");
+  const [age, setAge] = useState(storeAge);
+  const [country, setCountry] = useState(storeCountry);
+  const [gender, setGender] = useState(storeGender);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isEditStateGeneralInfo, setIsEditStateGeneralInfo] = useState(false);
 
   const handleUpdatePassword = useMutation(updatePassword, {
-    onSuccess: (data) => {
+    onSuccess: data => {
       notifySuccess("Password Updated");
     },
-    onError: (error) => {
+    onError: error => {
       notifyError(error.message);
-    },
+    }
   });
 
   const handleGeneralInfo = useMutation(updateGeneralInfo, {
-    onSuccess: (data) => {
+    onSuccess: data => {
       dispatch(updateCountry(country));
       dispatch(updateAge(age));
       dispatch(updateGender(gender));
       notifySuccess("General Info Updated");
     },
-    onError: (error) => {
+    onError: error => {
       notifyError(error.message);
-    },
+    }
   });
 
-  const passwordFormHandler = (e) => {
+  const passwordFormHandler = e => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
       notifyError("New Passwords and Confirm Password do not match");
@@ -68,13 +72,15 @@ function Settings() {
         email,
         currentPassword,
         newPassword,
-        token,
+        token
       });
     }
   };
 
-  const generalInfoFormHalder = (e) => {
+  const generalInfoFormHalder = e => {
+    console.log("I'm called");
     e.preventDefault();
+    setIsEditStateGeneralInfo(false);
     handleGeneralInfo.mutate({ id, age, country, gender, token });
   };
 
@@ -124,7 +130,7 @@ function Settings() {
                       type="password"
                       placeholder="Current Password"
                       // required
-                      onChange={(e) => setCurrentPassword(e.target.value)}
+                      onChange={e => setCurrentPassword(e.target.value)}
                     ></input>
                   </div>
                   <div className={style.container1}>
@@ -133,7 +139,7 @@ function Settings() {
                       type="password"
                       placeholder="New Password"
                       // required
-                      onChange={(e) => {
+                      onChange={e => {
                         setNewPassword(e.target.value);
                       }}
                     ></input>
@@ -142,7 +148,7 @@ function Settings() {
                       type="password"
                       placeholder="Confirm New Password"
                       // required
-                      onChange={(e) => {
+                      onChange={e => {
                         setConfirmPassword(e.target.value);
                       }}
                     ></input>
@@ -158,71 +164,112 @@ function Settings() {
 
               <form className={style.gen_info} onSubmit={generalInfoFormHalder}>
                 <div className={style.info_container}>
-                  General information
-                  {/* <form className={style.Rec7} onSubmit={formHandler}> */}
-                  {/* <div className={style.Bbio}> */}
-                  {/* <label htmlFor="bi">Bio</label> */}
-                  {/* <textarea
-              className={style.Bio}
-              type="text"
-              placeholder="Not more than 100 Words"
-              required
-              maxLength={100}
-            /> */}
-                  <div className={style.bb}>
-                    <div className={style.Country}>
-                      <select
-                        className={style.country}
-                        id="country"
-                        required
-                        onChange={(e) => setCountry(e.target.value)}
-                      >
-                        <option value="null">Country</option>
-                        <option value="pakistan">Pakistan</option>
-                        <option value="america">America</option>
-                        <option value="mexico">Mexico</option>
-                        <option value="france">France</option>
-                      </select>
-                    </div>
+                  General info
+                  {isEditStateGeneralInfo ? (
+                    <>
+                      <div className={style.bb}>
+                        <div className={style.Country}>
+                          <select
+                            className={style.country}
+                            id="country"
+                            required
+                            onChange={e => setCountry(e.target.value)}
+                          >
+                            <option value="null">Country</option>
+                            <option value="pakistan">Pakistan</option>
+                            <option value="america">America</option>
+                            <option value="mexico">Mexico</option>
+                            <option value="france">France</option>
+                          </select>
+                        </div>
 
-                    <div className={style.Age}>
-                      <input
-                        className={style.age}
-                        type="number"
-                        placeholder="Age"
-                        required
-                        value={age}
-                        onChange={(e) => setAge(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className={style.Gender}>
-                    <label className={style.gender_h} htmlFor="id">
-                      Gender:
-                    </label>
-                    <label onChange={(e) => setGender(e.target.value)}>
-                      <input type="radio" name="gender" value="male" />
-                      Male
-                    </label>
-                    <label onChange={(e) => setGender(e.target.value)}>
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="female"
-                        required
-                      />
-                      Female
-                    </label>
-                  </div>
+                        <div className={style.Age}>
+                          <input
+                            className={style.age}
+                            type="number"
+                            placeholder="Age"
+                            required
+                            value={age}
+                            onChange={e => setAge(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      <div className={style.Gender}>
+                        <label className={style.gender_h} htmlFor="id">
+                          Gender:
+                        </label>
+                        <label onChange={e => setGender(e.target.value)}>
+                          <input type="radio" name="gender" value="male" />
+                          Male
+                        </label>
+                        <label onChange={e => setGender(e.target.value)}>
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            required
+                          />
+                          Female
+                        </label>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={style.bb}>
+                        <div className={style.Country}>
+                          <select className={style.country} disabled>
+                            <option>{storeCountry.toUpperCase()}</option>
+                          </select>
+                        </div>
+
+                        <div className={style.Age}>
+                          <input className={style.age} value={age} />
+                        </div>
+                      </div>
+
+                      <div className={style.Gender}>
+                        <label className={style.gender_h} htmlFor="id">
+                          Gender:
+                        </label>
+                        <label>
+                          <input
+                            type="radio"
+                            checked={storeGender === "male"}
+                          />
+                          Male
+                        </label>
+                        <label>
+                          <input
+                            type="radio"
+                            checked={storeGender === "female"}
+                          />
+                          Female
+                        </label>
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className={style.right_side}>
-                  <button className={style.update_btn}> Update</button>
+                  {isEditStateGeneralInfo ? (
+                    <button type="submit" className={style.update_btn}>
+                      Update
+                    </button>
+                  ) : (
+                    <div
+                      className={style.update_btn}
+                      onClick={() => {
+                        setIsEditStateGeneralInfo(true);
+                      }}
+                    >
+                      Edit
+                    </div>
+                  )}
                 </div>
                 {/* <div className={style.Next}>
-              <button type="submit" className={style.next_btn}>
-                Next
-              </button>
-            </div> */}
+                  <button type="submit" className={style.next_btn}>
+                    Next
+                  </button>
+                </div> */}
                 {/* </div> */}
                 {/* </form> */}
               </form>
