@@ -25,17 +25,21 @@ const smileProbability = (
     smoothBlink: false, // smooth left and right eye blink delays
     blinkSettings: [0.5, 0.75] // adjust upper and lower bound blink sensitivity
   });
-  console.log("DATA:", data?.eye?.r, data?.eye?.l);
+  console.log("DATA:", data?.head);
   if (data) {
+    morphTargetInfluences[0] = Math.abs(data?.mouth?.y);
+    morphTargetInfluences[1] = Math.abs(data?.mouth?.x);
     morphTargetInfluences[5] = Math.abs(1 - data?.eye?.l);
     morphTargetInfluences[8] = Math.abs(1 - data?.eye?.r);
+    morphTargetInfluences[58] = Math.abs(data?.mouth?.shape?.A);
+    morphTargetInfluences[59] = Math.abs(data?.mouth?.shape?.E);
+    morphTargetInfluences[60] = Math.abs(data?.mouth?.shape?.I);
+    morphTargetInfluences[61] = Math.abs(data?.mouth?.shape?.O);
+    morphTargetInfluences[62] = Math.abs(data?.mouth?.shape?.U);
 
-    // console.log("MORPHS:", morphs);
-    // morphs[2] = Math.abs(1);
-    // morphs[0] = data?.mouth?.y;
-    // morphs[2] = Math.abs(data?.eye?.l);
-    // console.log("MORPH TARGET INFLUENCES");
     setMorphTargetInfluences(morphTargetInfluences);
+
+    // setMorphTargetInfluences(morphTargetInfluences);
   }
 
   // smile : 1, eyeRightClosed:3, eyeLeftClosed
@@ -77,8 +81,16 @@ const inputResolution = {
 
 function App({ streaming }) {
   const [loaded, setLoaded] = useState(false);
-  const { morphTargetInfluences, setMorphTargetInfluences } =
-    useCharacterCustomization();
+  const {
+    morphTargetLeftEye,
+    setMorphTargetLeftEye,
+    morphTargetRightEye,
+    setMorphTargetRightEye,
+    morphTargetMouth,
+    setMorphTargetMouth,
+    morphTargetTeeth,
+    setMorphTargetTeeth
+  } = useCharacterCustomization();
   const videoRef = useRef(null);
   const handleVideoLoad = (
     stream,
@@ -98,12 +110,23 @@ function App({ streaming }) {
   }, []);
   const videoPlayed = () => {
     console.log("\nVIDEO GETTING PLAYED\n");
-    // morphTargetInfluences[2] = Math.abs(1);
-
+    // // morphTargetInfluences[2] = Math.abs(1);
+    // setInterval(() => {
+    //   // morphTargetMouth[0] = Math.abs(Math.random());
+    //   // morphTargetMouth[1] = Math.abs(Math.random());
+    //   // morphTargetLeftEye[0] = Math.abs(Math.random());
+    //   if (morphTargetLeftEye?.length > 0) {
+    //     console.log("HERE");
+    //     morphTargetLeftEye[0] = Math.abs(Math.random());
+    //     morphTargetLeftEye[5] = Math.abs(Math.random());
+    //     // morphTargetInfluences[8] = Math.abs(Math.random());
+    //     setMorphTargetLeftEye(morphTargetLeftEye);
+    //   }
+    // }, 1000);
     handleVideoLoad(
       videoRef.current,
-      morphTargetInfluences,
-      setMorphTargetInfluences
+      morphTargetLeftEye,
+      setMorphTargetLeftEye
     );
   };
 
@@ -116,6 +139,7 @@ function App({ streaming }) {
         autoPlay={true}
         style={{ display: "none" }}
         onPlay={videoPlayed}
+        muted={true}
       />
     </div>
   );
