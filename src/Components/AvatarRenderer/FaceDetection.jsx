@@ -27,13 +27,15 @@ const smileProbability = (
   });
   console.log("DATA:", data?.eye?.r, data?.eye?.l);
   if (data) {
-    let morphs = morphTargetInfluences;
-    console.log("MORPHS:", morphs);
-    morphs[3] = Math.abs(1 - data?.eye?.r);
-    morphs[0] = data?.mouth?.x;
-    morphs[4] = Math.abs(1 - data?.eye?.l);
-    console.log("MORPH TARGET INFLUENCES");
-    setMorphTargetInfluences(morphs);
+    morphTargetInfluences[5] = Math.abs(1 - data?.eye?.l);
+    morphTargetInfluences[8] = Math.abs(1 - data?.eye?.r);
+
+    // console.log("MORPHS:", morphs);
+    // morphs[2] = Math.abs(1);
+    // morphs[0] = data?.mouth?.y;
+    // morphs[2] = Math.abs(data?.eye?.l);
+    // console.log("MORPH TARGET INFLUENCES");
+    setMorphTargetInfluences(morphTargetInfluences);
   }
 
   // smile : 1, eyeRightClosed:3, eyeLeftClosed
@@ -96,6 +98,8 @@ function App({ streaming }) {
   }, []);
   const videoPlayed = () => {
     console.log("\nVIDEO GETTING PLAYED\n");
+    // morphTargetInfluences[2] = Math.abs(1);
+
     handleVideoLoad(
       videoRef.current,
       morphTargetInfluences,
