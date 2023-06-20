@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useCharacterCustomization } from "../../contexts/ChracterCustomizationContext.jsx";
 import { CameraControls } from "./CameraControls";
 import Woman from "./Woman";
-
+import Man from "./Man.jsx";
 const Experience = () => {
   const gl = useThree(state => state.gl);
 
@@ -18,7 +18,7 @@ const Experience = () => {
         shadow-mapSize-height={2048}
       />
       <group position={[0, -1, 0]}>
-        <Woman />
+        <Man />
       </group>
       <mesh
         rotation={[-0.5 * Math.PI, 0, 0]}

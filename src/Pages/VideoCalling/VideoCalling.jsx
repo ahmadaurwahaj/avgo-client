@@ -181,7 +181,7 @@ function VideoCalling() {
                 Loading necessary resources...
               </h1>
             )}
-               */}
+              */}
             {mystream && <AvatarRenderer streaming={mystream} />}
             {/* <FaceDetection
               setCameraAllowed={setCameraAllowed}
