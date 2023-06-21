@@ -26,7 +26,7 @@ const smileProbability = (
     blinkSettings: [0.5, 0.75] // adjust upper and lower bound blink sensitivity
   });
   console.log("DATA:", data?.head);
-  if (data && morphTargetInfluences.length > 0) {
+  if (data) {
     morphTargetInfluences[0] = Math.abs(data?.mouth?.y);
     morphTargetInfluences[1] = Math.abs(data?.mouth?.x);
     morphTargetInfluences[5] = Math.abs(1 - data?.eye?.l);
@@ -48,7 +48,6 @@ export const runDetector = async (
   morphTargetInfluences,
   setMorphTargetInfluences
 ) => {
-  console.log("STARTED DETECTOR");
   const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
   const detectorConfig = {
     runtime: "tfjs",
@@ -79,7 +78,7 @@ const inputResolution = {
 };
 
 function App({ streaming }) {
-  const [loaded, setLoaded] = useState(false);
+  let loadedDetector = false;
   const {
     morphTargetLeftEye,
     setMorphTargetLeftEye,
@@ -98,35 +97,46 @@ function App({ streaming }) {
   ) => {
     const video = stream;
 
-    if (loaded) return;
+    if (loadedDetector) return;
     runDetector(video, morphTargetInfluences, setMorphTargetInfluences); //running detection on video
-
-    setLoaded(true);
   };
 
+  const morphRef = useRef({ localRef: [] });
   useEffect(() => {
     videoRef.current.srcObject = streaming;
   }, []);
+
+  // useEffect(() => {
+  //   if (
+  //     morphTargetLeftEye?.length > 0 &&
+  //     morphRef?.current.localRef.length === 0
+  //   ) {
+  //     console.log("MORPH TARGET CHANGED", morphTargetLeftEye.length);
+  //     morphRef.current.localRef = morphTargetLeftEye;
+  //     // console.log(morphRef?.current?.localRef);
+  //   }
+  // }, [morphTargetLeftEye]);
   const videoPlayed = () => {
     console.log("\nVIDEO GETTING PLAYED\n");
     // // morphTargetInfluences[2] = Math.abs(1);
+
     // setInterval(() => {
-    //   // morphTargetMouth[0] = Math.abs(Math.random());
-    //   // morphTargetMouth[1] = Math.abs(Math.random());
-    //   // morphTargetLeftEye[0] = Math.abs(Math.random());
-    //   if (morphTargetLeftEye?.length > 0) {
-    //     console.log("HERE");
-    //     morphTargetLeftEye[0] = Math.abs(Math.random());
-    //     morphTargetLeftEye[5] = Math.abs(Math.random());
+    //   console.log("LENGTH:", morphRef?.current.localRef.length);
+    //   // if (loaded) {
+    //   //   console.log("HERE");
+    //   if (?.length > 0) {
+    //     morphRef.current.localRef[0] = Math.abs(Math.random());
+    //     morphRef.current.localRef[5] = Math.abs(Math.random());
+    //     // morphTargetLeftEye[58] = Math.abs(Math.random());
     //     // morphTargetInfluences[8] = Math.abs(Math.random());
-    //     setMorphTargetLeftEye(morphTargetLeftEye);
+    //     setMorphTargetLeftEye(morphRef?.current?.localRef);
     //   }
+
+    //   // }
     // }, 1000);
-    handleVideoLoad(
-      videoRef.current,
-      morphTargetLeftEye,
-      setMorphTargetLeftEye
-    );
+    // if (morphRef?.current?.localRef?.length > 0)
+    let morphs = Array(63).fill(0);
+    handleVideoLoad(videoRef.current, morphs, setMorphTargetLeftEye);
   };
 
   return (
