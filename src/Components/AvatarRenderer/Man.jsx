@@ -14,23 +14,13 @@ function Model(props) {
     setMorphTargetDictionary,
 
     morphTargetLeftEye,
-    setMorphTargetLeftEye,
-    morphTargetRightEye,
-    setMorphTargetRightEye,
-    morphTargetMouth,
-    setMorphTargetMouth,
-    morphTargetTeeth,
-    setMorphTargetTeeth
+    setMorphTargetLeftEye
   } = useCharacterCustomization();
 
   useEffect(() => {
-    setMorphTargetDictionary(
-      Object.keys(nodes.Wolf3D_Head.morphTargetDictionary)
-    );
+    setMorphTargetDictionary(Object.keys(nodes.EyeLeft.morphTargetDictionary));
     setMorphTargetLeftEye(nodes.EyeLeft.morphTargetInfluences);
-    // setMorphTargetRightEye(Array(63).fill(0));
-    // setMorphTargetMouth(Array(63).fill(0));
-    // setMorphTargetTeeth(Array(63).fill(0));
+    console.log("MORPH TARGET CHANGING");
   }, []);
 
   return (

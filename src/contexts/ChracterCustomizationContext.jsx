@@ -44,7 +44,7 @@ export const CharacterCustomizationProvider = ({ children }) => {
   const [morphTargetRightEye, setMorphTargetRightEye] = useState([]);
   const [morphTargetMouth, setMorphTargetMouth] = useState([]);
   const [morphTargetTeeth, setMorphTargetTeeth] = useState([]);
-
+  let loaded = false;
   return (
     <CharacterCustomizationContext.Provider
       value={{
