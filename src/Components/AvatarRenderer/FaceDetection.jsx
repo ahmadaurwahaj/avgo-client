@@ -31,11 +31,11 @@ const smileProbability = (
     morphTargetInfluences[1] = Math.abs(data?.mouth?.x);
     morphTargetInfluences[5] = Math.abs(1 - data?.eye?.l);
     morphTargetInfluences[8] = Math.abs(1 - data?.eye?.r);
-    // morphTargetInfluences[58] = Math.abs(data?.mouth?.shape?.A);
-    // morphTargetInfluences[59] = Math.abs(data?.mouth?.shape?.E);
-    // morphTargetInfluences[60] = Math.abs(data?.mouth?.shape?.I);
-    // morphTargetInfluences[61] = Math.abs(data?.mouth?.shape?.O);
-    // morphTargetInfluences[62] = Math.abs(data?.mouth?.shape?.U);
+    morphTargetInfluences[58] = Math.abs(data?.mouth?.shape?.A);
+    morphTargetInfluences[59] = Math.abs(data?.mouth?.shape?.E);
+    morphTargetInfluences[60] = Math.abs(data?.mouth?.shape?.I);
+    morphTargetInfluences[61] = Math.abs(data?.mouth?.shape?.O);
+    morphTargetInfluences[62] = Math.abs(data?.mouth?.shape?.U);
 
     setMorphTargetInfluences(morphTargetInfluences);
     // setMorphTargetInfluences(morphTargetInfluences);
@@ -79,17 +79,13 @@ const inputResolution = {
 
 function App({ streaming }) {
   let loadedDetector = false;
-  const {
-    morphTargetLeftEye,
-    setMorphTargetLeftEye,
-    morphTargetRightEye,
-    setMorphTargetRightEye,
-    morphTargetMouth,
-    setMorphTargetMouth,
-    morphTargetTeeth,
-    setMorphTargetTeeth
-  } = useCharacterCustomization();
+  const { morphTargetLeftEye, setMorphTargetLeftEye } =
+    useCharacterCustomization();
   const videoRef = useRef(null);
+
+  useEffect(() => {
+    videoRef.current.srcObject = streaming;
+  }, []);
   const handleVideoLoad = (
     stream,
     morphTargetInfluences,
@@ -101,40 +97,9 @@ function App({ streaming }) {
     runDetector(video, morphTargetInfluences, setMorphTargetInfluences); //running detection on video
   };
 
-  const morphRef = useRef({ localRef: [] });
-  useEffect(() => {
-    videoRef.current.srcObject = streaming;
-  }, []);
-
-  // useEffect(() => {
-  //   if (
-  //     morphTargetLeftEye?.length > 0 &&
-  //     morphRef?.current.localRef.length === 0
-  //   ) {
-  //     console.log("MORPH TARGET CHANGED", morphTargetLeftEye.length);
-  //     morphRef.current.localRef = morphTargetLeftEye;
-  //     // console.log(morphRef?.current?.localRef);
-  //   }
-  // }, [morphTargetLeftEye]);
   const videoPlayed = () => {
     console.log("\nVIDEO GETTING PLAYED\n");
-    // // morphTargetInfluences[2] = Math.abs(1);
 
-    // setInterval(() => {
-    //   console.log("LENGTH:", morphRef?.current.localRef.length);
-    //   // if (loaded) {
-    //   //   console.log("HERE");
-    //   if (?.length > 0) {
-    //     morphRef.current.localRef[0] = Math.abs(Math.random());
-    //     morphRef.current.localRef[5] = Math.abs(Math.random());
-    //     // morphTargetLeftEye[58] = Math.abs(Math.random());
-    //     // morphTargetInfluences[8] = Math.abs(Math.random());
-    //     setMorphTargetLeftEye(morphRef?.current?.localRef);
-    //   }
-
-    //   // }
-    // }, 1000);
-    // if (morphRef?.current?.localRef?.length > 0)
     let morphs = Array(63).fill(0);
     handleVideoLoad(videoRef.current, morphs, setMorphTargetLeftEye);
   };
