@@ -10,6 +10,11 @@ const initialState = {
   country: "",
   age: 0,
   gender: "",
+  isLogout: false
+};
+
+const userSlice = createSlice({
+  name: "user",
   initialState,
   reducers: {
     updateIsLoggedIn: (state, action) => {
@@ -63,7 +68,7 @@ const initialState = {
       state.isLogout = false;
     },
 
-    clearUser: (state) => {
+    clearUser: state => {
       state.id = "";
       state.name = "";
       state.email = "";
@@ -74,8 +79,8 @@ const initialState = {
       state.age = 0;
       state.gender = "";
       state.isLogout = true;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -90,7 +95,7 @@ export const {
   updateIsLogout,
   updateSignUpInfo,
   updateLoginInfo,
-  clearUser,
+  clearUser
 } = userSlice.actions;
 
 // export const selectUser = (state) => state.user;
