@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
-import Interface from "./Interface";
+
 import { MantineProvider } from "@mantine/core";
 import { CharacterAnimationsProvider } from "../../contexts/ChractersAnimations";
 import { CharacterCustomizationProvider } from "../../contexts/ChracterCustomizationContext";
