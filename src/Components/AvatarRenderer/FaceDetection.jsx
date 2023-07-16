@@ -25,12 +25,14 @@ const smileProbability = (
     smoothBlink: false, // smooth left and right eye blink delays
     blinkSettings: [0.5, 0.75] // adjust upper and lower bound blink sensitivity
   });
-  console.log("DATA:", data?.head);
+
   if (data) {
     morphTargetInfluences[0] = Math.abs(data?.mouth?.y);
     morphTargetInfluences[1] = Math.abs(data?.mouth?.x);
     morphTargetInfluences[5] = Math.abs(1 - data?.eye?.l);
     morphTargetInfluences[8] = Math.abs(1 - data?.eye?.r);
+    morphTargetInfluences[41] = Math.abs(data?.brow);
+    morphTargetInfluences[42] = Math.abs(data?.brow);
     morphTargetInfluences[58] = Math.abs(data?.mouth?.shape?.A);
     morphTargetInfluences[59] = Math.abs(data?.mouth?.shape?.E);
     morphTargetInfluences[60] = Math.abs(data?.mouth?.shape?.I);

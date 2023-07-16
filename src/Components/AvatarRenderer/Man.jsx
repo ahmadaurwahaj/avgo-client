@@ -20,7 +20,7 @@ function Model(props) {
   useEffect(() => {
     setMorphTargetDictionary(Object.keys(nodes.EyeLeft.morphTargetDictionary));
     setMorphTargetLeftEye(nodes.EyeLeft.morphTargetInfluences);
-    console.log("MORPH TARGET CHANGING");
+    console.log("MORPH TARGET CHANGING", nodes.EyeLeft.morphTargetDictionary);
   }, []);
 
   return (
