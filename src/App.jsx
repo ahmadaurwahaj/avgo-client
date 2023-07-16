@@ -10,9 +10,9 @@ function App() {
         <Route
           path="/messages"
           element={
-            <PrivateRoute>
-              <Messages />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <Messages />
+            // </PrivateRoute>
           }
         />
         <Route

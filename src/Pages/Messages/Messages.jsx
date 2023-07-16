@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Messages.module.css";
 import MsgSideBar from "../../Components/MsgSidebar/MsgSidebar";
 import SideBar from "../../Components/Sidebar/SideBar";
@@ -9,10 +9,31 @@ import uicon from "../../assets/icons/usericon.svg";
 import { Link } from "react-router-dom";
 import ChatBox from "../../Components/ChatBox/ChatBox";
 
-function Messages() {
-  return (
-    // <div>
+import { useNavigate } from "react-router-dom";
+import { useMutation, useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { updateFriendsList } from "../../redux/Slices/friendsSlice";
+import { getFriendList } from "../../utils/api/friendApi";
+import { notifyError } from "../../Components/NotifyError";
 
+function Messages() {
+  const dispatch = useDispatch();
+
+  const [message, setMessage] = useState("Hi");
+
+  const id = useSelector((state) => state?.user?.id);
+  const storeFriendList = useSelector((state) => state?.friends?.friendsList);
+
+  const getFriendsQuery = useQuery({
+    queryKey: ["friendList"],
+    queryFn: () => getFriendList(id),
+  });
+
+  useEffect(() => {
+    dispatch(updateFriendsList(getFriendsQuery.data));
+  }, []);
+
+  return (
     <div className={style.main}>
       <div className={style.inner}>
         <div>
@@ -27,13 +48,12 @@ function Messages() {
               <div className={style.left_userchat}>
                 <div className={style.inner_chat}>
                   <div>
-                    <ShowMsg textmsg="Hello Guys! Whats your opinion" />
-                  </div>
-                  <div>
-                    <ShowMsg textmsg="Hello Guys! Whats your opinion" />
-                  </div>
-                  <div>
-                    <ShowMsg textmsg="Hello Guys! Whats your opinion" />
+                    {getFriendsQuery.data.map((obj) => (
+                      <ShowMsg
+                        name={obj.user2.user_name}
+                        textmsg="Hello Guys"
+                      />
+                    ))}
                   </div>
                 </div>
               </div>

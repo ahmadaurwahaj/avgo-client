@@ -19,11 +19,13 @@
   /* background-color: aliceblue; */
   border-radius: 6px;
 }
+
 .left_container {
   width: 6%;
   display: flex;
   /* background-color: antiquewhite; */
 }
+
 .Rec_1 {
   width: 85%;
   height: 91%;
@@ -37,6 +39,7 @@
   backdrop-filter: blur(32px);
   border-radius: 20px;
 }
+
 .Rec_2 {
   display: flex;
   width: 95%;
@@ -46,6 +49,7 @@
   /* background-color: aqua; */
   background: radial-gradient(#282c34, #244a79);
 }
+
 .left_topbar {
   width: 100%;
   display: flex;
@@ -61,6 +65,7 @@
   border-bottom: 0.5px solid #3a5b82;
   font-family: "Gilroy";
 }
+
 .set_btn,
 .logout_btn {
   padding: 10px;
@@ -76,6 +81,7 @@
   font-size: 12px;
   font-family: "Gilroy";
 }
+
 .logout_btn::after {
   content: " ";
   height: 2px;
@@ -87,9 +93,11 @@
   right: 0;
   left: 8px;
 }
+
 .set_btn {
   margin-left: 23px;
 }
+
 .logout_btn {
   /* color: radial-gradient(#282c34, #244a79); */
 }
@@ -102,6 +110,7 @@
   align-items: center;
   padding: 6px;
 }
+
 .Bio,
 .password,
 .gen_info {
@@ -113,7 +122,9 @@
   border-radius: 8px;
   width: 55%;
   margin-bottom: 20px;
+  color: white;
 }
+
 .password {
   display: flex;
   /* width: 75%; */
@@ -128,6 +139,7 @@
   font-family: "Gilroy";
   background-color: #2f4d6d;
 }
+
 .right_side {
   width: 20%;
   background-color: #2f4d6d;
@@ -136,12 +148,14 @@
   justify-content: center;
   font-family: "Gilroy";
 }
+
 .Bio {
   display: flex;
   /* width: 75%; */
   background-color: #2f4d6d;
   margin-top: 30px;
 }
+
 .container {
   /* width: 100%; */
   width: 97%;
@@ -155,12 +169,14 @@
   margin-left: 10px;
   /* margin-top: 5px; */
 }
+
 .container1 {
   width: 100%;
   display: flex;
   align-items: center;
   /* margin-top: 5px; */
 }
+
 .input_wide {
   width: 95%;
   padding: 8px;
@@ -184,6 +200,7 @@
   border: none;
   letter-spacing: 0.3px;
 }
+
 .update_btn {
   /* position: absolute; */
   /* top: 50%; */
@@ -212,6 +229,7 @@
   height: 30px;
   /* height: 35px; */
 }
+
 .edit_btn {
   /* position: absolute; */
   /* top: 50%; */
@@ -244,6 +262,7 @@
   /* width: 75%; */
   background-color: #2f4d6d;
 }
+
 .bb {
   display: flex;
   align-items: center;
@@ -336,6 +355,7 @@
   font-weight: 600;
   font-family: "Gilroy";
 }
+
 .info_container {
   width: 95%;
   display: flex;

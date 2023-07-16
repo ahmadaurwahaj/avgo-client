@@ -7,7 +7,7 @@ import { login } from "../../utils/api/authApi";
 import { setToken } from "../../redux/Slices/authSlice";
 import {
   updateIsLoggedIn,
-  updateLoginInfo
+  updateLoginInfo,
 } from "../../redux/Slices/userSlice";
 import { notifyError } from "../../Components/NotifyError";
 import style from "./Login.module.css";
@@ -22,7 +22,7 @@ const Login = ({ type }) => {
   const [password, setPassword] = useState("");
   // let isLoggedIn = useSelector((state) => state?.user?.isLoggedIn);
 
-  const showErrorMsg = msg => {
+  const showErrorMsg = (msg) => {
     toast.error(`${msg}`, {
       position: "top-right",
       autoClose: 5000,
@@ -31,39 +31,39 @@ const Login = ({ type }) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark"
+      theme: "dark",
     });
   };
 
   const handleLogin = useMutation(login, {
-    onSuccess: data => {
+    onSuccess: (data) => {
       dispatch(setToken(data.token));
       dispatch(updateLoginInfo(data?.data?.user));
       console.log("User logged in successfully");
 
       navigate("/");
     },
-    onError: error => {
+    onError: (error) => {
       console.log("Login failed:", error);
       dispatch(updateIsLoggedIn(false));
       // Show error message to the user
       notifyError(error.message);
-    }
+    },
   });
 
   const handleSignup = useMutation(signup, {
-    onSuccess: data => {
+    onSuccess: (data) => {
       dispatch(setToken(data.token));
       dispatch(updateLoginInfo(data?.data?.user));
       navigate("/register2");
     },
-    onError: error => {
+    onError: (error) => {
       console.log("Signup failed:", error);
       notifyError(error);
-    }
+    },
   });
 
-  const submitForm = e => {
+  const submitForm = (e) => {
     e.preventDefault();
     if (type === "login") handleLogin.mutate({ email, password });
     else handleSignup.mutate({ email, password });
@@ -131,14 +131,14 @@ const Login = ({ type }) => {
                   className={style.enterEmail}
                   type="email"
                   placeholder="Enter Email"
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 ></input>
                 <input
                   className={style.password}
                   type="password"
                   placeholder="••••••••"
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 ></input>
                 {type === "register" ? (

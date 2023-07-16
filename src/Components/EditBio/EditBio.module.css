@@ -75,6 +75,7 @@ span {
   font-weight: 500;
   /* background-color: #30364f; */
 }
+
 .Bio {
   display: flex;
   /* width: 75%; */
@@ -87,15 +88,22 @@ span {
   height: 30px;
   border: none;
   padding: 4px;
+  color: white;
 }
 
 .uname {
-  padding: 2px;
+  padding: 4px;
   margin-top: 12px;
   font-size: 12px;
   font-weight: bold;
   color: white;
   /* background-color: #30364f; */
+}
+
+.Bio::placeholder,
+.uname::placeholder {
+  color: white;
+  padding: 4px;
 }
 
 .pra,
