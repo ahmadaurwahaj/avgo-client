@@ -15,23 +15,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateFriendsList } from "../../redux/Slices/friendsSlice";
 import { getFriendList } from "../../utils/api/friendApi";
 import { notifyError } from "../../Components/NotifyError";
+import { getMessages } from "../../utils/api/messageApi";
+import { updateMessage } from "../../redux/Slices/messageSlice";
 
 function Messages() {
   const dispatch = useDispatch();
 
-  const [message, setMessage] = useState("Hi");
+  const [receiverId, setReceiverId] = useState(null);
 
   const id = useSelector((state) => state?.user?.id);
-  const storeFriendList = useSelector((state) => state?.friends?.friendsList);
+  // const msgObj = useSelector((state) => state?.message?.message);
+  // const storeFriendList = useSelector((state) => state.friends.friendsList);
 
   const getFriendsQuery = useQuery({
     queryKey: ["friendList"],
     queryFn: () => getFriendList(id),
   });
 
+  const getMessageQuery = useQuery({
+    queryKey: ["messages"],
+    queryFn: () => getMessages(id),
+  });
+
   useEffect(() => {
     dispatch(updateFriendsList(getFriendsQuery.data));
-  }, []);
+    dispatch(updateMessage(getMessageQuery.data));
+  }, [getFriendsQuery, getMessageQuery]);
 
   return (
     <div className={style.main}>
@@ -48,11 +57,8 @@ function Messages() {
               <div className={style.left_userchat}>
                 <div className={style.inner_chat}>
                   <div>
-                    {getFriendsQuery.data.map((obj) => (
-                      <ShowMsg
-                        name={obj.user2.user_name}
-                        textmsg="Hello Guys"
-                      />
+                    {getFriendsQuery?.data?.map((obj) => (
+                      <ShowMsg name={obj.user2.user_name} textmsg="Hi" />
                     ))}
                   </div>
                 </div>
@@ -82,7 +88,7 @@ function Messages() {
                 </div>
               </div>
               <div className={style.right_userchat}>
-                <ChatBox />
+                <ChatBox obj={getMessageQuery?.data} />
               </div>
             </div>
           </div>

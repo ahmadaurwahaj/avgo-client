@@ -6,8 +6,11 @@ import sicon from "../../assets/icons/share.svg";
 import sendicon from "../../assets/icons/send.svg";
 import MsgRow from "../MsgRow/MsgRow";
 import OurMsgRow from "../OurMsgRow/OurMsgRow";
+import { useSelector } from "react-redux";
+const ChatBox = (msgObj) => {
+  const MessageObj = Object.values(msgObj)[0];
 
-const ChatBox = () => {
+  const id = useSelector((state) => state?.user?.id);
   return (
     <div className={style.chatbox}>
       <div className={style.col_1}>
@@ -17,11 +20,14 @@ const ChatBox = () => {
 
         <div className={style.chat_content}>
           <div className={style.upercontent}>
-            <MsgRow textmsg="Hello Guys! Whats your opinion?" />
-            <OurMsgRow />
-            <MsgRow textmsg="Hello Guys! Whats your opinion?" />
-            <MsgRow textmsg="Anyone is up for illustration. I think there are less relatable images according to our brand" />
-          
+            {MessageObj?.map((data) => {
+              return (data?.sender === id || data?.receiver === id) &&
+                data?.sender === id ? (
+                <OurMsgRow msg={data} />
+              ) : (
+                <MsgRow msg={data} />
+              );
+            })}
 
             {/* <div className={style.msg_row}>
               <div className={style.msg_text}>
