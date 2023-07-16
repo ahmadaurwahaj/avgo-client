@@ -30,6 +30,7 @@ function VideoCalling() {
   const peerInstance = useRef(null);
   const [otherStream, setOtherStream] = useState(null);
   const user = useSelector(state => state?.user);
+  // const [requestRecieved, setRequestRecieved] = useState(null);
   const getStream = async () => {
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
@@ -125,6 +126,8 @@ function VideoCalling() {
       socket.emit("setUserData", { ...user });
       socket.emit("peerInit", { peerId: peerId });
     });
+    socket.on("AddFriendRequest", () => {});
+    socket.emit("friendAdded", () => {});
     return () => {
       socket.off("connect");
       socket.off("ack");
@@ -138,7 +141,10 @@ function VideoCalling() {
       peer.off("call");
     };
   }, []);
-
+  const sendRequest = () => {
+    console.log("HERE");
+    socket.emit("sendRequest");
+  };
   return (
     <div className={style.main}>
       <div className={style.inner}>
@@ -165,7 +171,7 @@ function VideoCalling() {
               </div>
 
               <div className={style.navbar_buttons_right}>
-                <button className={style.add_btn}>
+                <button className={style.add_btn} onClick={sendRequest}>
                   <img
                     className={style.background_icon}
                     alt="bg_img"
@@ -182,7 +188,7 @@ function VideoCalling() {
               </h1>
             )}
               */}
-            {mystream && <AvatarRenderer streaming={mystream} />}
+            {/* {mystream && <AvatarRenderer streaming={mystream} />} */}
             {/* <FaceDetection
               setCameraAllowed={setCameraAllowed}
               setFaceDetectionRunning={setFaceDetectionRunning}
