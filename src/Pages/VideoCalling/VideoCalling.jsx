@@ -120,7 +120,12 @@ function VideoCalling() {
     });
 
     peer.on("call", async call => {
-      call.answer(mystream);
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+      });
+      setMystream(stream);
+      call.answer(stream);
 
       call.on("stream", remoteStream => {
         console.log("REMOTE:", remoteStream);
