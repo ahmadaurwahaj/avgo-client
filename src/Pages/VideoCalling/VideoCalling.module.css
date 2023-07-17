@@ -3,8 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-.loadingText {
-  margin-top: 30px;
+.connecting {
+  margin-top: 40px;
+  color: #fff;
+  font-size: 20px;
 }
 .m_container {
   background: #a9d0e9;

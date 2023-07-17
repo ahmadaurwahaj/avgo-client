@@ -23,6 +23,8 @@ function VideoCalling() {
   const [mystream, setMystream] = useState(null);
   const [peerId, setpeerId] = useState(null);
   const [otherpeerId, setotherpeerId] = useState(null);
+  const [btnDisabled, setBtnDisabled] = useState(false);
+  const [btnAppear, setBtnAppear] = useState(true);
   const [roomStatus, setRoomStatus] = useState({
     connected: false,
     message: ""
@@ -102,12 +104,6 @@ function VideoCalling() {
       });
     });
 
-    /*const call = peerInstance.current.call(pId, mystream);
-        console.log(typeof peer.call(pId, mystream));
-        call.on("stream", remoteStream => {
-          setOtherStream(remoteStream);
-        });*/
-    // });
     peer.on("call", async call => {
       call.answer(mystream);
 
@@ -123,10 +119,14 @@ function VideoCalling() {
       setRoomStatus({ ...roomStatus, connected: false });
       setUserConnected(null);
       setMessage([]);
+      setBtnDisabled(false);
+      setBtnAppear(true);
       socket.emit("setUserData", { ...user });
       socket.emit("peerInit", { peerId: peerId });
     });
-    socket.on("AddFriendRequest", () => {});
+    socket.on("requestReceived", () => {
+      console.log("REQUEST RECIEVED");
+    });
     socket.emit("friendAdded", () => {});
     return () => {
       socket.off("connect");
@@ -137,13 +137,15 @@ function VideoCalling() {
       socket.off("newMessage");
       socket.off("alone");
       socket.off("init-call");
+      socket.off("requestReceived");
       peer.off("open");
       peer.off("call");
     };
   }, []);
   const sendRequest = () => {
-    console.log("HERE");
+    console.log("hello");
     socket.emit("sendRequest");
+    setBtnDisabled(true);
   };
   return (
     <div className={style.main}>
@@ -153,83 +155,80 @@ function VideoCalling() {
             <SideBar type="videoCall" />
           </div>
         </div>
-
-        <div className={style.mid_container}>
-          {mystream && (
-            <div className={style.top}>
-              <div className={style.left_innercontainer}>
-                <div>
-                  <button className={style.navbar_buttons_left}>
-                    <img
-                      className={style.background_icon}
-                      alt="bg_img"
-                      src={nxt}
-                    />
-                  </button>
+        {roomStatus.connected ? (
+          <>
+            <div className={style.mid_container}>
+              <div className={style.top}>
+                <div className={style.left_innercontainer}>
+                  <div>
+                    <button className={style.navbar_buttons_left}>
+                      <img
+                        className={style.background_icon}
+                        alt="bg_img"
+                        src={nxt}
+                      />
+                    </button>
+                  </div>
+                  <div className={style.name}>{userConnected?.name}</div>
                 </div>
-                <div className={style.name}>{userConnected?.name}</div>
+
+                <div className={style.navbar_buttons_right}>
+                  {btnAppear && (
+                    <button
+                      className={style.add_btn}
+                      onClick={sendRequest}
+                      disabled={btnDisabled}
+                    >
+                      <img
+                        className={style.background_icon}
+                        alt="bg_img"
+                        src={add1}
+                      />
+                    </button>
+                  )}
+                </div>
               </div>
 
-              <div className={style.navbar_buttons_right}>
-                <button className={style.add_btn} onClick={sendRequest}>
-                  <img
-                    className={style.background_icon}
-                    alt="bg_img"
-                    src={add1}
-                  />
-                </button>
+              <div className={style.m_container}>
+                {/* {mystream && <AvatarRenderer streaming={mystream} />} */}
               </div>
-            </div>
-          )}
-          <div className={style.m_container}>
-            {/* {(!cameraAllowed || !faceDetectionRunning) && (
-              <h1 className={style.loadingText}>
-                Loading necessary resources...
-              </h1>
-            )}
-              */}
-            {mystream && <AvatarRenderer streaming={mystream} />}
-            {/* <FaceDetection
-              setCameraAllowed={setCameraAllowed}
-              setFaceDetectionRunning={setFaceDetectionRunning}
-              faceDetectionRunning={faceDetectionRunning}
-            /> */}
-          </div>
-          {/* <div>
-          </div> */}
 
-          {mystream && (
-            <div className={style.info}>
-              <img
-                className={style.background_infoicon}
-                alt="bg_img"
-                src={info}
-              />
-              <div className={style.info_text}>
-                <span className={style.user_quota}>Bio: </span>
-                <br />
-                <span className={style.user_infotext}>
-                  {userConnected?.bio}
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-        {mystream && (
-          <div className={style.right_container}>
-            <div className={style.space_bar}></div>
-            <div>
-              {roomStatus?.connected && (
-                <UserChat
-                  message={message}
-                  socket={socket}
-                  roomID={roomIdOtherUser}
+              <div className={style.info}>
+                <img
+                  className={style.background_infoicon}
+                  alt="bg_img"
+                  src={info}
                 />
-              )}
+                <div className={style.info_text}>
+                  <span className={style.user_quota}>Bio: </span>
+                  <br />
+                  <span className={style.user_infotext}>
+                    {userConnected?.bio}
+                  </span>
+                </div>
+              </div>
             </div>
+            {mystream && (
+              <div className={style.right_container}>
+                <div className={style.space_bar}></div>
+                <div>
+                  {roomStatus?.connected && (
+                    <UserChat
+                      message={message}
+                      socket={socket}
+                      roomID={roomIdOtherUser}
+                    />
+                  )}
+                </div>
+              </div>
+            )}
+            <div className={style.space_baar}></div>
+          </>
+        ) : (
+          <div className={style.connecting}>
+            Please wait connecting you to stranger...
           </div>
         )}
-        <div className={style.space_baar}></div>
       </div>
     </div>
   );
