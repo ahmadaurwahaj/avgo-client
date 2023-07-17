@@ -5,13 +5,14 @@ import vidbtn from "../../assets/icons/vidbtn.svg";
 import msg from "../../assets/icons/msg.svg";
 import msgbtn from "../../assets/icons/msgbtn.svg";
 import acnt from "../../assets/icons/acnt.svg";
+import acntbtn from "../../assets/icons/acntbtn.svg";
 import icn from "../../assets/icons/icn.svg";
 import prof from "../../assets/icons/prof.svg";
 import { useNavigate } from "react-router-dom";
 const SideBar = ({ type }) => {
   console.log(type);
   const navigate = useNavigate();
-  const nav = (to) => {
+  const nav = to => {
     if (to !== type) navigate(`/${to}`);
   };
   return (
@@ -47,7 +48,11 @@ const SideBar = ({ type }) => {
           className={type === "settings" ? style.focused : style.non_focused}
           onClick={() => nav("settings")}
         >
-          <img className={style.background_icon} alt="bg_img" src={acnt} />
+          <img
+            className={style.background_icon}
+            alt="bg_img"
+            src={type === "settings" ? acntbtn : acnt}
+          />
         </button>
       </div>
 
