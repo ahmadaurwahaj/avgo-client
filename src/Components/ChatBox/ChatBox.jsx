@@ -7,6 +7,7 @@ import sendicon from "../../assets/icons/send.svg";
 import MsgRow from "../MsgRow/MsgRow";
 import OurMsgRow from "../OurMsgRow/OurMsgRow";
 import { useSelector } from "react-redux";
+import { meshBounds } from "@react-three/drei";
 const ChatBox = (msgObj) => {
   const MessageObj = Object.values(msgObj)[0];
 
@@ -20,14 +21,15 @@ const ChatBox = (msgObj) => {
 
         <div className={style.chat_content}>
           <div className={style.upercontent}>
-            {MessageObj?.map((data) => {
-              return (data?.sender === id || data?.receiver === id) &&
-                data?.sender === id ? (
-                <OurMsgRow msg={data} />
-              ) : (
-                <MsgRow msg={data} />
-              );
-            })}
+            {MessageObj?.map((data) => (
+              <>
+                {data?.sender?._id === id ? (
+                  <OurMsgRow msg={{ message: data?.message }} />
+                ) : (
+                  <MsgRow msg={{ message: data?.message }} />
+                )}
+              </>
+            ))}
 
             {/* <div className={style.msg_row}>
               <div className={style.msg_text}>
@@ -47,7 +49,7 @@ const ChatBox = (msgObj) => {
             </div>
             <div className={style.message_bar}>
               <button className={style.share_btn}>
-                <img className={style.background_i} alt="bg_img" src={sicon} />
+                {/* <img className={style.background_i} alt="bg_img" src={sicon} /> */}
               </button>
               <input type="text" placeholder="Write message here" />
               <button className={style.send_btn}>
