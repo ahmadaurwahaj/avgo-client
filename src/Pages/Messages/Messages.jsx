@@ -5,10 +5,10 @@ import SideBar from "../../Components/Sidebar/SideBar";
 import UserChat from "../../Components/ChatBox/ChatBox";
 import MsgRow from "../../Components/MsgRow/MsgRow";
 import ShowMsg from "../../Components/ShowMsg/ShowMsg";
-import uicon from "../../assets/icons/usericon.svg";
+// import uicon from "../../assets/icons/usericon.svg";
 import { Link } from "react-router-dom";
 import ChatBox from "../../Components/ChatBox/ChatBox";
-
+import uicon from "../../assets/icons/usericon1.svg";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
