@@ -262,20 +262,20 @@ function VideoCalling() {
                 </div>
               </div>
             </div>
-            {mystream && (
-              <div className={style.right_container}>
-                <div className={style.space_bar}></div>
-                <div>
-                  {roomStatus?.connected && (
-                    <UserChat
-                      message={message}
-                      socket={socket}
-                      roomID={roomIdOtherUser}
-                    />
-                  )}
-                </div>
+
+            <div className={style.right_container}>
+              <div className={style.space_bar}></div>
+              <div>
+                {roomStatus?.connected && (
+                  <UserChat
+                    message={message}
+                    socket={socket}
+                    roomID={roomIdOtherUser}
+                  />
+                )}
               </div>
-            )}
+            </div>
+
             <div className={style.space_baar}></div>
           </>
         ) : (
