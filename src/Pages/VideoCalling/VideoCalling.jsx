@@ -34,13 +34,10 @@ function VideoCalling() {
   const [otherStream, setOtherStream] = useState(null);
   const user = useSelector(state => state?.user);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const videoRef = useRef();
   // const [requestRecieved, setRequestRecieved] = useState(null);
   const getStream = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      audio: true
-    });
-    setMystream(stream);
+    videoRef.current = stream;
   };
   useEffect(() => {
     getStream();
@@ -59,11 +56,6 @@ function VideoCalling() {
     }
   };
   useEffect(() => {
-    console.log("BEFORE", socket.id);
-    socket.on("connect", () => {
-      socket.emit("setUserData", { ...user });
-    });
-
     const peer = new Peer("", {
       host: "0.peerjs.com",
       port: 443,
@@ -71,6 +63,12 @@ function VideoCalling() {
       pingInterval: 5000
     });
     peerInstance.current = peer;
+
+    console.log("BEFORE", socket.id);
+    socket.on("connect", () => {
+      socket.emit("setUserData", { ...user });
+    });
+
     peer.on("open", id => {
       console.log(id);
       setpeerId(id);
@@ -107,12 +105,17 @@ function VideoCalling() {
       //window.scroll(0, height);
     });
     socket.on("init-call", async ({ pId }) => {
-      console.log("CONNECTED, init-call", pId);
-      const call = peer.call(pId, mystream);
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+      });
+      setMystream(stream);
+      console.log("CONNECTED, init-call", pId, videoRef.current);
+      const call = peer.call(pId, stream);
       console.log("Initiated call");
       call.on("stream", remoteStream => {
         setOtherStream(remoteStream);
-        console.log("REMOTE:",remoteStream);
+        console.log("REMOTE:", remoteStream);
       });
     });
 
@@ -120,7 +123,7 @@ function VideoCalling() {
       call.answer(mystream);
 
       call.on("stream", remoteStream => {
-        console.log("REMOTE:",remoteStream);
+        console.log("REMOTE:", remoteStream);
         setOtherStream(remoteStream);
       });
     });
@@ -143,6 +146,7 @@ function VideoCalling() {
     socket.on("friendAdded", () => {
       setBtnAppear(false);
     });
+
     return () => {
       socket.off("connect");
       socket.off("ack");
@@ -156,7 +160,7 @@ function VideoCalling() {
       peer.off("open");
       peer.off("call");
     };
-  }, []);
+  }, [mystream]);
 
   useEffect(() => {
     console.log(userConnected);
@@ -235,7 +239,7 @@ function VideoCalling() {
               </div>
 
               <div className={style.m_container}>
-                {/* {mystream && <AvatarRenderer streaming={mystream} />} */}
+                {otherStream && <AvatarRenderer streaming={otherStream} />}
               </div>
 
               <div className={style.info}>
