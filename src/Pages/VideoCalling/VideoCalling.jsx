@@ -9,6 +9,7 @@ import SideBar from "../../Components/Sidebar/SideBar";
 import UserChat from "../../Components/UserChat/UserChat";
 import io from "socket.io-client";
 import { Peer } from "peerjs";
+import Modal from "react-modal";
 import { useSelector } from "react-redux";
 import AvatarRenderer from "../../Components/AvatarRenderer/AvatarRenderer";
 const socket = io(`http://localhost:3300`);
@@ -32,6 +33,7 @@ function VideoCalling() {
   const peerInstance = useRef(null);
   const [otherStream, setOtherStream] = useState(null);
   const user = useSelector(state => state?.user);
+  const [modalIsOpen, setIsOpen] = useState(false);
   // const [requestRecieved, setRequestRecieved] = useState(null);
   const getStream = async () => {
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -46,6 +48,16 @@ function VideoCalling() {
       getStream();
     };
   }, []);
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)"
+    }
+  };
   useEffect(() => {
     console.log("BEFORE", socket.id);
     socket.on("connect", () => {
@@ -100,7 +112,7 @@ function VideoCalling() {
       console.log("Initiated call");
       call.on("stream", remoteStream => {
         setOtherStream(remoteStream);
-        console.log(remoteStream);
+        console.log("REMOTE:",remoteStream);
       });
     });
 
@@ -108,7 +120,7 @@ function VideoCalling() {
       call.answer(mystream);
 
       call.on("stream", remoteStream => {
-        console.log(remoteStream);
+        console.log("REMOTE:",remoteStream);
         setOtherStream(remoteStream);
       });
     });
@@ -126,8 +138,11 @@ function VideoCalling() {
     });
     socket.on("requestReceived", () => {
       console.log("REQUEST RECIEVED");
+      setIsOpen(true);
     });
-    socket.emit("friendAdded", () => {});
+    socket.on("friendAdded", () => {
+      setBtnAppear(false);
+    });
     return () => {
       socket.off("connect");
       socket.off("ack");
@@ -142,10 +157,24 @@ function VideoCalling() {
       peer.off("call");
     };
   }, []);
+
+  useEffect(() => {
+    console.log(userConnected);
+  }, [userConnected]);
+
   const sendRequest = () => {
     console.log("hello");
     socket.emit("sendRequest");
     setBtnDisabled(true);
+  };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+  const acceptRequest = () => {
+    console.log("ACCEPT REQUEST");
+    socket.emit("requestAccepted");
+    setIsOpen(false);
   };
   return (
     <div className={style.main}>
@@ -155,6 +184,22 @@ function VideoCalling() {
             <SideBar type="videoCall" />
           </div>
         </div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Friend Request Recieved"
+        >
+          <>
+            <h2>You Received Friend Request from {userConnected?.user_name}</h2>
+            <button onClick={closeModal} className={style.btn}>
+              Reject
+            </button>
+            <button onClick={acceptRequest} className={style.btn}>
+              Accept Request
+            </button>
+          </>
+        </Modal>
         {roomStatus.connected ? (
           <>
             <div className={style.mid_container}>
