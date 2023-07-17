@@ -11,13 +11,13 @@ import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateGeneralInfo,
-  updatePassword
+  updatePassword,
 } from "../../utils/api/updateUserApi";
 import {
   clearUser,
   updateAge,
   updateCountry,
-  updateGender
+  updateGender,
 } from "../../redux/Slices/userSlice";
 
 import { notifyError } from "../../Components/NotifyError";
@@ -26,12 +26,12 @@ import { notifySuccess } from "../../Components/NotifySuccess";
 
 function Settings() {
   const dispatch = useDispatch();
-  const token = useSelector(state => state?.auth?.token);
-  const id = useSelector(state => state.user.id);
-  const email = useSelector(state => state.user.email);
-  const storeAge = useSelector(state => state.user.age);
-  const storeGender = useSelector(state => state.user.gender);
-  const storeCountry = useSelector(state => state.user.country);
+  const token = useSelector((state) => state?.auth?.token);
+  const id = useSelector((state) => state.user.id);
+  const email = useSelector((state) => state.user.email);
+  const storeAge = useSelector((state) => state.user.age);
+  const storeGender = useSelector((state) => state.user.gender);
+  const storeCountry = useSelector((state) => state.user.country);
 
   const [age, setAge] = useState(storeAge);
   const [country, setCountry] = useState(storeCountry);
@@ -42,27 +42,27 @@ function Settings() {
   const [isEditStateGeneralInfo, setIsEditStateGeneralInfo] = useState(false);
 
   const handleUpdatePassword = useMutation(updatePassword, {
-    onSuccess: data => {
+    onSuccess: (data) => {
       notifySuccess("Password Updated");
     },
-    onError: error => {
+    onError: (error) => {
       notifyError(error.message);
-    }
+    },
   });
 
   const handleGeneralInfo = useMutation(updateGeneralInfo, {
-    onSuccess: data => {
+    onSuccess: (data) => {
       dispatch(updateCountry(country));
       dispatch(updateAge(age));
       dispatch(updateGender(gender));
       notifySuccess("General Info Updated");
     },
-    onError: error => {
+    onError: (error) => {
       notifyError(error.message);
-    }
+    },
   });
 
-  const passwordFormHandler = e => {
+  const passwordFormHandler = (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
       notifyError("New Passwords and Confirm Password do not match");
@@ -72,12 +72,12 @@ function Settings() {
         email,
         currentPassword,
         newPassword,
-        token
+        token,
       });
     }
   };
 
-  const generalInfoFormHalder = e => {
+  const generalInfoFormHalder = (e) => {
     console.log("I'm called");
     e.preventDefault();
     setIsEditStateGeneralInfo(false);
@@ -88,7 +88,7 @@ function Settings() {
     <div className={style.main}>
       <div className={style.inner}>
         <div>
-          <SideBar />
+          <SideBar type="settings" />
         </div>
         <div className={style.left_container}></div>
         <div className={style.Rec_1}>
@@ -130,7 +130,7 @@ function Settings() {
                       type="password"
                       placeholder="Current Password"
                       // required
-                      onChange={e => setCurrentPassword(e.target.value)}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
                     ></input>
                   </div>
                   <div className={style.container1}>
@@ -139,7 +139,7 @@ function Settings() {
                       type="password"
                       placeholder="New Password"
                       // required
-                      onChange={e => {
+                      onChange={(e) => {
                         setNewPassword(e.target.value);
                       }}
                     ></input>
@@ -148,7 +148,7 @@ function Settings() {
                       type="password"
                       placeholder="Confirm New Password"
                       // required
-                      onChange={e => {
+                      onChange={(e) => {
                         setConfirmPassword(e.target.value);
                       }}
                     ></input>
@@ -173,7 +173,7 @@ function Settings() {
                             className={style.country}
                             id="country"
                             required
-                            onChange={e => setCountry(e.target.value)}
+                            onChange={(e) => setCountry(e.target.value)}
                           >
                             <option value="null">Country</option>
                             <option value="pakistan">Pakistan</option>
@@ -190,7 +190,7 @@ function Settings() {
                             placeholder="Age"
                             required
                             value={age}
-                            onChange={e => setAge(e.target.value)}
+                            onChange={(e) => setAge(e.target.value)}
                           />
                         </div>
                       </div>
@@ -198,11 +198,11 @@ function Settings() {
                         <label className={style.gender_h} htmlFor="id">
                           Gender:
                         </label>
-                        <label onChange={e => setGender(e.target.value)}>
+                        <label onChange={(e) => setGender(e.target.value)}>
                           <input type="radio" name="gender" value="male" />
                           Male
                         </label>
-                        <label onChange={e => setGender(e.target.value)}>
+                        <label onChange={(e) => setGender(e.target.value)}>
                           <input
                             type="radio"
                             name="gender"

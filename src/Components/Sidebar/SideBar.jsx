@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const SideBar = ({ type }) => {
   console.log(type);
   const navigate = useNavigate();
-  const nav = to => {
+  const nav = (to) => {
     if (to !== type) navigate(`/${to}`);
   };
   return (
