@@ -23,18 +23,18 @@ function Messages() {
 
   const [receiverId, setReceiverId] = useState(null);
 
-  const id = useSelector((state) => state?.user?.id);
+  const id = useSelector(state => state?.user?.id);
   // const msgObj = useSelector((state) => state?.message?.message);
   // const storeFriendList = useSelector((state) => state.friends.friendsList);
 
   const getFriendsQuery = useQuery({
     queryKey: ["friendList"],
-    queryFn: () => getFriendList(id),
+    queryFn: () => getFriendList(id)
   });
 
   const getMessageQuery = useQuery({
     queryKey: ["messages"],
-    queryFn: () => getMessages(id),
+    queryFn: () => getMessages(id)
   });
 
   useEffect(() => {
@@ -57,8 +57,15 @@ function Messages() {
               <div className={style.left_userchat}>
                 <div className={style.inner_chat}>
                   <div>
-                    {getFriendsQuery?.data?.map((obj) => (
-                      <ShowMsg name={obj.user2.user_name} textmsg="Hi" />
+                    {getFriendsQuery?.data?.map(obj => (
+                      <ShowMsg
+                        name={
+                          obj.user1.id === id
+                            ? obj.user2.user_name
+                            : obj.user1.user_name
+                        }
+                        textmsg=""
+                      />
                     ))}
                   </div>
                 </div>
